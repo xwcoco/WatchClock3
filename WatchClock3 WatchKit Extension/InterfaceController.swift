@@ -6,14 +6,17 @@
 //  Copyright © 2018 xwcoco. All rights reserved.
 //
 
-import WatchKit
 import Foundation
-
+import WatchKit
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var scene: WKInterfaceSKScene!
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        let watch = MyWatch()
+        scene.presentScene(watch.scene)
         
         // Configure interface objects here.
     }

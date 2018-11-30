@@ -19,6 +19,33 @@
 		4F0AEBF221ACE72200B05CDB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF121ACE72200B05CDB /* InterfaceController.swift */; };
 		4F0AEBF421ACE72200B05CDB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF321ACE72200B05CDB /* ExtensionDelegate.swift */; };
 		4F0AEBF621ACE72200B05CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF521ACE72200B05CDB /* Assets.xcassets */; };
+		4F0AEC0B21ACEBE300B05CDB /* WatchManagerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEC0A21ACEBE300B05CDB /* WatchManagerViewControl.swift */; };
+		4F0AEC0D21ACED8300B05CDB /* WatchLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */; };
+		4F6444AA21ACF2A600693CC0 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F6444A921ACF2A600693CC0 /* FaceScene.sks */; };
+		4F6444AB21ACF2A600693CC0 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F6444A921ACF2A600693CC0 /* FaceScene.sks */; };
+		4F712FC021AFF30F0003C1FF /* watchimage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9341921AFE60300625C10 /* watchimage.json */; };
+		4F712FC121AFF3E20003C1FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF521ACE72200B05CDB /* Assets.xcassets */; };
+		4F712FC321AFFA170003C1FF /* LayerManagerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F712FC221AFFA170003C1FF /* LayerManagerViewControl.swift */; };
+		4FC0338721B10C9E009EB3CD /* LayerPropertyViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */; };
+		4FC0338921B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
+		4FC0338A21B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
+		4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */; };
+		4FC98CF121B0E7AD00CDDD36 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */; };
+		4FE9341221AFD60A00625C10 /* AddLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */; };
+		4FE9341421AFE23D00625C10 /* ImageLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */; };
+		4FE9341621AFE2C400625C10 /* ImageCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341521AFE2C400625C10 /* ImageCategoryVC.swift */; };
+		4FE9341821AFE34500625C10 /* ImageSelectViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341721AFE34500625C10 /* ImageSelectViewControl.swift */; };
+		4FE9341C21AFE73F00625C10 /* ResManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341B21AFE73F00625C10 /* ResManager.swift */; };
+		4FE9341D21AFE73F00625C10 /* ResManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341B21AFE73F00625C10 /* ResManager.swift */; };
+		4FFCA78021AFAF8B002A2D73 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */; };
+		4FFCA78321AFAFD6002A2D73 /* MyWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */; };
+		4FFCA78421AFAFD6002A2D73 /* MyWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */; };
+		4FFCA78621AFB260002A2D73 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78521AFB260002A2D73 /* ClassExtensions.swift */; };
+		4FFCA78721AFB260002A2D73 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78521AFB260002A2D73 /* ClassExtensions.swift */; };
+		4FFCA78921AFBAB8002A2D73 /* WatchSettingsViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78821AFBAB8002A2D73 /* WatchSettingsViewControl.swift */; };
+		4FFCA78A21AFC62B002A2D73 /* WatchLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */; };
+		4FFCA78D21AFC689002A2D73 /* ImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78C21AFC689002A2D73 /* ImageLayer.swift */; };
+		4FFCA78E21AFC689002A2D73 /* ImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78C21AFC689002A2D73 /* ImageLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +107,24 @@
 		4F0AEBF321ACE72200B05CDB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		4F0AEBF521ACE72200B05CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F0AEBF721ACE72200B05CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F0AEC0A21ACEBE300B05CDB /* WatchManagerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManagerViewControl.swift; sourceTree = "<group>"; };
+		4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLayer.swift; sourceTree = "<group>"; };
+		4F6444A921ACF2A600693CC0 /* FaceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FaceScene.sks; sourceTree = "<group>"; };
+		4F712FC221AFFA170003C1FF /* LayerManagerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerManagerViewControl.swift; sourceTree = "<group>"; };
+		4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerPropertyViewControl.swift; sourceTree = "<group>"; };
+		4FC0338821B13BEE009EB3CD /* HourLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayer.swift; sourceTree = "<group>"; };
+		4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayerViewControl.swift; sourceTree = "<group>"; };
+		4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLayerViewControl.swift; sourceTree = "<group>"; };
+		4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayerVC.swift; sourceTree = "<group>"; };
+		4FE9341521AFE2C400625C10 /* ImageCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoryVC.swift; sourceTree = "<group>"; };
+		4FE9341721AFE34500625C10 /* ImageSelectViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewControl.swift; sourceTree = "<group>"; };
+		4FE9341921AFE60300625C10 /* watchimage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = watchimage.json; sourceTree = "<group>"; };
+		4FE9341B21AFE73F00625C10 /* ResManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResManager.swift; sourceTree = "<group>"; };
+		4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
+		4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWatch.swift; sourceTree = "<group>"; };
+		4FFCA78521AFB260002A2D73 /* ClassExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
+		4FFCA78821AFBAB8002A2D73 /* WatchSettingsViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingsViewControl.swift; sourceTree = "<group>"; };
+		4FFCA78C21AFC689002A2D73 /* ImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +168,9 @@
 		4F0AEBCD21ACE72000B05CDB /* WatchClock3 */ = {
 			isa = PBXGroup;
 			children = (
+				4F0AEC0921ACEBC100B05CDB /* Views */,
 				4F0AEBCE21ACE72000B05CDB /* AppDelegate.swift */,
+				4FE9341921AFE60300625C10 /* watchimage.json */,
 				4F0AEBD021ACE72000B05CDB /* ViewController.swift */,
 				4F0AEBD221ACE72000B05CDB /* Main.storyboard */,
 				4F0AEBD521ACE72100B05CDB /* Assets.xcassets */,
@@ -146,12 +193,44 @@
 		4F0AEBF021ACE72200B05CDB /* WatchClock3 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4FFCA78B21AFC65D002A2D73 /* layers */,
+				4F6444A921ACF2A600693CC0 /* FaceScene.sks */,
+				4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */,
 				4F0AEBF121ACE72200B05CDB /* InterfaceController.swift */,
 				4F0AEBF321ACE72200B05CDB /* ExtensionDelegate.swift */,
 				4F0AEBF521ACE72200B05CDB /* Assets.xcassets */,
 				4F0AEBF721ACE72200B05CDB /* Info.plist */,
+				4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */,
+				4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */,
+				4FFCA78521AFB260002A2D73 /* ClassExtensions.swift */,
+				4FE9341B21AFE73F00625C10 /* ResManager.swift */,
 			);
 			path = "WatchClock3 WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		4F0AEC0921ACEBC100B05CDB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F0AEC0A21ACEBE300B05CDB /* WatchManagerViewControl.swift */,
+				4FFCA78821AFBAB8002A2D73 /* WatchSettingsViewControl.swift */,
+				4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */,
+				4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */,
+				4FE9341521AFE2C400625C10 /* ImageCategoryVC.swift */,
+				4FE9341721AFE34500625C10 /* ImageSelectViewControl.swift */,
+				4F712FC221AFFA170003C1FF /* LayerManagerViewControl.swift */,
+				4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */,
+				4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FFCA78B21AFC65D002A2D73 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				4FFCA78C21AFC689002A2D73 /* ImageLayer.swift */,
+				4FC0338821B13BEE009EB3CD /* HourLayer.swift */,
+			);
+			path = layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +244,8 @@
 				4F0AEBC821ACE72000B05CDB /* Frameworks */,
 				4F0AEBC921ACE72000B05CDB /* Resources */,
 				4F0AEC0121ACE72200B05CDB /* Embed Watch Content */,
+				4F0AEC0521ACE8DC00B05CDB /* ShellScript */,
+				4FE9341A21AFE61700625C10 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,8 +337,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F712FC021AFF30F0003C1FF /* watchimage.json in Resources */,
 				4F0AEBD921ACE72100B05CDB /* LaunchScreen.storyboard in Resources */,
+				4F6444AA21ACF2A600693CC0 /* FaceScene.sks in Resources */,
 				4F0AEBD621ACE72100B05CDB /* Assets.xcassets in Resources */,
+				4F712FC121AFF3E20003C1FF /* Assets.xcassets in Resources */,
 				4F0AEBD421ACE72000B05CDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,18 +360,72 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F0AEBF621ACE72200B05CDB /* Assets.xcassets in Resources */,
+				4F6444AB21ACF2A600693CC0 /* FaceScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F0AEC0521ACE8DC00B05CDB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your wo# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\n# xcrun agvtool new-version -all ${buildNumber}\n\n\n";
+		};
+		4FE9341A21AFE61700625C10 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfunction getAllFiles()\n{\n\nimagelist=`find . -name \"*.png\"  -exec basename {} .png \\; 2>/dev/null | sort -n`;\n\n# echo $imagelist;\nfor fileName in $imagelist; do\necho \\\"$fileName\\\",;\ndone\n}\n\n\ndir=`pwd`\n\njsonfile=$dir/WatchClock3/watchimage.json\n\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/faces\";\n\necho \"{\" > $jsonfile\necho \"\\\"faces\\\" : [\" >> $jsonfile\ngetAllFiles  >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/hours\"\necho \"\\\"hours\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/minutes\"\necho \"\\\"minutes\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/seconds\"\necho \"\\\"seconds\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/logos\"\necho \"\\\"logos\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/infoback\"\necho \"\\\"infoback\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"]}\" >> $jsonfile\n\n\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F0AEBC721ACE72000B05CDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFCA78921AFBAB8002A2D73 /* WatchSettingsViewControl.swift in Sources */,
+				4FFCA78021AFAF8B002A2D73 /* WatchScene.swift in Sources */,
+				4FE9341621AFE2C400625C10 /* ImageCategoryVC.swift in Sources */,
+				4FE9341221AFD60A00625C10 /* AddLayerViewControl.swift in Sources */,
+				4FFCA78D21AFC689002A2D73 /* ImageLayer.swift in Sources */,
 				4F0AEBD121ACE72000B05CDB /* ViewController.swift in Sources */,
+				4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */,
+				4FC0338921B13BEE009EB3CD /* HourLayer.swift in Sources */,
+				4FE9341C21AFE73F00625C10 /* ResManager.swift in Sources */,
+				4FC0338721B10C9E009EB3CD /* LayerPropertyViewControl.swift in Sources */,
+				4FE9341421AFE23D00625C10 /* ImageLayerVC.swift in Sources */,
 				4F0AEBCF21ACE72000B05CDB /* AppDelegate.swift in Sources */,
+				4FFCA78321AFAFD6002A2D73 /* MyWatch.swift in Sources */,
+				4FFCA78621AFB260002A2D73 /* ClassExtensions.swift in Sources */,
+				4F0AEC0B21ACEBE300B05CDB /* WatchManagerViewControl.swift in Sources */,
+				4FE9341821AFE34500625C10 /* ImageSelectViewControl.swift in Sources */,
+				4F712FC321AFFA170003C1FF /* LayerManagerViewControl.swift in Sources */,
+				4FFCA78A21AFC62B002A2D73 /* WatchLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +433,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC98CF121B0E7AD00CDDD36 /* WatchScene.swift in Sources */,
+				4FE9341D21AFE73F00625C10 /* ResManager.swift in Sources */,
 				4F0AEBF421ACE72200B05CDB /* ExtensionDelegate.swift in Sources */,
 				4F0AEBF221ACE72200B05CDB /* InterfaceController.swift in Sources */,
+				4FFCA78E21AFC689002A2D73 /* ImageLayer.swift in Sources */,
+				4FFCA78421AFAFD6002A2D73 /* MyWatch.swift in Sources */,
+				4FFCA78721AFB260002A2D73 /* ClassExtensions.swift in Sources */,
+				4F0AEC0D21ACED8300B05CDB /* WatchLayer.swift in Sources */,
+				4FC0338A21B13BEE009EB3CD /* HourLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
