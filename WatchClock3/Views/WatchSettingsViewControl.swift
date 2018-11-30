@@ -11,9 +11,21 @@ import UIKit
 import SpriteKit
 
 class WatchSettingsViewControl: UITableViewController {
-    private var watch : MyWatch = MyWatch()
+    var watch : MyWatch = MyWatch()
+    
+    var editRowIndex : Int = -1
+    
+    func setEditWatch(watchData : String) -> Void {
+        let tmpwath = MyWatch.fromJSON(data: watchData)
+        if (tmpwath != nil) {
+            self.watch = tmpwath!
+            self.watch.BeginUpdate()
+            self.watch.EndUpdate()
+        }
+    }
     
     override func viewDidLoad() {
+//        self.testFromJson()
         self.setDemoWatch()
     }
     
@@ -53,7 +65,10 @@ class WatchSettingsViewControl: UITableViewController {
         // Use data from the view controller which initiated the unwind segue
     }
 
-
+    @IBAction func DoneButtonClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToWatchManager", sender: self)
+    }
+    
 }
 
 

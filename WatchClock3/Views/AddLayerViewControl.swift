@@ -16,7 +16,17 @@ class AddLayerViewControl: UITableViewController {
     
     override func viewDidLoad() {
         if (self.watch?.hourHandLayer != nil) {
-            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 0))
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: 1))
+            cell?.textLabel?.isEnabled = false
+            cell?.isUserInteractionEnabled = false
+        }
+        if (self.watch?.mintueHandLayer != nil) {
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 1))
+            cell?.textLabel?.isEnabled = false
+            cell?.isUserInteractionEnabled = false
+        }
+        if (self.watch?.secondsHandLayer != nil) {
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 2, section: 1))
             cell?.textLabel?.isEnabled = false
             cell?.isUserInteractionEnabled = false
         }
@@ -33,13 +43,25 @@ class AddLayerViewControl: UITableViewController {
         if let nv = segue.destination as? HourLayerViewControl {
             if let cell = sender as? UITableViewCell {
                 let index = self.tableView.indexPath(for: cell)!
-            
                 nv.watch = self.watch
                 switch index.row {
-                case 1:
+                case 0:
                     let layer = HourLayer()
                     watch?.addLayer(layer: layer)
                     nv.layer = layer
+                    nv.mode = .HourLayerMode
+                    break
+                case 1:
+                    let layer = MinuteLayer()
+                    watch?.addLayer(layer: layer)
+                    nv.layer = layer
+                    nv.mode = .MinuteLayerMode
+                    break
+                case 2:
+                    let aLayer = SecondsLayer()
+                    nv.layer = aLayer
+                    watch?.addLayer(layer: aLayer)
+                    nv.mode = .SecondLayerMode
                     break
                 default:
                     break

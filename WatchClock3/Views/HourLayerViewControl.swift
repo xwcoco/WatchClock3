@@ -85,4 +85,18 @@ class HourLayerViewControl: UITableViewController {
         self.watch?.refreshWatch()
     }
     
+    
+    private var isOk = false
+    @IBAction func DoneButtonClick(_ sender: Any) {
+        self.isOk = true
+        self.performSegue(withIdentifier: "unwindToLayerManager", sender: self)
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        if (parent == nil && !isOk) {
+            self.watch?.deleteLayer(layer: self.layer!)
+            self.watch?.refreshWatch()
+        }
+    }
+    
 }

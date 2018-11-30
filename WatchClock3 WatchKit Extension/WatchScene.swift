@@ -64,6 +64,10 @@ class WatchScene: SKScene,SKSceneDelegate {
         }
     }
     
+    func updateClock() -> Void {
+        
+    }
+    
     
     
 }

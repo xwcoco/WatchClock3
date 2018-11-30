@@ -11,7 +11,7 @@ import UIKit
 import SpriteKit
 
 class ImageLayer: WatchLayer {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case imageName
     }
 
@@ -31,6 +31,24 @@ class ImageLayer: WatchLayer {
     
     override func getImage() -> UIImage? {
         return UIImage.init(named: self.imageName)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(imageName, forKey: .imageName)
+
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        print("ImageView init from decoder...")
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.imageName = try container.decode(String.self, forKey: .imageName)
     }
 
 }
