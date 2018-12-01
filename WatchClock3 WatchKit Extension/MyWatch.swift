@@ -12,25 +12,44 @@ import UIKit
 class MyWatch : NSObject, Codable {
     
     enum CodingKeys: String, CodingKey {
-        case backgroundColor
+        case Settings
         case watchLayers
     }
-    
-    public var backgroundColor : MyColor = MyColor.init(color: UIColor.black)
+
+    var Settings : WatchSettings = WatchSettings()
     
     public var scene : WatchScene = WatchScene.init(fileNamed: "FaceScene")!
-//    public var scene : WatchScene = WatchScene()
     
     override init() {
         super.init()
+        scene.getInitNode()
         scene.watch = self
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: self.onTimer)
     }
     
-//    required init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        backgroundColor = try container.decode(MyColor.self, forKey: .backgroundColor)
-//    }
-
+    private var idCounter : Int = 0
+    
+    func getNewId() -> Int {
+        self.idCounter = self.idCounter + 1
+        return self.idCounter
+    }
+    
+    var calendar : Calendar = NSCalendar.current
+    var curDate : Date = Date()
+    private func onTimer(_ time :Timer) -> Void {
+        curDate = Date()
+        
+        if (!self.Settings.smoothHand) {
+            self.scene.updateClock()
+        }
+    }
+    
+    func getDateValue(_ comp : Calendar.Component) -> Int {
+        return self.calendar.component(comp, from: curDate)
+    }
+    
+    private var timer : Timer?
     
     public var watchLayers : [WatchLayer] = []
     
@@ -54,42 +73,62 @@ class MyWatch : NSObject, Codable {
         self.scene.needUpdate = true
     }
     
-    public var hourHandLayer : WatchLayer?
-    public var mintueHandLayer : WatchLayer?
-    var secondsHandLayer : WatchLayer?
-    
     func addLayer(layer : WatchLayer) -> Void {
+        layer.scene = self.scene
+        layer.name = "layer"+String(self.getNewId())
+        layer.watch = self
         self.watchLayers.append(layer)
-        if layer is HourLayer {
-            self.hourHandLayer = layer
-        }
-        if layer is MinuteLayer {
-            self.mintueHandLayer = layer
-        }
-        if layer is SecondsLayer {
-            self.secondsHandLayer = layer
+        print("add layer : " , layer)
+//        if layer is HourLayer {
+//            self.hourHandLayer = layer
+//        }
+//        if layer is MinuteLayer {
+//            self.mintueHandLayer = layer
+//        }
+//        if layer is SecondsLayer {
+//            self.secondsHandLayer = layer
+//        }
+    }
+    
+    func deleteLayer(index : Int) -> Void {
+        if (index >= 0 && index < self.watchLayers.count) {
+            let layer = self.watchLayers[index]
+            layer.scene = nil
+            self.watchLayers.remove(at: index)
+//            self.checkDeleteLayer(layer: layer)
         }
     }
+    
+//    private func checkDeleteLayer(layer : WatchLayer) {
+//        if (layer is HourLayer) {
+//            self.hourHandLayer = nil
+//        }
+//        if (layer is MinuteLayer) {
+//            self.mintueHandLayer = nil
+//        }
+//        if (layer is SecondsLayer) {
+//            self.secondsHandLayer = nil
+//        }
+//    }
     
     func deleteLayer(layer : WatchLayer) -> Void {
         for i in 0..<self.watchLayers.count {
             let tmpLayer = self.watchLayers[i]
             if (tmpLayer === layer) {
-                self.watchLayers.remove(at: i)
-                
-                if (layer is HourLayer) {
-                    self.hourHandLayer = nil
-                }
-                if (layer is MinuteLayer) {
-                    self.mintueHandLayer = nil
-                }
-                if (layer is SecondsLayer) {
-                    self.secondsHandLayer = nil
-                }
-                
+                self.deleteLayer(index: i)
                 return
             }
         }
+    }
+    
+    func getLayerIndex(layer : WatchLayer) -> Int {
+        for i in 0..<self.watchLayers.count {
+            let tmpLayer = self.watchLayers[i]
+            if (tmpLayer === layer) {
+                return i
+            }
+        }
+        return -1
     }
     
     func getLayer(index : Int) -> WatchLayer? {
@@ -97,6 +136,16 @@ class MyWatch : NSObject, Codable {
             return self.watchLayers[index]
         }
         return nil
+    }
+    
+    func getLayersByTag(_ tag : Int) -> [WatchLayer] {
+        var ret : [WatchLayer] = []
+        for layer in self.watchLayers {
+            if layer.getTag() == tag {
+                ret.append(layer)
+            }
+        }
+        return ret
     }
     
     public func toJSON() -> String {
@@ -125,11 +174,9 @@ class MyWatch : NSObject, Codable {
                 
                 let watch = MyWatch()
                 
-                let backColorDict = json["backgroundColor"] as! Dictionary<String,Any>
-                let backColorData = try JSONSerialization.data(withJSONObject: backColorDict, options: .prettyPrinted)
-                
-                let backColor = try jsonDecoder.decode(MyColor.self, from: backColorData)
-                watch.backgroundColor.Color = backColor.Color
+                let setsDict = json["Settings"] as! Dictionary<String,Any>
+                let setsData = try JSONSerialization.data(withJSONObject: setsDict, options: .prettyPrinted)
+                watch.Settings = try jsonDecoder.decode(WatchSettings.self, from: setsData)
 
                 let layers = json["watchLayers"] as! NSArray
                 

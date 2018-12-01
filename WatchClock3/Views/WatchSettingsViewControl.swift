@@ -34,7 +34,7 @@ class WatchSettingsViewControl: UITableViewController {
             if let skview: SKView = cell.contentView.subviews[1] as? SKView {
                 if (skview.scene == nil) {
                     watch.scene.camera?.xScale = 1.8 / (184.0 / skview.bounds.width)
-                    watch.scene.camera?.yScale = 1.8 / (184.0 / skview.bounds.height)
+                    watch.scene.camera?.yScale = 1.8 / (224.0 / skview.bounds.height)
                     
                     skview.presentScene(watch.scene)
 //                    skview.showsDrawCount = true

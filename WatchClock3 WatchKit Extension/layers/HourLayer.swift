@@ -42,11 +42,15 @@ class HourLayer : ImageLayer {
     }
     
     required init(from decoder: Decoder) throws {
-        print("HourLayer init from decoder...")
+//        print("HourLayer init from decoder...")
         try super.init(from: decoder)
        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.anchorFromBottom = try container.decode(CGFloat.self, forKey: .anchorFromBottom)
+    }
+    
+    override func getTag() -> Int {
+        return WatchLayer.HourHandTag
     }
 }
 
@@ -55,10 +59,18 @@ class MinuteLayer: HourLayer {
     override func getTitle() -> String {
         return "Minute " + self.imageName
     }
+    
+    override func getTag() -> Int {
+        return WatchLayer.MinuteHandTag
+    }
 }
 
 class SecondsLayer : HourLayer {
     override func getTitle() -> String {
         return "Seconds " + self.imageName
+    }
+    
+    override func getTag() -> Int {
+        return WatchLayer.SecondHandTag
     }
 }

@@ -14,6 +14,7 @@ class ImageLayerViewControl: UITableViewController {
     
     var layer : ImageLayer?
     var watch : MyWatch?
+    var editRowIndex : Int = 0
     
     var backSegueName : String = ""
     
@@ -35,13 +36,21 @@ class ImageLayerViewControl: UITableViewController {
         }
     }
     
+    private var imageSize : CGSize = CGSize.init(width: 100, height: 100)
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.setImageCell(imageName: self.layer!.imageName, indexPath: indexPath, size: imageSize)
+        }
+    }
+    
     
     
     @IBAction func unwindToImageLayer(_ unwindSegue: UIStoryboardSegue) {
         if let nv = unwindSegue.source as? ImageSelectViewControl {
             layer?.imageName = nv.imageName
             let image = UIImage.init(named: nv.imageName)
-            self.setImageCell(image: image!, indexPath: IndexPath.init(row: 0, section: 0), size: CGSize.init(width: 100, height: 100))
+            self.setImageCell(image: image!, indexPath: IndexPath.init(row: 0, section: 0), size: imageSize)
             self.watch?.refreshWatch()
         }
         
@@ -56,7 +65,7 @@ class ImageLayerViewControl: UITableViewController {
     
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
-        if (parent == nil && !isOk) {
+        if (parent == nil && !isOk && editRowIndex == -1) {
             self.watch?.deleteLayer(layer: self.layer!)
             self.watch?.refreshWatch()
         }

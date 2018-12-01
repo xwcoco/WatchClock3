@@ -10,17 +10,19 @@ import Foundation
 import UIKit
 
 
-enum HourLayerEditMode  {
-    case HourLayerMode
-    case MinuteLayerMode
-    case SecondLayerMode
-}
+//enum HourLayerEditMode  {
+//    case HourLayerMode
+//    case MinuteLayerMode
+//    case SecondLayerMode
+//}
 
 class HourLayerViewControl: UITableViewController {
     var watch : MyWatch?
-    var layer : WatchLayer?
+    var layer : HourLayer?
     
-    var mode : HourLayerEditMode = .HourLayerMode
+    var editRowIndex : Int = -1
+    
+//    var mode : HourLayerEditMode = .HourLayerMode
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nv = segue.destination as? LayerPropertyViewControl {
@@ -29,20 +31,15 @@ class HourLayerViewControl: UITableViewController {
         }
         if let nv = segue.destination as? ImageSelectViewControl {
             nv.backSegueName = "unwindToHourLayer"
-            switch mode {
-            case .HourLayerMode:
-                nv.imageList = ResManager.Manager.getImages(category: ResManager.Hours)
-                break
-            case .MinuteLayerMode:
-                nv.imageList = ResManager.Manager.getImages(category: ResManager.Minutes)
-                break
-                
-            case .SecondLayerMode:
+            if layer is SecondsLayer {
                 nv.imageList = ResManager.Manager.getImages(category: ResManager.Seconds)
-                break
-                
+            } else if layer is MinuteLayer {
+                nv.imageList = ResManager.Manager.getImages(category: ResManager.Minutes)
+            } else {
+                nv.imageList = ResManager.Manager.getImages(category: ResManager.Hours)
             }
-            nv.imageName = (self.layer as! HourLayer).imageName
+            
+            nv.imageName = self.layer!.imageName
             nv.itemHeight = 80
             nv.itemWidth = 30
         }
@@ -52,9 +49,15 @@ class HourLayerViewControl: UITableViewController {
     
     @IBAction func unwindToHourLayer(_ unwindSegue: UIStoryboardSegue) {
         if let nv = unwindSegue.source as? ImageSelectViewControl {
-            (self.layer as! HourLayer).imageName = nv.imageName
+            self.layer?.imageName = nv.imageName
             
             self.setImageCell(imageName: nv.imageName, indexPath: IndexPath.init(row: 0, section: 0), size: self.imageSize)
+            
+            let anchor = ResManager.Manager.getHandAnchorPoint(nv.imageName)
+            if (anchor != 0) {
+                layer?.anchorFromBottom = anchor
+                self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1))
+            }
             
             self.watch?.refreshWatch()
         }
@@ -62,10 +65,8 @@ class HourLayerViewControl: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let hourLayer = self.layer as! HourLayer
-        
         if (indexPath.section == 0 && indexPath.row == 0) {
-            let imageName = hourLayer.imageName
+            let imageName = layer!.imageName
             if (imageName == "") {
                 self.setImageCell(imageName: "empty", indexPath: indexPath, size: self.imageSize)
             } else {
@@ -74,14 +75,13 @@ class HourLayerViewControl: UITableViewController {
         }
         
         if (indexPath.section == 1) {
-            self.setLabelStepperCell(name: "Dist To Bottom", value: hourLayer.anchorFromBottom, indexPath: indexPath)
+            self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: indexPath)
         }
     }
     
     @IBAction func xSteperValueChanged(_ sender: Any) {
-        let hourLayer = self.layer as! HourLayer
-        hourLayer.anchorFromBottom = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Dist To Bottom", value: hourLayer.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1), setStepper: false)
+        layer?.anchorFromBottom = CGFloat((sender as! UIStepper).value)
+        self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1), setStepper: false)
         self.watch?.refreshWatch()
     }
     
@@ -93,7 +93,7 @@ class HourLayerViewControl: UITableViewController {
     }
     
     override func didMove(toParent parent: UIViewController?) {
-        if (parent == nil && !isOk) {
+        if (parent == nil && !isOk && editRowIndex == -1) {
             self.watch?.deleteLayer(layer: self.layer!)
             self.watch?.refreshWatch()
         }

@@ -139,11 +139,11 @@ extension UITableViewController {
         cell?.imageView?.image = UIImage.imageWithColor(color: color, size: size)
     }
     
-    func setLabelSliderCell(name: String, value: CGFloat, indexPath: IndexPath, setSlider: Bool = true) -> Void {
+    func setLabelSliderCell(name: String, value: CGFloat, indexPath: IndexPath, setSlider: Bool = true,decimalNum : Int = 0) -> Void {
         let cell = self.tableView.getCell(at: indexPath)
         for i in 0..<cell!.contentView.subviews.count {
             if let label = cell?.contentView.subviews[i] as? UILabel {
-                label.text = NSLocalizedString(name, comment: "") + String.init(format: " : %.0f", arguments: [value])
+                label.text = NSLocalizedString(name, comment: "") + String.init(format: " : %."+String(decimalNum)+"f", arguments: [value])
             }
             if (setSlider) {
                 if let slider = cell?.contentView.subviews[i] as? UISlider {
@@ -153,11 +153,11 @@ extension UITableViewController {
         }
     }
     
-    func setLabelStepperCell(name : String, value : CGFloat, indexPath : IndexPath,setStepper : Bool = true) -> Void {
+    func setLabelStepperCell(name : String, value : CGFloat, indexPath : IndexPath,setStepper : Bool = true,decimalNum : Int = 0) -> Void {
         let cell = self.tableView.getCell(at: indexPath)
         for i in 0..<cell!.contentView.subviews.count {
             if let label = cell?.contentView.subviews[i] as? UILabel {
-                label.text = NSLocalizedString(name, comment: "") + String.init(format: " : %.0f", arguments: [value])
+                label.text = NSLocalizedString(name, comment: "") + String.init(format: " : %."+String(decimalNum)+"f", arguments: [value])
             }
             if (setStepper) {
                 if let slider = cell?.contentView.subviews[i] as? UIStepper {

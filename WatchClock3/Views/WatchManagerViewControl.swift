@@ -46,7 +46,7 @@ class WatchManagerViewControl: UITableViewController {
                 if let skview: SKView = cell.contentView.subviews[1] as? SKView {
                     if let watch = WatchManager.Manager.getWatch(index: indexPath.row) {
                         watch.scene.camera?.xScale = 1.8 / (184.0 / skview.bounds.width)
-                        watch.scene.camera?.yScale = 1.8 / (184.0 / skview.bounds.height)
+                        watch.scene.camera?.yScale = 1.8 / (224.0 / skview.bounds.height)
                         skview.presentScene(watch.scene)
                         WatchDict.append(watch)
                     }

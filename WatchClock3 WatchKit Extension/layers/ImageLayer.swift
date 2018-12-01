@@ -21,8 +21,13 @@ class ImageLayer: WatchLayer {
         super.getLayerNode(layerNode: &layerNode)
         let texture = SKTexture.init(imageNamed: self.imageName)
         layerNode.texture = texture
-        layerNode.size = texture.size()
+        var size = texture.size()
+        size = CGSize.init(width: size.width * self.xScale, height: size.height * self.yScale)
         
+        layerNode.size = size
+//        layerNode.xScale = self.xScale
+//        layerNode.yScale = self.yScale
+
     }
     
     override func getTitle() -> String {
@@ -46,9 +51,13 @@ class ImageLayer: WatchLayer {
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
-        print("ImageView init from decoder...")
+//        print("ImageView init from decoder...")
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.imageName = try container.decode(String.self, forKey: .imageName)
+    }
+    
+    override func getTag() -> Int {
+        return 1
     }
 
 }

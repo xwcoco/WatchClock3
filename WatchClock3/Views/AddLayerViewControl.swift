@@ -10,28 +10,28 @@ import Foundation
 import UIKit
 
 class AddLayerViewControl: UITableViewController {
-    var watch : MyWatch?
-    
-    var backSegueName : String = ""
-    
+    var watch: MyWatch?
+
+    var backSegueName: String = ""
+
     override func viewDidLoad() {
-        if (self.watch?.hourHandLayer != nil) {
-            let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: 1))
-            cell?.textLabel?.isEnabled = false
-            cell?.isUserInteractionEnabled = false
-        }
-        if (self.watch?.mintueHandLayer != nil) {
-            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 1))
-            cell?.textLabel?.isEnabled = false
-            cell?.isUserInteractionEnabled = false
-        }
-        if (self.watch?.secondsHandLayer != nil) {
-            let cell = self.tableView.getCell(at: IndexPath.init(row: 2, section: 1))
-            cell?.textLabel?.isEnabled = false
-            cell?.isUserInteractionEnabled = false
-        }
+//        if (self.watch?.hourHandLayer != nil) {
+//            let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: 1))
+//            cell?.textLabel?.isEnabled = false
+//            cell?.isUserInteractionEnabled = false
+//        }
+//        if (self.watch?.mintueHandLayer != nil) {
+//            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 1))
+//            cell?.textLabel?.isEnabled = false
+//            cell?.isUserInteractionEnabled = false
+//        }
+//        if (self.watch?.secondsHandLayer != nil) {
+//            let cell = self.tableView.getCell(at: IndexPath.init(row: 2, section: 1))
+//            cell?.textLabel?.isEnabled = false
+//            cell?.isUserInteractionEnabled = false
+//        }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nv = segue.destination as? ImageLayerViewControl {
             nv.watch = self.watch
@@ -49,27 +49,30 @@ class AddLayerViewControl: UITableViewController {
                     let layer = HourLayer()
                     watch?.addLayer(layer: layer)
                     nv.layer = layer
-                    nv.mode = .HourLayerMode
                     break
                 case 1:
                     let layer = MinuteLayer()
                     watch?.addLayer(layer: layer)
                     nv.layer = layer
-                    nv.mode = .MinuteLayerMode
                     break
                 case 2:
                     let aLayer = SecondsLayer()
                     nv.layer = aLayer
                     watch?.addLayer(layer: aLayer)
-                    nv.mode = .SecondLayerMode
                     break
                 default:
                     break
                 }
             }
-            
+
+        }
+        if let nv = segue.destination as? TickMarkLayerViewControl {
+            nv.watch = self.watch
+            let layer = TickMarkLayer()
+            watch?.addLayer(layer: layer)
+            nv.layer = layer
         }
     }
-    
+
 }
 
