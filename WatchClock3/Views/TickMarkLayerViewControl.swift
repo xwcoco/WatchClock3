@@ -32,6 +32,17 @@ class TickMarkLayerViewControl: UITableViewController {
             if (indexPath.row == 2) {
                 self.setColorCell(color: layer!.textColor.Color, indexPath: indexPath)
             }
+            if (indexPath.row == 3) {
+                setLabelStepperCell(name: "Margin", value: layer!.labelMargin, indexPath: indexPath, setStepper: true, decimalNum: 0)
+            }
+            if (indexPath.row == 4) {
+                if (self.layer is RectTickMarkLayer) {
+                    setLabelStepperCell(name: "X Margin", value: (self.layer as! RectTickMarkLayer).labelXMargin, indexPath: indexPath, setStepper: true, decimalNum: 0)
+                    
+                } else {
+                    cell.isHidden = true
+                }
+            }
             break
         case 3:
             if (indexPath.row == 0) {
@@ -121,5 +132,35 @@ class TickMarkLayerViewControl: UITableViewController {
         self.layer!.fontSize = CGFloat((sender as! UIStepper).value)
         self.setLabelStepperCell(name: "Font Size", value: layer!.fontSize, indexPath: IndexPath.init(row: 1, section: 2))
         self.watch?.refreshWatch()
+    }
+    @IBAction func marginStepperValueChanged(_ sender: Any) {
+        self.layer!.labelMargin = CGFloat((sender as! UIStepper).value)
+        self.setLabelStepperCell(name: "Margin", value: self.layer!.labelMargin, indexPath: IndexPath.init(row: 3, section: 2), setStepper: false, decimalNum: 0)
+        self.watch?.refreshWatch()
+    }
+    
+    
+    @IBAction func XMarginStepperValueChanged(_ sender: Any) {
+        if self.layer is RectTickMarkLayer {
+            (self.layer as! RectTickMarkLayer).labelXMargin = CGFloat((sender as! UIStepper).value)
+            self.setLabelStepperCell(name: "X Margin", value:  (self.layer as! RectTickMarkLayer).labelXMargin, indexPath: IndexPath.init(row: 4, section: 2), setStepper: false, decimalNum: 0)
+        }
+    }
+    
+    
+    var isOk : Bool = false
+    
+    @IBAction func DoneButtonClick(_ sender: Any) {
+        self.isOk = true
+        self.performSegue(withIdentifier: "unwindToLayerManager", sender: self)
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if (parent == nil && !isOk && editRowIndex == nil) {
+            self.watch?.deleteLayer(layer: self.layer!)
+            self.watch?.refreshWatch()
+        }
+
     }
 }

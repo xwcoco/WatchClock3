@@ -35,6 +35,10 @@ class LayerManagerViewControl: UITableViewController {
                 nv.watch = self.watch
                 nv.layer = layer as? TickMarkLayer
                 nv.editRowIndex = index
+            } else if let nv = segue.destination as? TextLayerViewControl {
+                nv.watch = self.watch
+                nv.layer = layer as? TextLayer
+                nv.editRowIndex = index
             }
         }
     }
@@ -77,6 +81,8 @@ class LayerManagerViewControl: UITableViewController {
                 self.performSegue(withIdentifier: "showImageLayer", sender: self.tableView.cellForRow(at: indexPath))
             } else if layer is TickMarkLayer {
                 self.performSegue(withIdentifier: "showTickMarkLayer", sender: self.tableView.cellForRow(at: indexPath))
+            } else if layer is TextLayer {
+                self.performSegue(withIdentifier: "showTextLayer", sender: self.tableView.cellForRow(at: indexPath))
             }
         }
         

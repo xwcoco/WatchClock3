@@ -44,12 +44,14 @@
 		4FC0338A21B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
 		4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */; };
 		4FC98CF121B0E7AD00CDDD36 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */; };
+		4FD0038421B3735F00E321C0 /* tickmark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD0038221B3735F00E321C0 /* tickmark.storyboard */; };
 		4FE9341221AFD60A00625C10 /* AddLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */; };
 		4FE9341421AFE23D00625C10 /* ImageLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */; };
 		4FE9341621AFE2C400625C10 /* ImageCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341521AFE2C400625C10 /* ImageCategoryVC.swift */; };
 		4FE9341821AFE34500625C10 /* ImageSelectViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341721AFE34500625C10 /* ImageSelectViewControl.swift */; };
 		4FE9341C21AFE73F00625C10 /* ResManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341B21AFE73F00625C10 /* ResManager.swift */; };
 		4FE9341D21AFE73F00625C10 /* ResManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341B21AFE73F00625C10 /* ResManager.swift */; };
+		4FF2F43021B37DA3005E6F18 /* TextLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF2F42F21B37DA3005E6F18 /* TextLayerViewControl.swift */; };
 		4FFCA78021AFAF8B002A2D73 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */; };
 		4FFCA78321AFAFD6002A2D73 /* MyWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */; };
 		4FFCA78421AFAFD6002A2D73 /* MyWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */; };
@@ -136,12 +138,14 @@
 		4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerPropertyViewControl.swift; sourceTree = "<group>"; };
 		4FC0338821B13BEE009EB3CD /* HourLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayer.swift; sourceTree = "<group>"; };
 		4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayerViewControl.swift; sourceTree = "<group>"; };
+		4FD0038321B3735F00E321C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WatchClock3/WatchClock3/Base.lproj/tickmark.storyboard; sourceTree = "<group>"; };
 		4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLayerViewControl.swift; sourceTree = "<group>"; };
 		4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayerVC.swift; sourceTree = "<group>"; };
 		4FE9341521AFE2C400625C10 /* ImageCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoryVC.swift; sourceTree = "<group>"; };
 		4FE9341721AFE34500625C10 /* ImageSelectViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewControl.swift; sourceTree = "<group>"; };
 		4FE9341921AFE60300625C10 /* watchimage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = watchimage.json; sourceTree = "<group>"; };
 		4FE9341B21AFE73F00625C10 /* ResManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResManager.swift; sourceTree = "<group>"; };
+		4FF2F42F21B37DA3005E6F18 /* TextLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayerViewControl.swift; sourceTree = "<group>"; };
 		4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
 		4FFCA78221AFAFD6002A2D73 /* MyWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWatch.swift; sourceTree = "<group>"; };
 		4FFCA78521AFB260002A2D73 /* ClassExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				4FE9341921AFE60300625C10 /* watchimage.json */,
 				4F0AEBD021ACE72000B05CDB /* ViewController.swift */,
 				4F153F9321B2E7D3003E58E9 /* LayerStory.storyboard */,
+				4FD0038221B3735F00E321C0 /* tickmark.storyboard */,
 				4F0AEBD221ACE72000B05CDB /* Main.storyboard */,
 				4F0AEBD521ACE72100B05CDB /* Assets.xcassets */,
 				4F0AEBD721ACE72100B05CDB /* LaunchScreen.storyboard */,
@@ -249,6 +254,7 @@
 				4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */,
 				4F5D336921B26AD80000B47A /* WatchSetupViewControl.swift */,
 				4F5D336E21B2ABAB0000B47A /* TickMarkLayerViewControl.swift */,
+				4FF2F42F21B37DA3005E6F18 /* TextLayerViewControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD0038421B3735F00E321C0 /* tickmark.storyboard in Resources */,
 				4F712FC021AFF30F0003C1FF /* watchimage.json in Resources */,
 				4F0AEBD921ACE72100B05CDB /* LaunchScreen.storyboard in Resources */,
 				4F153F9521B2E7D3003E58E9 /* LayerStory.storyboard in Resources */,
@@ -466,6 +473,7 @@
 				4F712FC321AFFA170003C1FF /* LayerManagerViewControl.swift in Sources */,
 				4F5D336521B231550000B47A /* WatchSettings.swift in Sources */,
 				4FFCA78A21AFC62B002A2D73 /* WatchLayer.swift in Sources */,
+				4FF2F43021B37DA3005E6F18 /* TextLayerViewControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +543,14 @@
 				4F153F9421B2E7D3003E58E9 /* Base */,
 			);
 			name = LayerStory.storyboard;
+			sourceTree = "<group>";
+		};
+		4FD0038221B3735F00E321C0 /* tickmark.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FD0038321B3735F00E321C0 /* Base */,
+			);
+			name = tickmark.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

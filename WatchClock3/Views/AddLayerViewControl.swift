@@ -66,10 +66,27 @@ class AddLayerViewControl: UITableViewController {
             }
 
         }
+
         if let nv = segue.destination as? TickMarkLayerViewControl {
+            if let cell = sender as? UITableViewCell {
+                let index = self.tableView.indexPath(for: cell)!
+                nv.watch = self.watch
+                if index.row == 0 {
+                    let layer = TickMarkLayer()
+                    watch?.addLayer(layer: layer)
+                    nv.layer = layer
+                } else {
+                    let layer = RectTickMarkLayer()
+                    watch?.addLayer(layer: layer)
+                    nv.layer = layer
+                }
+
+            }
+        }
+        if let nv = segue.destination as? TextLayerViewControl {
+            let layer = TextLayer()
             nv.watch = self.watch
-            let layer = TickMarkLayer()
-            watch?.addLayer(layer: layer)
+            self.watch?.addLayer(layer: layer)
             nv.layer = layer
         }
     }

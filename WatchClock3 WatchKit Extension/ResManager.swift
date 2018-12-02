@@ -72,7 +72,7 @@ class ResManager: NSObject {
                 self.addToRes(category: "minutes", list: json["minutes"] as! [String])
                 self.addToRes(category: "seconds", list: json["seconds"] as! [String])
                 self.addToRes(category: "logos", list: json["logos"] as! [String])
-                self.addToRes(category: "infoback", list: json["infoback"] as! [String])
+                self.addToRes(category: "infoback", list: json["infoback"] as! [String],append:  "empty")
             }
             catch let error {
                 print("res error")

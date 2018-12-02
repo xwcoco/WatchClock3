@@ -22,7 +22,7 @@ class LayerPropertyViewControl: UITableViewController {
     
     @IBAction func yDistSliderValueChanged(_ sender: Any) {
         layer?.y = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Y Dist To Center", value: layer!.x , indexPath: IndexPath.init(row: 1, section: 0), setStepper: false)
+        self.setLabelStepperCell(name: "Y Dist To Center", value: layer!.y , indexPath: IndexPath.init(row: 1, section: 0), setStepper: false)
         watch?.refreshWatch()
     }
     
