@@ -55,8 +55,8 @@ class TextLayer: WatchLayer {
     private var WeekStyle1: [String] = ["日", "一", "二", "三", "四", "五", "六"]
     private var WeekStyle2: [String] = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
 
-    private var oldText: String = ""
-    private func getText() -> String {
+    var oldText: String = ""
+    func getText() -> String {
         switch self.textContent {
         case .TextContentDate:
             return String(self.watch!.getDateValue(.day))
@@ -146,6 +146,14 @@ class TextLayer: WatchLayer {
         UIGraphicsEndImageContext()
         return image
 
+    }
+    
+    override func checkChanged() -> Bool {
+        let text = self.getText()
+        if (text != self.oldText) {
+            return true
+        }
+        return false
     }
 
     override init() {

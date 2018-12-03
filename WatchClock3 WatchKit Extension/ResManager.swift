@@ -15,7 +15,8 @@ class WatchRes {
     var list: [String] = []
 }
 
-class ResManager: NSObject {
+class ResManager: NSObject,CnWeatherProtocol {
+    
     static let Manager: ResManager = ResManager()
 
     private override init() {
@@ -90,6 +91,21 @@ class ResManager: NSObject {
         }
         return []
     }
+    
+    var WeatherLocation : String = "101180101"
+    
+    lazy var cnWeather : CnWeather = CnWeather()
+    func beginWeather() -> Void {
+        self.cnWeather.delegate = self
+        self.cnWeather.beginTimer()
+    }
+    
+    var weatherData : CnWeatherData?
+    func showWeather(_ data: CnWeatherData) {
+        self.weatherData = data
+        NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
+    }
+
 
     static var Faces: String = "faces"
     static var Hours: String = "hours"

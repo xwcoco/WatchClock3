@@ -44,6 +44,11 @@
 		4FC0338A21B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
 		4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */; };
 		4FC98CF121B0E7AD00CDDD36 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */; };
+		4FCE08B521B4E1DF007CD453 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08B421B4E1DF007CD453 /* Weather.swift */; };
+		4FCE08B621B4E1DF007CD453 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08B421B4E1DF007CD453 /* Weather.swift */; };
+		4FCE08B821B4ED80007CD453 /* WeatherLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */; };
+		4FCE08B921B4ED80007CD453 /* WeatherLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */; };
+		4FCE08BB21B4FA83007CD453 /* WeatherLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08BA21B4FA83007CD453 /* WeatherLayerViewControl.swift */; };
 		4FD0038421B3735F00E321C0 /* tickmark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD0038221B3735F00E321C0 /* tickmark.storyboard */; };
 		4FE9341221AFD60A00625C10 /* AddLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */; };
 		4FE9341421AFE23D00625C10 /* ImageLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */; };
@@ -138,6 +143,9 @@
 		4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerPropertyViewControl.swift; sourceTree = "<group>"; };
 		4FC0338821B13BEE009EB3CD /* HourLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayer.swift; sourceTree = "<group>"; };
 		4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayerViewControl.swift; sourceTree = "<group>"; };
+		4FCE08B421B4E1DF007CD453 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLayer.swift; sourceTree = "<group>"; };
+		4FCE08BA21B4FA83007CD453 /* WeatherLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLayerViewControl.swift; sourceTree = "<group>"; };
 		4FD0038321B3735F00E321C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WatchClock3/WatchClock3/Base.lproj/tickmark.storyboard; sourceTree = "<group>"; };
 		4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLayerViewControl.swift; sourceTree = "<group>"; };
 		4FE9341321AFE23D00625C10 /* ImageLayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLayerVC.swift; sourceTree = "<group>"; };
@@ -223,6 +231,7 @@
 			children = (
 				4FFCA78B21AFC65D002A2D73 /* layers */,
 				4F6444A921ACF2A600693CC0 /* FaceScene.sks */,
+				4FCE08B421B4E1DF007CD453 /* Weather.swift */,
 				4FFCA77F21AFAF8B002A2D73 /* WatchScene.swift */,
 				4F0AEBF121ACE72200B05CDB /* InterfaceController.swift */,
 				4F0AEBF321ACE72200B05CDB /* ExtensionDelegate.swift */,
@@ -255,6 +264,7 @@
 				4F5D336921B26AD80000B47A /* WatchSetupViewControl.swift */,
 				4F5D336E21B2ABAB0000B47A /* TickMarkLayerViewControl.swift */,
 				4FF2F42F21B37DA3005E6F18 /* TextLayerViewControl.swift */,
+				4FCE08BA21B4FA83007CD453 /* WeatherLayerViewControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +276,7 @@
 				4FC0338821B13BEE009EB3CD /* HourLayer.swift */,
 				4F5D336B21B288630000B47A /* TickMarkLayer.swift */,
 				4F153F8C21B2E15F003E58E9 /* TextLayer.swift */,
+				4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */,
 			);
 			path = layers;
 			sourceTree = "<group>";
@@ -456,6 +467,7 @@
 				4FFCA78D21AFC689002A2D73 /* ImageLayer.swift in Sources */,
 				4F0AEBD121ACE72000B05CDB /* ViewController.swift in Sources */,
 				4F153F8D21B2E15F003E58E9 /* TextLayer.swift in Sources */,
+				4FCE08BB21B4FA83007CD453 /* WeatherLayerViewControl.swift in Sources */,
 				4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */,
 				4F5D336F21B2ABAB0000B47A /* TickMarkLayerViewControl.swift in Sources */,
 				4F5B524C21B1A03000A0039A /* WatchManager.swift in Sources */,
@@ -467,6 +479,8 @@
 				4FFCA78321AFAFD6002A2D73 /* MyWatch.swift in Sources */,
 				4F5D336821B26A340000B47A /* ColorSelectViewControl.swift in Sources */,
 				4FFCA78621AFB260002A2D73 /* ClassExtensions.swift in Sources */,
+				4FCE08B521B4E1DF007CD453 /* Weather.swift in Sources */,
+				4FCE08B821B4ED80007CD453 /* WeatherLayer.swift in Sources */,
 				4F5D336C21B288630000B47A /* TickMarkLayer.swift in Sources */,
 				4F0AEC0B21ACEBE300B05CDB /* WatchManagerViewControl.swift in Sources */,
 				4FE9341821AFE34500625C10 /* ImageSelectViewControl.swift in Sources */,
@@ -485,8 +499,10 @@
 				4FE9341D21AFE73F00625C10 /* ResManager.swift in Sources */,
 				4F0AEBF421ACE72200B05CDB /* ExtensionDelegate.swift in Sources */,
 				4F0AEBF221ACE72200B05CDB /* InterfaceController.swift in Sources */,
+				4FCE08B921B4ED80007CD453 /* WeatherLayer.swift in Sources */,
 				4FFCA78E21AFC689002A2D73 /* ImageLayer.swift in Sources */,
 				4FFCA78421AFAFD6002A2D73 /* MyWatch.swift in Sources */,
+				4FCE08B621B4E1DF007CD453 /* Weather.swift in Sources */,
 				4F5D336621B231550000B47A /* WatchSettings.swift in Sources */,
 				4FFCA78721AFB260002A2D73 /* ClassExtensions.swift in Sources */,
 				4F153F8E21B2E15F003E58E9 /* TextLayer.swift in Sources */,

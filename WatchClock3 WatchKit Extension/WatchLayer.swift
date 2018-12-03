@@ -60,7 +60,7 @@ class WatchLayer : NSObject, Codable {
         try container.encode(alpha, forKey: .alpha)
         try container.encode(xScale, forKey: .xScale)
         try container.encode(yScale, forKey: .yScale)
-
+        
     }
     
     var name : String = ""
@@ -91,6 +91,13 @@ class WatchLayer : NSObject, Codable {
         catch {
             yScale = 1
         }
+    }
+    
+    func checkChanged() -> Bool {
+        return false
+    }
+    
+    func resetChanged() {
         
     }
     

@@ -196,5 +196,13 @@ extension UITableViewController {
             cell?.accessoryType = .checkmark
         }
     }
+    
+    func setCheckmarkCell(indexPath : IndexPath, checked : Bool) -> Void {
+        let cell = self.tableView.getCell(at: indexPath)
+        cell?.accessoryType = .none
+        if (checked) {
+            cell?.accessoryType = .checkmark
+        }
+    }
 
 }

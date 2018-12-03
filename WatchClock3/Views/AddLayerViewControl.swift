@@ -89,6 +89,13 @@ class AddLayerViewControl: UITableViewController {
             self.watch?.addLayer(layer: layer)
             nv.layer = layer
         }
+        
+        if let nv = segue.destination as? WeatherLayerViewControl {
+            let layer = WeatherLayer()
+            nv.watch = self.watch
+            nv.layer = layer
+            self.watch?.addLayer(layer: layer)
+        }
     }
 
 }

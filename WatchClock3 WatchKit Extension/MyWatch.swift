@@ -40,8 +40,27 @@ class MyWatch : NSObject, Codable {
     private func onTimer(_ time :Timer) -> Void {
         curDate = Date()
         
+        
+        
         if (!self.Settings.smoothHand) {
+
+            for i in 0..<self.watchLayers.count {
+                let layer = self.watchLayers[i]
+                if layer.checkChanged() {
+                    if var node = self.scene.getLayerNode(index: i) {
+                        layer.getLayerNode(layerNode: &node)
+                    }
+                    layer.resetChanged()
+                }
+            }
             self.scene.updateClock()
+        } else {
+            for layer in self.watchLayers {
+                if layer.checkChanged() {
+                    self.scene.needUpdate = true
+                    layer.resetChanged()
+                }
+            }
         }
     }
     
@@ -78,16 +97,6 @@ class MyWatch : NSObject, Codable {
         layer.name = "layer"+String(self.getNewId())
         layer.watch = self
         self.watchLayers.append(layer)
-        print("add layer : " , layer)
-//        if layer is HourLayer {
-//            self.hourHandLayer = layer
-//        }
-//        if layer is MinuteLayer {
-//            self.mintueHandLayer = layer
-//        }
-//        if layer is SecondsLayer {
-//            self.secondsHandLayer = layer
-//        }
     }
     
     func deleteLayer(index : Int) -> Void {
@@ -95,21 +104,8 @@ class MyWatch : NSObject, Codable {
             let layer = self.watchLayers[index]
             layer.scene = nil
             self.watchLayers.remove(at: index)
-//            self.checkDeleteLayer(layer: layer)
         }
     }
-    
-//    private func checkDeleteLayer(layer : WatchLayer) {
-//        if (layer is HourLayer) {
-//            self.hourHandLayer = nil
-//        }
-//        if (layer is MinuteLayer) {
-//            self.mintueHandLayer = nil
-//        }
-//        if (layer is SecondsLayer) {
-//            self.secondsHandLayer = nil
-//        }
-//    }
     
     func deleteLayer(layer : WatchLayer) -> Void {
         for i in 0..<self.watchLayers.count {
