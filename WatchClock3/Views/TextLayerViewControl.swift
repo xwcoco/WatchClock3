@@ -29,7 +29,7 @@ class TextLayerViewControl : UITableViewController {
             case 1:
                 self.setLabelStepperCell(name: "Font Size", value: layer!.fontSize, indexPath: indexPath)
                 break
-            case 3:
+            case 2:
                 self.setColorCell(color: layer!.textColor.Color, indexPath: indexPath)
                 break
             default:
@@ -63,7 +63,11 @@ class TextLayerViewControl : UITableViewController {
                 nv.editIndexPath = index
                 nv.backSegueName = "unwindToTextLayer"
                 nv.imageName = layer!.backImage
-                nv.imageList = ResManager.Manager.getImages(category: ResManager.Infoback)
+                if self.layer is ImageLocationLayer {
+                    nv.imageList = ResManager.Manager.getImages(category: ResManager.altitudeBG)
+                } else {
+                    nv.imageList = ResManager.Manager.getImages(category: ResManager.Infoback)
+                }
             }
         }
     }
@@ -89,9 +93,34 @@ class TextLayerViewControl : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 0) {
             self.layer!.textContent = TextContentStyle(rawValue: indexPath.row)!
-            self.setNewCheckmark(section: 0, cellNum: 4, newIndex: indexPath.row)
+            self.setNewCheckmark(section: 0, cellNum: 8, newIndex: indexPath.row)
             self.watch?.refreshWatch()
         } 
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            if self.layer is LocationLayer {
+                return 0
+            }
+            return 44
+        case 1:
+            return 44
+        case 2:
+            return 80
+        case 3:
+            return 400
+        default:
+            return 44
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0 && self.layer is LocationLayer) {
+            return 0
+        }
+        return 28
     }
     
     @IBAction func fontSizeStepperValueChanged(_ sender: Any) {

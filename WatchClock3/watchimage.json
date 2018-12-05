@@ -28,6 +28,9 @@
 "Tag_Heuer_Calibre",
 "Tag_Heuer_Formula1",
 "Watch_Face_1",
+"casio_dw_face_1",
+"circle_watch_face_1",
+"rectangle_watch_face_1",
 ],
 "hours" : [
 "HermesDoubleclour_H",
@@ -78,4 +81,8 @@
 "infoback2",
 "infoback5",
 "infoback6",
+],
+"altitude" : [
+"altitude_bg",
+"altitude_bg2",
 ]}

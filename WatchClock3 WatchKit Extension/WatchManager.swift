@@ -23,6 +23,7 @@ class WatchManager {
         let num: Int = UserDefaults.standard.integer(forKey: "MyWatchNum")
         for i in 0..<num {
             if let jsonStr = UserDefaults.standard.string(forKey: "MyWatch" + String(i)) {
+                print(jsonStr)
                 self.WatchList.append(jsonStr)
 //                if let watch = MyWatch.fromJSON(data: jsonStr) {
 //                    self.WatchList.append(watch)
@@ -43,8 +44,9 @@ class WatchManager {
         if (index >= 0 && index < self.WatchList.count) {
             let jsonStr = self.WatchList[index]
             let watch = MyWatch.fromJSON(data: jsonStr)
-            watch?.BeginUpdate()
-            watch?.EndUpdate()
+            watch?.scene.updateWatch()
+//            watch?.BeginUpdate()
+//            watch?.EndUpdate()
             return watch
         }
         return nil

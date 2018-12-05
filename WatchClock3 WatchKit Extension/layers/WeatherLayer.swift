@@ -27,6 +27,8 @@ class WeatherLayer : TextLayer {
     
     private var weatherData : CnWeatherData?
     
+    var showTempUnit : Bool = true
+    
     override func getText() -> String {
         if (weatherData == nil) {
             return ""
@@ -34,6 +36,9 @@ class WeatherLayer : TextLayer {
         
         switch self.weatherContent {
         case .WeatherContentTemp:
+            if self.showTempUnit {
+                return weatherData!.Wendu + "℃"
+            }
             return weatherData!.Wendu
         case .WeatherContentType:
             return weatherData!.type
@@ -44,8 +49,14 @@ class WeatherLayer : TextLayer {
         case .WeatherContentPM10:
             return weatherData!.pm10
         case .WeatherContentHigh:
+            if self.showTempUnit {
+                return weatherData!.high + "℃"
+            }
             return weatherData!.high
         case .WeatherContentLow:
+            if self.showTempUnit {
+                return weatherData!.low + "℃"
+            }
             return weatherData!.low
         case .WeatherContentHumidity:
             return weatherData!.shidu
@@ -195,7 +206,6 @@ class WeatherLayer : TextLayer {
     
     override init() {
         super.init()
-        ResManager.Manager.beginWeather()
         self.addWeatherListen()
     }
     
@@ -216,31 +226,20 @@ class WeatherLayer : TextLayer {
         self.showColorAQI = try container.decode(Bool.self, forKey: .showColorAQI)
         self.weatherIconSize = try container.decode(CGFloat.self, forKey: .weatherIconSize)
         self.addWeatherListen()
-        ResManager.Manager.beginWeather()
     }
     
     private func addWeatherListen() {
         NotificationCenter.default.addObserver(forName: Notification.Name("WeatherDataUpdate"), object: nil, queue: nil, using: setWeatherData)
-
+        self.weatherData = ResManager.Manager.weatherData
+        if (self.weatherData == nil) {
+            ResManager.Manager.beginWeather()
+        }
     }
-    
-    private var changed : Bool = false
     
     private func setWeatherData(notification: Notification) {
         self.weatherData = ResManager.Manager.weatherData
         self.changed = true
         print("weather data is recived")
-    }
-    
-    override func checkChanged() -> Bool {
-        if (self.changed) {
-            return true
-        }
-        return super.checkChanged()
-    }
-    
-    override func resetChanged() {
-        self.changed = false
     }
     
 }

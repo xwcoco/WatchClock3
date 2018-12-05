@@ -15,6 +15,7 @@ class LayerManagerViewControl: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nv = segue.destination as? AddLayerViewControl {
             nv.watch = self.watch
+            nv.backSegueName = "unwindToLayerManager"
         }
         if let nv = segue.destination as? WatchSetupViewControl {
             nv.watch = self.watch
@@ -42,6 +43,10 @@ class LayerManagerViewControl: UITableViewController {
             } else if let nv = segue.destination as? WeatherLayerViewControl {
                 nv.watch = self.watch
                 nv.layer = layer as? WeatherLayer
+                nv.editRowIndex = index
+            } else if let nv = segue.destination as? EmptyLayerViewControl {
+                nv.watch = self.watch
+                nv.layer = layer
                 nv.editRowIndex = index
             }
         }
@@ -89,6 +94,8 @@ class LayerManagerViewControl: UITableViewController {
               self.performSegue(withIdentifier: "showWeatherLayer", sender: self.tableView.cellForRow(at: indexPath))
             } else if layer is TextLayer {
                 self.performSegue(withIdentifier: "showTextLayer", sender: self.tableView.cellForRow(at: indexPath))
+            } else if layer is MoonLayer || layer is MagicLayer {
+                self.performSegue(withIdentifier: "showEmptyLayer", sender: self.tableView.cellForRow(at: indexPath))
             }
         }
         
@@ -113,11 +120,17 @@ class LayerManagerViewControl: UITableViewController {
         }
     }
     
+    @IBOutlet weak var AddButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBAction func EditButtonClick(_ sender: Any) {
         if self.tableView.isEditing {
+            self.editButton.title = NSLocalizedString("Edit", comment: "")
             self.tableView.setEditing(false, animated: true)
+            self.AddButton.isEnabled = true
         } else {
+            self.editButton.title = NSLocalizedString("Done", comment: "")
             self.tableView.setEditing(true, animated: true)
+            self.AddButton.isEnabled = false
         }
         
     }

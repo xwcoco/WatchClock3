@@ -48,7 +48,7 @@ class MyWatch : NSObject, Codable {
                 let layer = self.watchLayers[i]
                 if layer.checkChanged() {
                     if var node = self.scene.getLayerNode(index: i) {
-                        layer.getLayerNode(layerNode: &node)
+                        layer.setLayerNode(layerNode: &node)
                     }
                     layer.resetChanged()
                 }
@@ -180,10 +180,17 @@ class MyWatch : NSObject, Codable {
                     if let tmpv = key as? Dictionary<String,Any> {
                         var className = tmpv["className"] as! String
                         className = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + className
-                        let aClass = NSClassFromString(className) as! WatchLayer.Type
-                        let layerData = try JSONSerialization.data(withJSONObject: tmpv, options: .prettyPrinted)
-                        let aLayer = try jsonDecoder.decode(aClass, from: layerData)
-                        watch.addLayer(layer: aLayer)
+                        do {
+                            let aClass = NSClassFromString(className) as? WatchLayer.Type
+                            if aClass != nil {
+                                let layerData = try JSONSerialization.data(withJSONObject: tmpv, options: .prettyPrinted)
+                                let aLayer = try jsonDecoder.decode(aClass!, from: layerData)
+                                watch.addLayer(layer: aLayer)
+                            }
+                        }
+                        catch {
+                            print(error)
+                        }
                     }
                 }
                 return watch

@@ -37,8 +37,8 @@ class TickMarkLayer: WatchLayer {
         return WatchLayer.TickMarkTag
     }
 
-    override func getLayerNode(layerNode: inout SKSpriteNode) {
-        super.getLayerNode(layerNode: &layerNode)
+    override func setLayerNode(layerNode: inout SKSpriteNode) {
+        super.setLayerNode(layerNode: &layerNode)
 
         let node = self.createTickMarkNode(self.name + "_marking")
 //        node.maskNode = self.scene!.colorRegion!

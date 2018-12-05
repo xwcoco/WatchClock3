@@ -15,15 +15,15 @@ class WatchManagerViewControl: UITableViewController {
 
     @IBOutlet weak var EditButton: UIBarButtonItem!
     @IBAction func EditButtonClick(_ sender: Any) {
-//        if self.tableView.isEditing {
-//            self.tableView.setEditing(false, animated: true)
-//            self.EditButton.title = NSLocalizedString("Edit", comment: "")
-//            self.AddButton.isEnabled = true
-//        } else {
-//            self.tableView.setEditing(true, animated: true)
-//            self.EditButton.title = NSLocalizedString("Done", comment: "")
-//            self.AddButton.isEnabled = false
-//        }
+        if self.tableView.isEditing {
+            self.tableView.setEditing(false, animated: true)
+            self.EditButton.title = NSLocalizedString("Edit", comment: "")
+            self.AddButton.isEnabled = true
+        } else {
+            self.tableView.setEditing(true, animated: true)
+            self.EditButton.title = NSLocalizedString("Done", comment: "")
+            self.AddButton.isEnabled = false
+        }
     }
 
     @IBAction func SyncButtonClick(_ sender: Any) {
@@ -38,8 +38,6 @@ class WatchManagerViewControl: UITableViewController {
         return WatchManager.Manager.WatchList.count
     }
     
-    var WatchDict : [MyWatch] = []
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "watchitemcell") {
@@ -48,7 +46,6 @@ class WatchManagerViewControl: UITableViewController {
                         watch.scene.camera?.xScale = 1.8 / (184.0 / skview.bounds.width)
                         watch.scene.camera?.yScale = 1.8 / (224.0 / skview.bounds.height)
                         skview.presentScene(watch.scene)
-                        WatchDict.append(watch)
                     }
                 }
 
@@ -88,15 +85,47 @@ class WatchManagerViewControl: UITableViewController {
                 self.addWatch(watchData: jsonData)
             } else {
                 let jsonData = nv.watch.toJSON()
+                print(jsonData)
                 WatchManager.Manager.updateWatch(index: nv.editRowIndex, watchData: jsonData)
-                self.WatchDict[nv.editRowIndex].refreshWatch()
+                if let skview = self.getSkView(indexPath: IndexPath.init(row: nv.editRowIndex, section: 0)) {
+                    let watch = WatchManager.Manager.getWatch(index: nv.editRowIndex)
+                    watch!.scene.camera?.xScale = 1.8 / (184.0 / skview.bounds.width)
+                    watch!.scene.camera?.yScale = 1.8 / (224.0 / skview.bounds.height)
+                    skview.presentScene(watch?.scene)
+                }
             }
         }
 
     }
     
+    private func getSkView(indexPath : IndexPath) -> SKView? {
+        if let cell = self.tableView.getCell(at: indexPath) {
+            return cell.contentView.subviews[1] as? SKView
+        }
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
- 
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            WatchManager.Manager.deleteWatch(index: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        WatchManager.Manager.WatchList.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+//        self.watch?.watchLayers.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+//        self.watch?.refreshWatch()
+    }
+
+    
+    
 }

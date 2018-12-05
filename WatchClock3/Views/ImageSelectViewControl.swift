@@ -101,7 +101,12 @@ extension UITableViewController {
         
         let cell = self.tableView.getCell(at: indexPath)
         
-        let img = UIImage.init(named: imageName)
+        var tmpImageName = imageName
+        if (imageName == "") {
+            tmpImageName = "empty"
+        }
+        
+        let img = UIImage.init(named: tmpImageName)
         
         UIGraphicsBeginImageContext(size)
         

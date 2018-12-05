@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import WatchKit
 
 
 enum TextContentStyle: Int, Codable {
@@ -16,6 +17,10 @@ enum TextContentStyle: Int, Codable {
     case TextContentWeekTwo
     case TextContentLunar
     case TextContentLunar2
+    case TextContentTime1
+    case TextContentTime2
+    case TextContentTime3
+    case TextContentBattery
 }
 class TextLayer: WatchLayer {
     private enum CodingKeys: String, CodingKey {
@@ -39,9 +44,13 @@ class TextLayer: WatchLayer {
     override func getTitle() -> String {
         return "Text"
     }
+    
+    func exposeSetLayerNode(layerNode: inout SKSpriteNode) -> Void {
+        super.setLayerNode(layerNode: &layerNode)
+    }
 
-    override func getLayerNode(layerNode: inout SKSpriteNode) {
-        super.getLayerNode(layerNode: &layerNode)
+    override func setLayerNode(layerNode: inout SKSpriteNode) {
+        super.setLayerNode(layerNode: &layerNode)
         if let image = self.getImage() {
             let texture = SKTexture.init(image: image)
             layerNode.texture = texture
@@ -75,7 +84,33 @@ class TextLayer: WatchLayer {
             let month = lunarCalendar.component(.month, from: self.watch!.curDate)
             let day = lunarCalendar.component(.day, from: self.watch!.curDate)
             return chineseMonths[month - 1] + chineseDays[day - 1]
+        case .TextContentTime1 :
+            let hour : Int = self.watch!.getDateValue(.hour)
+            let minute : Int = self.watch!.getDateValue(.minute)
+            let seconds : Int = self.watch!.getDateValue(.second)
+            return String.init(format: "%.2d:%.2d:%.2d", arguments: [hour,minute,seconds])
+        case .TextContentTime2 :
+            let hour : Int = self.watch!.getDateValue(.hour)
+            let minute : Int = self.watch!.getDateValue(.minute)
+            return String.init(format: "%.2d:%.2d", arguments: [hour,minute])
+        case .TextContentTime3:
+            let minute : Int = self.watch!.getDateValue(.second)
+            return String.init(format: "%.2d", arguments: [minute])
+        case .TextContentBattery:
+            return self.getBattery()
         }
+    }
+    
+    func getBattery() -> String {
+        #if os(watchOS)
+            WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+            return String.init(format: "%.0f", arguments: [WKInterfaceDevice.current().batteryLevel])
+        #else
+            UIDevice.current.isBatteryMonitoringEnabled = true
+        return String.init(format: "%.0f", arguments: [UIDevice.current.batteryLevel])
+        #endif
+        
+        
     }
 
     private var chineseMonths: [String] = ["正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月",
@@ -96,13 +131,7 @@ class TextLayer: WatchLayer {
         self.oldText = self.getText()
         let text = NSString(string: oldText)
 
-        var font: UIFont
-
-        if (self.fontName == "") {
-            font = UIFont.systemFont(ofSize: self.fontSize)
-        } else {
-            font = UIFont.init(name: self.fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        }
+        let font: UIFont = self.getTextFont()
 
         let text_style = NSMutableParagraphStyle()
         text_style.alignment = NSTextAlignment.center
@@ -148,12 +177,34 @@ class TextLayer: WatchLayer {
 
     }
     
+    func getTextFont() -> UIFont {
+        var font : UIFont
+        if (self.fontName == "") {
+            font = UIFont.systemFont(ofSize: self.fontSize)
+        } else {
+            font = UIFont.init(name: self.fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        }
+        return font
+    }
+    
+    func getTextStyle(font : UIFont,color : UIColor) -> [NSAttributedString.Key : Any] {
+        let text_style = NSMutableParagraphStyle()
+        text_style.alignment = NSTextAlignment.center
+        
+        return [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: text_style, NSAttributedString.Key.foregroundColor: color]
+    }
+    
+    func getTextRect(text : String,attributes attr:[NSAttributedString.Key : Any]) -> CGRect {
+        let nsText = NSString(string: text)
+        return nsText.boundingRect(with: CGSize(width: 500, height: 500), options: [], attributes: attr, context: nil)
+    }
+    
     override func checkChanged() -> Bool {
         let text = self.getText()
         if (text != self.oldText) {
             return true
         }
-        return false
+        return self.changed
     }
 
     override init() {

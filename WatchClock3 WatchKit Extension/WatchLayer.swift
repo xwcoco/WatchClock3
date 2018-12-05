@@ -33,7 +33,7 @@ class WatchLayer : NSObject, Codable {
     var scene : WatchScene?
     var watch : MyWatch?
     
-    func getLayerNode(layerNode : inout SKSpriteNode) -> Void {
+    func setLayerNode(layerNode : inout SKSpriteNode) -> Void {
         layerNode.position = CGPoint.init(x: x, y: y)
         layerNode.alpha = self.alpha
         layerNode.xScale = self.xScale
@@ -93,19 +93,21 @@ class WatchLayer : NSObject, Codable {
         }
     }
     
+    
+    var changed : Bool = false
+    
     func checkChanged() -> Bool {
-        return false
+        return self.changed
     }
     
     func resetChanged() {
-        
+        self.changed = false
     }
     
     static var HourHandTag  : Int = 2
     static var MinuteHandTag : Int = 3
     static var SecondHandTag : Int = 4
     static var TickMarkTag : Int = 5
-    
     
 }
 

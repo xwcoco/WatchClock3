@@ -53,6 +53,13 @@ class ImageLayerViewControl: UITableViewController {
             self.setImageCell(image: image!, indexPath: IndexPath.init(row: 0, section: 0), size: imageSize)
             self.watch?.refreshWatch()
         }
+        if let nv = unwindSegue.source as? ImageCategoryViewControl {
+            if nv.photoImage != nil {
+                self.setImageCell(image: nv.photoImage!, indexPath: IndexPath.init(row: 0, section: 0), size: imageSize)
+                layer?.imageData = nv.photoImage!.jpegData(compressionQuality: 0.4)
+                self.watch?.refreshWatch()
+            }
+        }
         
     }
     

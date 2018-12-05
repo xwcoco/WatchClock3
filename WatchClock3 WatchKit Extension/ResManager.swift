@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 
 class WatchRes {
@@ -15,8 +16,8 @@ class WatchRes {
     var list: [String] = []
 }
 
-class ResManager: NSObject,CnWeatherProtocol {
-    
+class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
+
     static let Manager: ResManager = ResManager()
 
     private override init() {
@@ -73,7 +74,10 @@ class ResManager: NSObject,CnWeatherProtocol {
                 self.addToRes(category: "minutes", list: json["minutes"] as! [String])
                 self.addToRes(category: "seconds", list: json["seconds"] as! [String])
                 self.addToRes(category: "logos", list: json["logos"] as! [String])
-                self.addToRes(category: "infoback", list: json["infoback"] as! [String],append:  "empty")
+                self.addToRes(category: "infoback", list: json["infoback"] as! [String], append: "empty")
+                self.addToRes(category: "altitude", list: json["altitude"] as! [String])
+
+                
             }
             catch let error {
                 print("res error")
@@ -91,16 +95,16 @@ class ResManager: NSObject,CnWeatherProtocol {
         }
         return []
     }
-    
-    var WeatherLocation : String = "101180101"
-    
-    lazy var cnWeather : CnWeather = CnWeather()
+
+    var WeatherLocation: String = "101180101"
+
+    lazy var cnWeather: CnWeather = CnWeather()
     func beginWeather() -> Void {
         self.cnWeather.delegate = self
         self.cnWeather.beginTimer()
     }
-    
-    var weatherData : CnWeatherData?
+
+    var weatherData: CnWeatherData?
     func showWeather(_ data: CnWeatherData) {
         self.weatherData = data
         NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
@@ -113,6 +117,77 @@ class ResManager: NSObject,CnWeatherProtocol {
     static var Seconds: String = "seconds"
     static var Logos: String = "logos"
     static var Infoback: String = "infoback"
+    static var altitudeBG : String = "altitude"
+
+
+    var locationManager: CLLocationManager?
+    
+    func initLocationManager() -> Void {
+        if (locationManager == nil) {
+            locationManager = CLLocationManager()
+            locationManager?.delegate = self
+            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager?.distanceFilter = 100
+            locationManager?.requestAlwaysAuthorization()
+        }
+    }
+    
+    func initLocation() {
+        self.initLocationManager()
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager?.startUpdatingLocation()
+        }
+
+    }
+
+//    func initLocationHeading() -> Void {
+//        self.initLocationManager()
+//        if (CLLocationManager.headingAvailable()) {
+//            locationManager?.startUpdatingHeading()
+//        }
+//    }
+
+    var location: CLLocation?
+//    var locationHeading: CLHeading?
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        print("update location....")
+        if let curLocation = locations.last {
+            self.location = curLocation
+            print("get location")
+            NotificationCenter.default.post(name: Notification.Name("LocationUpdate"), object: self)
+
+//            print(curLocation.coordinate)
+//
+//            //            +34.82552014,+113.63304707
+//
+//            if (self.currentAltitude != curLocation.altitude) {
+//                self.currentAltitude = curLocation.altitude
+//                print(curLocation)
+//                self.delegate?.UpdateWatchInfo(refresh: false)
+//            }
+//
+//            if curLocation.horizontalAccuracy < 0 { return }
+//            geoCoder.reverseGeocodeLocation(curLocation, completionHandler: self.locationCompletion)
+
+        }
+    }
+
+//    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+//        self.locationHeading = newHeading
+//        NotificationCenter.default.post(name: Notification.Name("LocationHeadingUpdate"), object: self)
+//    }
+
+//    func locationCompletion(pls: [CLPlacemark]?, error: Error?) -> Void {
+//        if error == nil {
+//            guard let pl = pls?.first else { return }
+//            print(pl.name!)
+//            print(pl.locality!)
+//        } else {
+//            print(error)
+//        }
+//    }
+
 
 
 

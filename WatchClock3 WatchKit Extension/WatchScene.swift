@@ -24,6 +24,8 @@ class WatchScene: SKScene,SKSceneDelegate {
         for i in 0..<50 {
             if let node = self.getLayerNode(index: i) {
                 node.alpha = 0
+                node.texture = nil
+                node.removeAllChildren()
             }
         }
         while self.children.count > 2 {
@@ -70,7 +72,7 @@ class WatchScene: SKScene,SKSceneDelegate {
             var layerNode = self.getLayerNode(index: i)
             if (layerNode != nil) {
                 layerNode?.alpha = 1
-                layer.getLayerNode(layerNode: &layerNode!)
+                layer.setLayerNode(layerNode: &layerNode!)
             } else {
                 print("can't find layer",i)
             }

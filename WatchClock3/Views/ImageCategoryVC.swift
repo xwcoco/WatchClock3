@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Photos
+import MobileCoreServices
 
 class ImageCategoryViewControl: UITableViewController {
 
@@ -38,4 +40,98 @@ class ImageCategoryViewControl: UITableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 2) {
+            self.selectFromPhoto()
+        }
+    }
+    
+//    lazy var picker = UIImagePickerController()
+    
+//    func pickUpImage() -> Void {
+//        picker.delegate = self
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//            picker.allowsEditing = true
+//            self.present(picker,animated: true, completion: nil)
+//        }
+        
+//    }
+    
+    var photoImage : UIImage?
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+////        self.photoImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+//        self.photoImage =  info[UIImagePickerController.InfoKey.]
+//        self.performSegue(withIdentifier: self.backSegueName, sender: self)
+//    }
+//
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        self.picker.dismiss(animated: true, completion: nil)
+//    }
+    
+        private func selectFromPhoto(){
+            PHPhotoLibrary.requestAuthorization {[unowned self] (status) -> Void in
+                DispatchQueue.main.async {
+                    switch status {
+                    case .authorized:
+                        self.showLocalPhotoGallery()
+                        break
+                    default:
+                        self.showNoPermissionDailog()
+                        break
+                    }
+                }
+            }
+        }
+    //
+        private func showLocalPhotoGallery(){
+            KiClipperHelper.sharedInstance.nav = self.navigationController
+            KiClipperHelper.sharedInstance.clippedImgSize = CGSize.init(width: 324, height: 394)
+            KiClipperHelper.sharedInstance.clipperType = .Move
+            KiClipperHelper.sharedInstance.systemEditing = false
+            KiClipperHelper.sharedInstance.clippedImageHandler = {[weak self]img in
+                self?.photoImage =  img.resizeImage(targetSize: CGSize.init(width: 324, height: 394))
+//                self?.photoImage = img
+//                print(self!.photoImage!.size)
+                
+                self?.performSegue(withIdentifier: self!.backSegueName, sender: self)
+            }
+            KiClipperHelper.sharedInstance.photoWithSourceType(type: .photoLibrary) //直接打开相册选取图片
+        }
+    //
+    //
+    //    /**
+    //     * 用户相册未授权，Dialog提示
+    //     */
+        private func showNoPermissionDailog(){
+            let alert = UIAlertController.init(title: nil, message: "没有打开相册的权限", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "确定", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    //
+    ////    /**
+    ////     * 打开本地相册列表
+    ////     */
+    ////    private func showLocalPhotoGallery(){
+    //////        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+    //////            //初始化图片控制器
+    //////            let picker = UIImagePickerController()
+    //////            //设置代理
+    //////            picker.delegate = self
+    //////            //指定图片控制器类型
+    //////            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+    //////            //设置是否允许编辑
+    //////            picker.allowsEditing = true
+    //////            //弹出控制器，显示界面
+    //////            self.present(picker, animated: true, completion: {
+    //////                () -> Void in
+    //////            })
+    //////        }else{
+    //////            print("读取相册错误")
+    //////        }
+    ////    }
+    //
+
+    
 }

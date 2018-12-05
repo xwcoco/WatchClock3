@@ -19,8 +19,8 @@ class HourLayer : ImageLayer {
         return "hour " + self.imageName
     }
     
-    override func getLayerNode(layerNode: inout SKSpriteNode) {
-        super.getLayerNode(layerNode: &layerNode)
+    override func setLayerNode(layerNode: inout SKSpriteNode) {
+        super.setLayerNode(layerNode: &layerNode)
         var height = layerNode.size.height
         if height == 0 {
             height = 100

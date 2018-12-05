@@ -36,6 +36,8 @@ class WeatherLayerViewControl: UITableViewController {
             case 4:
                 self.setColorCell(color: layer!.textColor.Color, indexPath: indexPath)
                 break
+            case 5:
+                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showTempUnit)
             default:
                 break
             }
@@ -106,6 +108,10 @@ class WeatherLayerViewControl: UITableViewController {
             case 1:
                 self.layer!.showColorAQI = !self.layer!.showColorAQI
                 self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showColorAQI)
+                self.watch?.refreshWatch()
+            case 5:
+                self.layer?.showTempUnit = !self.layer!.showTempUnit
+                self.setCheckmarkCell(indexPath: indexPath, checked: self.layer!.showTempUnit)
                 self.watch?.refreshWatch()
             default:
                 break

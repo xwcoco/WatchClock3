@@ -398,6 +398,7 @@ Y29kZSBieSB4d29jbxBAbXNuLmNvbQ
                     <connections>
                         <outlet property="AddButton" destination="2Vm-dK-xzO" id="Bl8-uB-eFG"/>
                         <outlet property="EditButton" destination="g0Q-dc-BWG" id="SkW-rB-Th2"/>
+                        <outlet property="editButton" destination="g0Q-dc-BWG" id="xYL-Ud-tGb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHw-fG-Ub4" userLabel="First Responder" sceneMemberID="firstResponder"/>

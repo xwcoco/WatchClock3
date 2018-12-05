@@ -84,19 +84,57 @@ class AddLayerViewControl: UITableViewController {
             }
         }
         if let nv = segue.destination as? TextLayerViewControl {
-            let layer = TextLayer()
-            nv.watch = self.watch
-            self.watch?.addLayer(layer: layer)
-            nv.layer = layer
+            if let cell = sender as? UITableViewCell {
+                let index = self.tableView.indexPath(for: cell)!
+                var layer: TextLayer?
+                if (index.row == 0) {
+                    layer = TextLayer()
+                } else if (index.row == 1) {
+                    layer = LocationLayer()
+                } else {
+                    layer = ImageLocationLayer()
+                }
+                nv.watch = self.watch
+                self.watch?.addLayer(layer: layer!)
+                nv.layer = layer
+            }
         }
-        
+
         if let nv = segue.destination as? WeatherLayerViewControl {
             let layer = WeatherLayer()
             nv.watch = self.watch
             nv.layer = layer
             self.watch?.addLayer(layer: layer)
         }
+
+        if let nv = segue.destination as? EmptyLayerViewControl {
+            if let cell = sender as? UITableViewCell {
+                let index = self.tableView.indexPath(for: cell)!
+                if (index.section == 4 && index.row == 0) {
+                    let layer = MagicLayer()
+                    self.watch?.addLayer(layer: layer)
+                    nv.watch = self.watch
+                    nv.layer = layer
+                } else if (index.section == 4 && index.row == 1) {
+                    let layer = MoonLayer()
+                    self.watch?.addLayer(layer: layer)
+                    nv.watch = self.watch
+                    nv.layer = layer
+                }
+
+            }
+
+        }
     }
+
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if (indexPath.section == 4 && indexPath.row == 0) {
+//            let layer = MagicLayer()
+//            self.watch?.addLayer(layer: layer)
+//            self.watch?.refreshWatch()
+//            self.performSegue(withIdentifier: self.backSegueName, sender: self)
+//        }
+//    }
 
 }
 

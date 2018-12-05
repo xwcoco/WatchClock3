@@ -221,10 +221,10 @@ class CnWeatherData: NSObject, XMLParserDelegate {
                 curForecast.date = string
                 break
             case "high":
-                curForecast.high = string
+                curForecast.high = self.deleteSpecilChar(string, deleteString: ["高温","℃"])
                 break
             case "low":
-                curForecast.low = string
+                curForecast.low = self.deleteSpecilChar(string, deleteString: ["低温","℃"])
                 break
             case "type":
                 if (beginWeatherDay) {
@@ -377,6 +377,16 @@ class CnWeatherData: NSObject, XMLParserDelegate {
         }
         return code
 
+    }
+    
+    func deleteSpecilChar(_ str : String,deleteString : [String]) -> String {
+        var retStr = str
+        for subString in deleteString {
+            let nStr = NSString.init(string: retStr)
+            retStr = nStr.replacingOccurrences(of: subString, with: "")
+        }
+        
+        return retStr.trimmingCharacters(in: .whitespaces)
     }
 
 
