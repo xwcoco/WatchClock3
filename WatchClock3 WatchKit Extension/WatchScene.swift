@@ -25,6 +25,7 @@ class WatchScene: SKScene,SKSceneDelegate {
             if let node = self.getLayerNode(index: i) {
                 node.alpha = 0
                 node.texture = nil
+                node.zPosition = 0
                 node.removeAllChildren()
             }
         }
@@ -34,7 +35,7 @@ class WatchScene: SKScene,SKSceneDelegate {
         }
     }
     
-    private var face : SKNode?
+    var face : SKNode?
     
     var colorRegion : SKSpriteNode?
     var colorRegionReflection : SKSpriteNode?
@@ -92,6 +93,20 @@ class WatchScene: SKScene,SKSceneDelegate {
         if watch!.Settings.smoothHand {
             self.updateHands()
         }
+        
+        if self.watch!.isDemoMode {
+            self.checkDemo()
+        }
+    }
+    
+    private func checkDemo() {
+        #if os(iOS)
+        self.watch!.demoCount = self.watch!.demoCount + 1
+        if (watch!.demoCount > 5) {
+            watch!.isPaused = true
+            self.view?.isPaused = true
+        }
+        #endif
     }
     
     private func getLayerNode(layer : WatchLayer?) -> SKNode? {

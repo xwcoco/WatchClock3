@@ -21,7 +21,7 @@ class CnWeather {
 
 
     func beginTimer() {
-        let tmpStr = ResManager.Manager.WeatherLocation
+        let tmpStr = WatchManager.Manager.WeatherLocation
         if (tmpStr == self.location && self.weatherData != nil)  {
             self.delegate?.showWeather(self.weatherData!)
             return
@@ -38,7 +38,7 @@ class CnWeather {
     }
 
     @objc private func getWeatherInfo() {
-        self.location = ResManager.Manager.WeatherLocation
+        self.location = WatchManager.Manager.WeatherLocation
         if (self.location == "") {
             return
         }

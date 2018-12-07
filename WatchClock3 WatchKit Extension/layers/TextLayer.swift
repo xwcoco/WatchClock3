@@ -126,6 +126,8 @@ class TextLayer: WatchLayer {
 
         if (self.backImage != "" && self.backImage != "empty") {
             img = UIImage.init(named: backImage)
+//            img = img?.getTransImage()//            img = img?.changeColorToTransparent()
+//            img = img?.tint(color: UIColor.black, blendMode: .overlay)
         }
 
         self.oldText = self.getText()
@@ -173,6 +175,7 @@ class TextLayer: WatchLayer {
 
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+//        image = image?.getTransImage()
         return image
 
     }
@@ -210,6 +213,15 @@ class TextLayer: WatchLayer {
     override init() {
         super.init()
         self.y = -70
+    }
+    
+    convenience init(fontName fn : String,FontSize fs : CGFloat,Y : CGFloat,backImage bImage : String) {
+        self.init()
+        self.fontName = fn
+        self.fontSize = fs
+        self.y = Y
+        self.backImage = bImage
+        
     }
 
     required init(from decoder: Decoder) throws {

@@ -19,6 +19,10 @@ class HourLayer : ImageLayer {
         return "hour " + self.imageName
     }
     
+    func getZPostion() -> CGFloat {
+        return 800
+    }
+    
     override func setLayerNode(layerNode: inout SKSpriteNode) {
         super.setLayerNode(layerNode: &layerNode)
         var height = layerNode.size.height
@@ -26,6 +30,7 @@ class HourLayer : ImageLayer {
             height = 100
         }
         layerNode.anchorPoint = CGPoint(x: 0.5, y: self.anchorFromBottom / height)
+        layerNode.zPosition = self.getZPostion()
     }
     
     var anchorFromBottom : CGFloat  = 18
@@ -63,6 +68,10 @@ class MinuteLayer: HourLayer {
     override func getTag() -> Int {
         return WatchLayer.MinuteHandTag
     }
+    
+    override func getZPostion() -> CGFloat {
+        return 850
+    }
 }
 
 class SecondsLayer : HourLayer {
@@ -72,5 +81,9 @@ class SecondsLayer : HourLayer {
     
     override func getTag() -> Int {
         return WatchLayer.SecondHandTag
+    }
+    
+    override func getZPostion() -> CGFloat {
+         return 900
     }
 }

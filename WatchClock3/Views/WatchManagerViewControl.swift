@@ -125,7 +125,92 @@ class WatchManagerViewControl: UITableViewController {
 //        self.watch?.watchLayers.swapAt(sourceIndexPath.row, destinationIndexPath.row)
 //        self.watch?.refreshWatch()
     }
+    
+    private var needSyncWithWatch : Bool = false
+    private var watchIsConneted : Bool = false
 
+    override func viewDidLoad() {
+        IWatchSessionUtil.SessionManager.delegate = self
+        IWatchSessionUtil.SessionManager.StartSession()
+        self.needSyncWithWatch = true
+
+
+        NotificationCenter.default.addObserver(forName: Notification.Name("WatchCollectionAddWatch"), object: nil, queue: nil, using: addWatchFromCollection)
+        
+        if WatchManager.Manager.WeatherLocation == "" {
+            self.showMessage(msg: NSLocalizedString("Weather Location is Not Defined!", comment: ""))
+        }
+
+    }
+    
+    func addWatchFromCollection(_ noti : Notification) {
+        if let watch = noti.object as? String {
+            self.addWatch(watchData: watch)
+        }
+    }
+
+    func showMessage(msg: String) -> Void {
+        DispatchQueue.main.async {
+            self.tabBarController?.view.makeToast(msg)
+        }
+    }
+    
+    func SyncWithWatch() -> Void {
+        if (!self.watchIsConneted) {
+            self.showMessage(msg: "Please Connect Watch First!")
+            self.needSyncWithWatch = true
+            return
+        }
+        
+        //        let dict : Dictionary<String,Any> = Dictionary.init()
+        //        dict.
+        
+        var dict: [String: Any] = [:]
+        dict["MyWatchNum"] = WatchManager.Manager.WatchList.count
+        for i in 0..<WatchManager.Manager.WatchList.count {
+            dict["MyWatch" + String(i)] = WatchManager.Manager.WatchList[i]
+        }
+//        dict["WeatherLocation"] = WatchSettings.WeatherLocation
+        
+        IWatchSessionUtil.SessionManager.SendMessageToWatch(msgDict: dict)
+        
+    }
+
+    
+}
+
+extension WatchManagerViewControl : WatchSessionDelegate {
+    func onWatchConneted() {
+        self.showMessage(msg: "Watch is Conneted")
+        self.watchIsConneted = true
+        if self.needSyncWithWatch {
+            self.SyncWithWatch()
+            self.needSyncWithWatch = false
+        }
+    }
+    
+    func OnWatchDisConneted() {
+        self.watchIsConneted = false
+        self.showMessage(msg: "Watch is DisConneted")
+    }
+    
+    func onWatchReplay(dict: Dictionary<String, Any>) {
+        for (_, value) in dict {
+            self.showMessage(msg: value as! String)
+        }
+
+    }
+    
+    func onWatchError(error: Error) {
+        self.showMessage(msg: error.localizedDescription)
+    }
+    
+    func onWatchMessage(message: [String : Any]) {
+        print("OnWatchMessage : ",message)
+//        for key in message.keys {
+//            let value = message.get
+//        }
+    }
     
     
 }

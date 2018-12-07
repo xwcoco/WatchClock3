@@ -20,7 +20,9 @@ class MoonLayer : WatchLayer {
     
     override func getImage() -> UIImage? {
         let index = self.getMoonIndex()
-        return UIImage.init(named: "moon_"+String(index))
+        var img = UIImage.init(named: "moon_"+String(index))
+//        img = img?.getTransImage()
+        return img
     }
     
     func getMoonIndex() -> Int {
@@ -31,13 +33,18 @@ class MoonLayer : WatchLayer {
     
     override func setLayerNode(layerNode: inout SKSpriteNode) {
         super.setLayerNode(layerNode: &layerNode)
-        let index = self.getMoonIndex()
-        let texture = SKTexture.init(imageNamed: "moon_"+String(index))
-        layerNode.texture = texture
-        var size = texture.size()
-        size = CGSize.init(width: size.width * self.xScale, height: size.height * self.yScale)
+//        let index = self.getMoonIndex()
+        if let image = self.getImage() {
+            let texture = SKTexture.init(image: image)
+            //        let texture = SKTexture.init(imageNamed: "moon_"+String(index))
+            layerNode.texture = texture
+            var size = texture.size()
+            size = CGSize.init(width: size.width * self.xScale, height: size.height * self.yScale)
+            layerNode.alpha = 1
+            
+            layerNode.size = size
+        }
         
-        layerNode.size = size
 
     }
     

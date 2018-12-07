@@ -154,7 +154,112 @@ extension UIImage {
         
         return newImage!
     }
+    
+    func tint(color: UIColor, blendMode: CGBlendMode) -> UIImage
+    {
+        let drawRect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        let context = UIGraphicsGetCurrentContext()
+        context?.clip(to: drawRect, mask: cgImage!)
+//        CGContextClipToMask(context!, drawRect, CGImage)
+        color.setFill()
+        UIRectFill(drawRect)
+        draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
+        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return tintedImage!
+    }
+    
+    //返回一个将白色背景变透明的UIImage
+    func imageByRemoveWhiteBg() -> UIImage? {
+        let colorMasking: [CGFloat] = [222, 255, 222, 255, 222, 255]
+        return transparentColor(colorMasking: colorMasking)
+    }
+    
+    //返回一个将黑色背景变透明的UIImage
+    func imageByRemoveBlackBg() -> UIImage? {
+        let colorMasking: [CGFloat] = [0, 32, 0, 32, 0, 32]
+        return transparentColor(colorMasking: colorMasking)
+    }
+    
+    func transparentColor(colorMasking:[CGFloat]) -> UIImage? {
+        if let rawImageRef = self.cgImage {
+            UIGraphicsBeginImageContext(self.size)
+            if let maskedImageRef = rawImageRef.copy(maskingColorComponents: colorMasking) {
+                let context: CGContext = UIGraphicsGetCurrentContext()!
+                context.translateBy(x: 0.0, y: self.size.height)
+                context.scaleBy(x: 1.0, y: -1.0)
+                context.draw(maskedImageRef, in: CGRect(x:0, y:0, width:self.size.width,
+                                                        height:self.size.height))
+                let result = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                return result
+            }
+        }
+        return nil
+    }
+    
+    public func extraPixels(in size: CGSize) -> [UInt32]? {
+        
+        guard let cgImage = cgImage else {
+            return nil
+        }
+        
+        let width = Int(size.width)
+        let height = Int(size.height)
+        // 一个像素 4 个字节，则一行共 4 * width 个字节
+        let bytesPerRow = 4 * width
+        // 每个像素元素位数为 8 bit，即 rgba 每位各 1 个字节
+        let bitsPerComponent = 8
+        // 颜色空间为 RGB，这决定了输出颜色的编码是 RGB 还是其他（比如 YUV）
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        // 设置位图颜色分布为 RGBA
+        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue
+        
+        var pixelsData = [UInt32](repeatElement(0, count: width * height))
+        
+        guard let content = CGContext(data: &pixelsData, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            return nil
+        }
+        
+        content.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        
+        return pixelsData
+    }
+    
+    public func pixelIndex(for point: CGPoint) -> Int? {
+        let size = self.size
+        guard point.x > 0 && point.x <= size.width
+            && point.y > 0 && point.y <= size.height else {
+                return nil
+        }
+        return (Int(point.y) * Int(size.width) + Int(point.x))
+    }
+    
+    func getColorMasking() -> [CGFloat] {
+        let pixels = self.extraPixels(in: self.size)
+        let index = self.pixelIndex(for: CGPoint.init(x: 1, y: 1))
+        let pixel = pixels![index!]
+        let r = Int((pixel >> 0) & 0xff)
+        let g = Int((pixel >> 8) & 0xff)
+        let b = Int((pixel >> 16) & 0xff)
+        return [CGFloat(r),CGFloat(r),CGFloat(g),CGFloat(g),CGFloat(b),CGFloat(b)]
 
+    }
+    
+    func getTransImage() -> UIImage? {
+        let colorMasking = self.getColorMasking()
+        return transparentColor(colorMasking: colorMasking)
+    }
+    
+    public func extraColor(for pixel: UInt32) -> UIColor {
+        let r = Int((pixel >> 0) & 0xff)
+        let g = Int((pixel >> 8) & 0xff)
+        let b = Int((pixel >> 16) & 0xff)
+        let a = Int((pixel >> 24) & 0xff)
+        return UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
+    }
+    
 }
 
 extension NSObject

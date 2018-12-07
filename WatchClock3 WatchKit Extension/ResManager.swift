@@ -23,6 +23,10 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
     private override init() {
         super.init()
         self.loadImageNamesFromAsset()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name("WeatherLocationChanged"), object: nil, queue: nil, using: WeatherLocationChanged)
+
+        
     }
 
     private var HandAnchorPoints: [String: CGFloat] = ["Hermes_minutes": 16,
@@ -40,7 +44,7 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
                                                        "Nike_seconds_orange": 26,
                                                        "Rolex_seconds_gold": 67,
                                                        "Rolex_seconds_luminous": 67,
-                                                       "Rolex_seconds_write": 67]
+                                                       "Rolex_seconds_white": 67]
     private var watchResList: [WatchRes] = []
 
     func getHandAnchorPoint(_ name: String) -> CGFloat {
@@ -96,7 +100,7 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
         return []
     }
 
-    var WeatherLocation: String = "101180101"
+//    var WeatherLocation: String = "101180101"
 
     lazy var cnWeather: CnWeather = CnWeather()
     func beginWeather() -> Void {
@@ -108,6 +112,10 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
     func showWeather(_ data: CnWeatherData) {
         self.weatherData = data
         NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
+    }
+    
+    func WeatherLocationChanged(noti : Notification) -> Void {
+        self.beginWeather()
     }
 
 

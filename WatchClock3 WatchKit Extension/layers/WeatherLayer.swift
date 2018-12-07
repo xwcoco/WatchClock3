@@ -96,6 +96,7 @@ class WeatherLayer : TextLayer {
         if (self.showWeatherIcon && self.weatherData != nil) {
             let weatherIconName = "white_" + weatherData!.getWeatherCode()
             weatherImg = UIImage.init(named: weatherIconName)
+            weatherImg = weatherImg?.tint(color: self.weatherIconColor.Color, blendMode: .color)
         }
         
         self.oldText = self.getText()
@@ -193,6 +194,7 @@ class WeatherLayer : TextLayer {
     }
     
     var showWeatherIcon : Bool = false
+    var weatherIconColor : MyColor = MyColor.init(color: UIColor.white)
     var weatherContent : WeatherContentStyle = .WeatherContentTemp
     var showColorAQI : Bool = true
     var weatherIconSize : CGFloat = 20
@@ -202,6 +204,8 @@ class WeatherLayer : TextLayer {
         case weatherContent
         case showColorAQI
         case weatherIconSize
+        case weatherIconColor
+        case showTempUnit
     }
     
     override init() {
@@ -216,6 +220,8 @@ class WeatherLayer : TextLayer {
         try container.encode(weatherContent, forKey: .weatherContent)
         try container.encode(showColorAQI, forKey: .showColorAQI)
         try container.encode(weatherIconSize, forKey: .weatherIconSize)
+        try container.encode(weatherIconColor, forKey: .weatherIconColor)
+        try container.encode(showTempUnit, forKey: .showTempUnit)
     }
     
     required init(from decoder: Decoder) throws {
@@ -225,6 +231,18 @@ class WeatherLayer : TextLayer {
         self.weatherContent = try container.decode(WeatherContentStyle.self, forKey: .weatherContent)
         self.showColorAQI = try container.decode(Bool.self, forKey: .showColorAQI)
         self.weatherIconSize = try container.decode(CGFloat.self, forKey: .weatherIconSize)
+        do {
+            self.weatherIconColor = try container.decode(MyColor.self, forKey: .weatherIconColor)
+        }
+        catch {
+            
+        }
+        do {
+            self.showTempUnit = try container.decode(Bool.self, forKey: .showTempUnit)
+        }
+        catch {
+            
+        }
         self.addWeatherListen()
     }
     

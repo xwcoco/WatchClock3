@@ -22,7 +22,7 @@ class WeatherLayerViewControl: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showTempUnit)
                 break
             case 1:
                 self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showColorAQI)
@@ -36,12 +36,16 @@ class WeatherLayerViewControl: UITableViewController {
             case 4:
                 self.setColorCell(color: layer!.textColor.Color, indexPath: indexPath)
                 break
-            case 5:
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showTempUnit)
             default:
                 break
             }
         case 2:
+            if indexPath.row == 0 {
+                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+            } else {
+                self.setColorCell(color: layer!.weatherIconColor.Color , indexPath: indexPath)
+            }
+        case 3:
             if (indexPath.row == 0) {
                 self.setImageCell(imageName: layer!.backImage, indexPath: indexPath, size: CGSize.init(width: 40, height: 40))
             } else {
@@ -66,7 +70,11 @@ class WeatherLayerViewControl: UITableViewController {
                 nv.backToSegueName = "unwindToWeatherLayer"
             }
             if let nv = segue.destination as? ColorSelectViewControl {
-                nv.editColor = layer!.textColor.Color
+                if index.section == 1 {
+                    nv.editColor = layer!.textColor.Color
+                } else {
+                    nv.editColor = layer!.weatherIconColor.Color
+                }
                 nv.editIndexPath = index
                 nv.backSegueName = "unwindToWeatherLayer"
             }
@@ -101,21 +109,24 @@ class WeatherLayerViewControl: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                self.layer!.showWeatherIcon = !self.layer!.showWeatherIcon
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+                self.layer?.showTempUnit = !self.layer!.showTempUnit
+                self.setCheckmarkCell(indexPath: indexPath, checked: self.layer!.showTempUnit)
                 self.watch?.refreshWatch()
                 break
             case 1:
                 self.layer!.showColorAQI = !self.layer!.showColorAQI
                 self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showColorAQI)
                 self.watch?.refreshWatch()
-            case 5:
-                self.layer?.showTempUnit = !self.layer!.showTempUnit
-                self.setCheckmarkCell(indexPath: indexPath, checked: self.layer!.showTempUnit)
-                self.watch?.refreshWatch()
             default:
                 break
             }
+        case 2:
+            if (indexPath.row == 0) {
+                self.layer!.showWeatherIcon = !self.layer!.showWeatherIcon
+                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+                self.watch?.refreshWatch()
+            }
+            break
             
         default:
             break
@@ -129,7 +140,11 @@ class WeatherLayerViewControl: UITableViewController {
             watch?.refreshWatch()
         }
         if let nv = unwindSegue.source as? ColorSelectViewControl {
-            layer!.textColor.Color = nv.editColor!
+            if nv.editIndexPath!.section == 1 {
+                layer!.textColor.Color = nv.editColor!
+            } else {
+                layer!.weatherIconColor.Color = nv.editColor!
+            }
             setColorCell(color: layer!.textColor.Color, indexPath: nv.editIndexPath!)
             watch?.refreshWatch()
         }

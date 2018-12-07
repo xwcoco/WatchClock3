@@ -30,6 +30,8 @@ class WatchManager {
 //                }
             }
         }
+        self.WeatherLocation = UserDefaults.standard.string(forKey: "WeatherLocation") ?? ""
+        self.WeatherCityName = UserDefaults.standard.string(forKey: "WeatherCityName") ?? ""
     }
 
     func saveWatchToFile() -> Void {
@@ -38,6 +40,8 @@ class WatchManager {
             let watch = WatchList[i]
             UserDefaults.standard.set(watch, forKey: "MyWatch" + String(i))
         }
+        UserDefaults.standard.set(self.WeatherLocation, forKey: "WeatherLocation")
+        UserDefaults.standard.set(self.WeatherCityName, forKey: "WeatherCityName")
     }
     
     func getWatch(index : Int) -> MyWatch? {
@@ -72,4 +76,8 @@ class WatchManager {
             self.saveWatchToFile()
         }
     }
+    
+    //101180101
+    var WeatherLocation: String = ""
+    var WeatherCityName : String = ""
 }

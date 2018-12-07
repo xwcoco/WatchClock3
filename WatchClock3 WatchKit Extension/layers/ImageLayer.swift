@@ -38,7 +38,6 @@ class ImageLayer: WatchLayer {
     
     override func getImage() -> UIImage? {
         if self.imageData != nil {
-            print(imageData?.count)
             return UIImage.init(data: self.imageData!)
         }
         return UIImage.init(named: self.imageName)
