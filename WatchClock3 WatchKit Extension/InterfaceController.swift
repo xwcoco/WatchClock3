@@ -32,14 +32,32 @@ class InterfaceController: WKInterfaceController {
         if self.curWeatchIndex < 0 || self.curWeatchIndex >= WatchManager.Manager.WatchList.count {
             self.curWeatchIndex = 0
         }
+//        var lastscene = self.scene.scene as? WatchScene
+//        if (lastscene != nil) {
+//            lastscene?.watch?.stopTimer()
+//        }
+
         var watch : MyWatch? = WatchManager.Manager.getWatch(index: self.curWeatchIndex)
         if (watch == nil) {
-            watch = MyWatch()
+            watch = self.createDefaultWatch()
         }
         let currentDeviceSize: CGSize = WKInterfaceDevice.current().screenBounds.size
         watch?.scene.camera?.xScale = 184.0 / currentDeviceSize.width
         watch?.scene.camera?.yScale = 224 / currentDeviceSize.height
+        watch?.BeginUpdate()
+        watch?.EndUpdate()
         self.scene.presentScene(watch?.scene)
+    }
+    
+    func createDefaultWatch() -> MyWatch {
+        let watch = WatchManager.createWatch(backimage: "Hermes_watch_face_original", logoImage: "hermes_logo_white", hourImage: "Hermes_hours", minuteImage: "Hermes_minutes", secondImage: "Hermes_seconds")
+        let layer = MoonLayer()
+        layer.y = 45
+        watch.addLayer(layer: layer)
+        let textLayer = TextLayer.init(fontName: "HermesESPACE", FontSize: 48, Y: -90, backImage: "infoback1")
+        watch.addLayer(layer: textLayer)
+        watch.Settings.smoothHand = false
+        return watch
     }
     
     override func willActivate() {
@@ -93,6 +111,25 @@ extension InterfaceController : IPhoneSesionDelegate {
     func onReciveMsg(message: [String : Any]) -> [String : Any]? {
         if (message.count > 0) {
             for (key, value) in message {
+                print("key = '\(key)")
+                print("value = '\(value)")
+//                if key.contains("_MD5") {
+//                    continue
+//                }
+//                let md5Name = key + "_MD5"
+//                if message[md5Name] != nil {
+//                    let md5 = message[md5Name] as? String
+//                    if let tmpStr = value as? String {
+//                        print(tmpStr)
+//                        print(tmpStr.count)
+//                        let rmd5 = tmpStr.utf8.md5.rawValue
+//                        print(md5)
+//                        print(rmd5)
+//                        if md5 != rmd5 {
+//                            continue
+//                        }
+//                    }
+//                }
                 UserDefaults.standard.set(value, forKey: key)
             }
         }

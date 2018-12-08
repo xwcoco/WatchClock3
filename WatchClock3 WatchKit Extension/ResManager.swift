@@ -23,13 +23,23 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
     private override init() {
         super.init()
         self.loadImageNamesFromAsset()
-        
+
         NotificationCenter.default.addObserver(forName: Notification.Name("WeatherLocationChanged"), object: nil, queue: nil, using: WeatherLocationChanged)
 
-        
+
     }
 
-    private var HandAnchorPoints: [String: CGFloat] = ["Hermes_minutes": 16,
+    private var HandAnchorPoints: [String: CGFloat] = ["Hermes_minutes": 18,
+                                                       "Hermes_hours": 18,
+                                                       "Hermes_hours_white": 18,
+                                                       "HermesDoubleclour_H": 18,
+                                                       "HermesDoubleclour_H_Orange": 18,
+                                                       "HermesDoubleclour_H_Pink": 18,
+                                                       "Nike_hours": 18,
+                                                       "Nike_hours_red": 18,
+                                                       "Rolex_hours_gold": 18,
+                                                       "Rolex_hours_luminous": 18,
+                                                       "Rolex_hours_white": 18,
                                                        "Hermes_minutes_white": 16,
                                                        "HermesDoubleclour_M_Orange": 18,
                                                        "HermesDoubleclour_M_Pink": 18,
@@ -46,6 +56,30 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
                                                        "Rolex_seconds_luminous": 67,
                                                        "Rolex_seconds_white": 67]
     private var watchResList: [WatchRes] = []
+
+    private var infoBackEdgeInsets: [String: UIEdgeInsets] = ["infoback1": UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10),
+                                                              "infoback2": UIEdgeInsets.init(top: 7, left: 7, bottom: 7, right: 7),
+                                                              "infoback5": UIEdgeInsets.init(top: 22, left: 22, bottom: 22, right: 22),
+                                                              "infoback6": UIEdgeInsets.init(top: 15, left: 15, bottom: 15, right: 15),
+                                                              "info_back_3": UIEdgeInsets.init(top: 20, left: 20, bottom: 20, right: 20)]
+    
+    private var infoBackNoTintColor : [String] = ["infoback5","infoback6"]
+    
+    func getInfoBackCanTingColor(_ name : String) -> Bool {
+        let index = self.infoBackNoTintColor.firstIndex(of: name)
+        if (index != nil) {
+            return false
+        }
+        return true
+    }
+
+    func getInfoBackEdgeInsets(_ name: String) -> UIEdgeInsets? {
+        let index = self.infoBackEdgeInsets.index(forKey: name)
+        if (index != nil) {
+            return self.infoBackEdgeInsets.values[index!]
+        }
+        return nil
+    }
 
     func getHandAnchorPoint(_ name: String) -> CGFloat {
         let index = self.HandAnchorPoints.index(forKey: name)
@@ -81,7 +115,7 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
                 self.addToRes(category: "infoback", list: json["infoback"] as! [String], append: "empty")
                 self.addToRes(category: "altitude", list: json["altitude"] as! [String])
 
-                
+
             }
             catch let error {
                 print("res error")
@@ -113,8 +147,8 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
         self.weatherData = data
         NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
     }
-    
-    func WeatherLocationChanged(noti : Notification) -> Void {
+
+    func WeatherLocationChanged(noti: Notification) -> Void {
         self.beginWeather()
     }
 
@@ -125,11 +159,11 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
     static var Seconds: String = "seconds"
     static var Logos: String = "logos"
     static var Infoback: String = "infoback"
-    static var altitudeBG : String = "altitude"
+    static var altitudeBG: String = "altitude"
 
 
     var locationManager: CLLocationManager?
-    
+
     func initLocationManager() -> Void {
         if (locationManager == nil) {
             locationManager = CLLocationManager()
@@ -139,7 +173,7 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
             locationManager?.requestAlwaysAuthorization()
         }
     }
-    
+
     func initLocation() {
         self.initLocationManager()
         if (CLLocationManager.locationServicesEnabled()) {

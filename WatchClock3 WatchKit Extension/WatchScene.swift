@@ -60,6 +60,7 @@ class WatchScene: SKScene,SKSceneDelegate {
             colorRegion?.alpha = 1
             colorRegion?.colorBlendFactor = 1
             colorRegion?.color = watch!.Settings.ColorRegionColor.Color
+            colorRegion?.colorBlendFactor = 1
             colorRegionReflection?.alpha = 1
             colorRegionReflection?.colorBlendFactor = 1
         } else {
@@ -82,6 +83,9 @@ class WatchScene: SKScene,SKSceneDelegate {
     }
     
     var needUpdate : Bool = false
+    var lastHour : Int = -1
+    var lastMinute : Int = -1
+    var lastSecond : Int = -1
     
     override func update(_ currentTime: TimeInterval) {
         if self.needUpdate {
@@ -90,8 +94,27 @@ class WatchScene: SKScene,SKSceneDelegate {
             return
         }
         
+        self.watch?.checkForUpdate()
+        
         if watch!.Settings.smoothHand {
             self.updateHands()
+//        } else if self.watch!.dateChanged {
+//            self.updateClock()
+//            self.watch!.dateChanged = false
+        } else {
+            self.watch?.UpdateTime()
+            let hour = self.watch?.getDateValue(.hour)
+            let minute = self.watch?.getDateValue(.minute)
+            let seconds = self.watch?.getDateValue(.second)
+            
+            if (hour != self.lastHour || minute != self.lastMinute || seconds != self.lastSecond) {
+                self.lastHour = hour!
+                self.lastMinute = minute!
+                self.lastSecond = seconds!
+                
+                self.updateClock()
+            }
+            
         }
         
         if self.watch!.isDemoMode {

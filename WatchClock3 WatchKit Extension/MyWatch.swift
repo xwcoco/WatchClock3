@@ -25,7 +25,7 @@ class MyWatch: NSObject, Codable {
         scene.getInitNode()
         scene.watch = self
 
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: self.onTimer)
+//        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: self.onTimer)
     }
 
     private var idCounter: Int = 0
@@ -39,55 +39,76 @@ class MyWatch: NSObject, Codable {
     var curDate: Date = Date()
 
     var isPaused: Bool = false
-    
-    var isDemoMode : Bool = false {
+
+    var isDemoMode: Bool = false {
         didSet {
             self.demoCount = 0
         }
     }
+
+    var demoCount: Int = 0
+
+//    var dateChanged : Bool = false
+
+//    func stopTimer() -> Void {
+//        self.timer?.invalidate()
+//        self.timer = nil
+//    }
+
+//    private func onTimer(_ time: Timer) -> Void {
+//        if self.isPaused {
+//            return
+//        }
+//        curDate = Date()
+//        self.dateChanged = true
+//        if (!self.Settings.smoothHand) {
+//
+//            for i in 0..<self.watchLayers.count {
+//                let layer = self.watchLayers[i]
+//                if layer.checkChanged() {
+//                    if var node = self.scene.getLayerNode(index: i) {
+//                        layer.setLayerNode(layerNode: &node)
+//                    }
+//                    layer.resetChanged()
+//                }
+//            }
+//            self.scene.updateClock()
+//        } else {
+//            for layer in self.watchLayers {
+//                if layer.checkChanged() {
+//                    self.scene.needUpdate = true
+//                    layer.resetChanged()
+//                }
+//            }
+//        }
+//
+//        if self.isDemoMode {
+//            self.demoCount = self.demoCount + 1
+//            if self.demoCount > 5 {
+//                self.isPaused = true
+//            }
+//        }
+//
+//    }
+
+    func checkForUpdate() -> Void {
+        for layer in self.watchLayers {
+            if layer.checkChanged() {
+                self.scene.needUpdate = true
+                layer.resetChanged()
+            }
+        }
+    }
     
-    var demoCount : Int = 0
-
-    private func onTimer(_ time: Timer) -> Void {
-        if self.isPaused {
-            return
-        }
-        curDate = Date()
-        if (!self.Settings.smoothHand) {
-
-            for i in 0..<self.watchLayers.count {
-                let layer = self.watchLayers[i]
-                if layer.checkChanged() {
-                    if var node = self.scene.getLayerNode(index: i) {
-                        layer.setLayerNode(layerNode: &node)
-                    }
-                    layer.resetChanged()
-                }
-            }
-            self.scene.updateClock()
-        } else {
-            for layer in self.watchLayers {
-                if layer.checkChanged() {
-                    self.scene.needUpdate = true
-                    layer.resetChanged()
-                }
-            }
-        }
-        
-        if self.isDemoMode {
-            self.demoCount = self.demoCount + 1
-            if self.demoCount > 5 {
-                self.isPaused = true
-            }
-        }
-        
+    func UpdateTime() -> Void {
+        self.curDate = Date()
     }
 
     func getDateValue(_ comp: Calendar.Component) -> Int {
         return self.calendar.component(comp, from: curDate)
     }
 
-    private var timer: Timer?
+//    private var timer: Timer?
 
     public var watchLayers: [WatchLayer] = []
 
@@ -197,10 +218,16 @@ class MyWatch: NSObject, Codable {
 
                 for key in layers {
                     if let tmpv = key as? Dictionary<String, Any> {
-                        var className = tmpv["className"] as! String
-                        className = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + className
+                        var tmpClassName = tmpv["className"] as! String
+
+                        #if os(iOS)
+                            tmpClassName = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + tmpClassName
+                        #else
+                            tmpClassName = "WatchClock3_WatchKit_Extension" + "." + tmpClassName
+                        #endif
+
                         do {
-                            let aClass = NSClassFromString(className) as? WatchLayer.Type
+                            let aClass = NSClassFromString(tmpClassName) as? WatchLayer.Type
                             if aClass != nil {
                                 let layerData = try JSONSerialization.data(withJSONObject: tmpv, options: .prettyPrinted)
                                 let aLayer = try jsonDecoder.decode(aClass!, from: layerData)

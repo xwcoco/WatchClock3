@@ -49,6 +49,8 @@
 		4F5D336F21B2ABAB0000B47A /* TickMarkLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D336E21B2ABAB0000B47A /* TickMarkLayerViewControl.swift */; };
 		4F6444AA21ACF2A600693CC0 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F6444A921ACF2A600693CC0 /* FaceScene.sks */; };
 		4F6444AB21ACF2A600693CC0 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F6444A921ACF2A600693CC0 /* FaceScene.sks */; };
+		4F6F05A021BA87B00007CB4C /* MD5Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F059F21BA87B00007CB4C /* MD5Digest.swift */; };
+		4F6F05A121BA87B00007CB4C /* MD5Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F059F21BA87B00007CB4C /* MD5Digest.swift */; };
 		4F712FC021AFF30F0003C1FF /* watchimage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9341921AFE60300625C10 /* watchimage.json */; };
 		4F712FC121AFF3E20003C1FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF521ACE72200B05CDB /* Assets.xcassets */; };
 		4F712FC321AFFA170003C1FF /* LayerManagerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F712FC221AFFA170003C1FF /* LayerManagerViewControl.swift */; };
@@ -190,6 +192,7 @@
 		4F5D336B21B288630000B47A /* TickMarkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickMarkLayer.swift; sourceTree = "<group>"; };
 		4F5D336E21B2ABAB0000B47A /* TickMarkLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickMarkLayerViewControl.swift; sourceTree = "<group>"; };
 		4F6444A921ACF2A600693CC0 /* FaceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FaceScene.sks; sourceTree = "<group>"; };
+		4F6F059F21BA87B00007CB4C /* MD5Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Digest.swift; sourceTree = "<group>"; };
 		4F712FC221AFFA170003C1FF /* LayerManagerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerManagerViewControl.swift; sourceTree = "<group>"; };
 		4F86762E21B7D433005B3965 /* KiClipperHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiClipperHelper.swift; sourceTree = "<group>"; };
 		4F86762F21B7D434005B3965 /* KiClipperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KiClipperView.swift; sourceTree = "<group>"; };
@@ -323,6 +326,7 @@
 				4F2C9FBE21B66CCF000A2FB3 /* MagicParticle.sks */,
 				4F2C9FC721B67465000A2FB3 /* RainParticle.sks */,
 				4F585FA821BA0D14005F4140 /* WatchClock3 WatchKit Extension-Bridging-Header.h */,
+				4F6F059F21BA87B00007CB4C /* MD5Digest.swift */,
 			);
 			path = "WatchClock3 WatchKit Extension";
 			sourceTree = "<group>";
@@ -564,7 +568,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your wo# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\n# xcrun agvtool new-version -all ${buildNumber}\n\n\n";
+			shellScript = "# Type a script or drag a script file from your wo# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\nxcrun agvtool new-version -all ${buildNumber}\n\n\n";
 		};
 		4FE9341A21AFE61700625C10 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -590,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6F05A021BA87B00007CB4C /* MD5Digest.swift in Sources */,
 				4FE81E0021B76D6E0053AA28 /* MoonLayer.swift in Sources */,
 				4FFCA78921AFBAB8002A2D73 /* WatchSettingsViewControl.swift in Sources */,
 				4FFCA78021AFAF8B002A2D73 /* WatchScene.swift in Sources */,
@@ -653,6 +658,7 @@
 				4FE81E0121B76D6E0053AA28 /* MoonLayer.swift in Sources */,
 				4F585FB321BA581F005F4140 /* IPhoneSessionUtil.swift in Sources */,
 				4FFCA78E21AFC689002A2D73 /* ImageLayer.swift in Sources */,
+				4F6F05A121BA87B00007CB4C /* MD5Digest.swift in Sources */,
 				4FFCA78421AFAFD6002A2D73 /* MyWatch.swift in Sources */,
 				4FCE08B621B4E1DF007CD453 /* Weather.swift in Sources */,
 				4F5D336621B231550000B47A /* WatchSettings.swift in Sources */,

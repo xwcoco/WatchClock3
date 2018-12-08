@@ -12,7 +12,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller spacing="0.0" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller spacing="0.0" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchClock3_WatchKit_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" id="3RR-BL-YJx">
                             <items>

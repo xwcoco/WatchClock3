@@ -96,7 +96,7 @@ class WeatherLayer : TextLayer {
         if (self.showWeatherIcon && self.weatherData != nil) {
             let weatherIconName = "white_" + weatherData!.getWeatherCode()
             weatherImg = UIImage.init(named: weatherIconName)
-            weatherImg = weatherImg?.tint(color: self.weatherIconColor.Color, blendMode: .color)
+            weatherImg = weatherImg?.tint(color: self.weatherIconColor.Color, blendMode: .destinationIn)
         }
         
         self.oldText = self.getText()

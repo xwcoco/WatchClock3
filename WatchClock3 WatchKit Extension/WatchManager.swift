@@ -47,6 +47,7 @@ class WatchManager {
     func getWatch(index : Int) -> MyWatch? {
         if (index >= 0 && index < self.WatchList.count) {
             let jsonStr = self.WatchList[index]
+            print(jsonStr)
             let watch = MyWatch.fromJSON(data: jsonStr)
             watch?.scene.updateWatch()
 //            watch?.BeginUpdate()
@@ -80,4 +81,64 @@ class WatchManager {
     //101180101
     var WeatherLocation: String = ""
     var WeatherCityName : String = ""
+    
+    
+    class func createWatch(backimage : String,logoImage : String,hourImage : String,minuteImage : String,secondImage : String,logoColor : UIColor = UIColor.white) -> MyWatch {
+        let watch = MyWatch()
+        let bkLayer = ImageLayer()
+        bkLayer.imageName = backimage
+        watch.addLayer(layer: bkLayer)
+        
+        if logoImage != "" {
+            let logoLayer = ImageLayer()
+            logoLayer.imageName = logoImage
+            logoLayer.y = 100
+            logoLayer.fillColor.Color = logoColor
+            logoLayer.fillWithColor = true
+            watch.addLayer(layer: logoLayer)
+        }
+        
+        
+        let hLayer = HourLayer()
+        hLayer.imageName = hourImage
+        hLayer.anchorFromBottom = ResManager.Manager.getHandAnchorPoint(hourImage)
+        watch.addLayer(layer: hLayer)
+        
+        if (minuteImage != "") {
+            let mLayer = MinuteLayer()
+            mLayer.imageName = minuteImage
+            mLayer.anchorFromBottom = ResManager.Manager.getHandAnchorPoint(minuteImage)
+            watch.addLayer(layer: mLayer)
+        }
+        
+        if secondImage != "" {
+            let sLayer = SecondsLayer()
+            sLayer.imageName = secondImage
+            sLayer.anchorFromBottom = ResManager.Manager.getHandAnchorPoint(secondImage)
+            watch.addLayer(layer: sLayer)
+        }
+        
+        
+        return watch
+    }
+    
+    class func createWatch(backimage : String,logoImage : String,hourImage : String,minuteImage : String,secondImage : String,colorRegionColor : UIColor,faceBackgroundColor: UIColor,alternateMajorMarkColor : UIColor,alterMinorMarkColor : UIColor,logoColor : UIColor = UIColor.white) -> MyWatch {
+        
+        let watch = WatchManager.createWatch(backimage: backimage, logoImage: logoImage, hourImage: hourImage, minuteImage: minuteImage, secondImage: secondImage,logoColor : logoColor)
+        let layer = RectTickMarkLayer()
+        layer.tickmarkStyle = .TickmarkStyleNone
+        layer.numeralStyle = .NumeralStyleNone
+        layer.alternateMajorMarkColor.Color = alternateMajorMarkColor
+        layer.alternateMinorMarkColor.Color = alterMinorMarkColor
+        watch.addLayer(layer: layer)
+        
+        watch.Settings.showColorRegion = true
+        watch.Settings.backgroundColor.Color = faceBackgroundColor
+        watch.Settings.ColorRegionColor.Color = colorRegionColor
+        
+        return watch
+        
+    }
+
+
 }

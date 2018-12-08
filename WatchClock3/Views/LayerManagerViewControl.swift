@@ -74,7 +74,7 @@ class LayerManagerViewControl: UITableViewController {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: "layeritem") {
             if let layer = self.watch?.getLayer(index: indexPath.row) {
                 cell.textLabel?.text = layer.getTitle()
-                cell.imageView?.image = layer.getImage()?.getImageWithSize(size: CGSize.init(width: 80, height: 80))
+                cell.imageView?.image = layer.getImage()?.getImageWithSize(size: CGSize.init(width: 67, height: 80))
             }
             return cell
         }

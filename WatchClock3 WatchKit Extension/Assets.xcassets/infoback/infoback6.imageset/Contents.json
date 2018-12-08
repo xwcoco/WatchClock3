@@ -1,20 +1,6 @@
 {
   "images" : [
     {
-      "resizing" : {
-        "mode" : "9-part",
-        "center" : {
-          "mode" : "stretch",
-          "width" : 2,
-          "height" : 3
-        },
-        "cap-insets" : {
-          "bottom" : 11,
-          "top" : 9,
-          "right" : 8,
-          "left" : 7
-        }
-      },
       "idiom" : "universal",
       "filename" : "infoback6.png",
       "scale" : "1x"

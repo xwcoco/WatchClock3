@@ -124,17 +124,33 @@ extension UIImage {
         return image
     }
 
-    public func getImageWithSize(size: CGSize) -> UIImage {
-        UIGraphicsBeginImageContext(size)
+    public func getImageWithSize(size newSize: CGSize) -> UIImage {
+//        UIGraphicsBeginImageContext(size)
+//
+//        if (self.size.width > newSize.width || self.size.height > newSize.height) {
+//
+////            let scalew = newSize.width / self.size.width
+////            let scaleh = newSize.height / size.height
+////            var newRect : CGRect
+////            if (scaleh < scalew) {
+////                newRect = CGRect.init(x: 0, y: 0, width: size.width * scaleh, height: newSize.height)
+////            } else {
+////                newRect = CGRect.init(x: 0, y: 0, width: newSize.width, height: size.height * scalew)
+////            }
+////            newRect.origin.x = (-newRect.width + newSize.width) / 2
+////            newRect.origin.y = (-newRect.height + newSize.height) / 2
+////            self.draw(in: newRect)
+//            self.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+//        } else {
+//            self.draw(at: CGPoint(x: (newSize.width - self.size.width) / 2, y: (newSize.height - self.size.height) / 2))
+//        }
 
-        if (self.size.width > size.width || self.size.height > size.height) {
-            self.draw(in: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
-        } else {
-            self.draw(at: CGPoint(x: (size.width - self.size.width) / 2, y: (size.height - self.size.height) / 2))
+        if (self.size.width > newSize.width || self.size.height > newSize.height) {
+            return self.resizeImage(targetSize: newSize)
         }
-
-
         let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsBeginImageContext(size)
+        self.draw(at: CGPoint(x: (newSize.width - self.size.width) / 2, y: (newSize.height - self.size.height) / 2))
         UIGraphicsEndImageContext()
         return image ?? self
 
@@ -159,15 +175,25 @@ extension UIImage {
     {
         let drawRect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        let context = UIGraphicsGetCurrentContext()
-        context?.clip(to: drawRect, mask: cgImage!)
-//        CGContextClipToMask(context!, drawRect, CGImage)
+        //let context = UIGraphicsGetCurrentContext()
+        //CGContextClipToMask(context, drawRect, CGImage)
         color.setFill()
         UIRectFill(drawRect)
         draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
         let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return tintedImage!
+//        let drawRect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
+//        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+//        let context = UIGraphicsGetCurrentContext()
+//        context?.clip(to: drawRect, mask: cgImage!)
+////        CGContextClipToMask(context!, drawRect, CGImage)
+//        color.setFill()
+//        UIRectFill(drawRect)
+//        draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
+//        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return tintedImage!
     }
     
     //返回一个将白色背景变透明的UIImage
@@ -258,6 +284,14 @@ extension UIImage {
         let b = Int((pixel >> 16) & 0xff)
         let a = Int((pixel >> 24) & 0xff)
         return UIColor.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
+    }
+    
+    public func getSliceImage() -> UIImage {
+        return self.resizableImage(withCapInsets: UIEdgeInsets.init(top: self.size.height / 2, left: self.size.width / 2, bottom: self.size.height / 2 + 1, right: self.size.width / 2 + 1), resizingMode: .tile)
+    }
+    
+    public func getSliceImage(edgeInsert : UIEdgeInsets) -> UIImage {
+        return self.resizableImage(withCapInsets: edgeInsert, resizingMode: .tile)
     }
     
 }

@@ -20,7 +20,7 @@ class MoonLayer : WatchLayer {
     
     override func getImage() -> UIImage? {
         let index = self.getMoonIndex()
-        var img = UIImage.init(named: "moon_"+String(index))
+        let img = UIImage.init(named: "moon_"+String(index))
 //        img = img?.getTransImage()
         return img
     }
@@ -44,9 +44,6 @@ class MoonLayer : WatchLayer {
             
             layerNode.size = size
         }
-        
-
     }
-    
     
 }

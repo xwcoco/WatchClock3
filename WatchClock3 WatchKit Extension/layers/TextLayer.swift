@@ -29,6 +29,10 @@ class TextLayer: WatchLayer {
         case textContent
         case textColor
         case backImage
+        case backImageColor
+        case backImage_X
+        case backImage_Y
+        case textTopY
     }
 
     var fontName: String = ""
@@ -36,6 +40,10 @@ class TextLayer: WatchLayer {
     var textContent: TextContentStyle = .TextContentDate
     var textColor: MyColor = MyColor.init(color: UIColor.white)
     var backImage: String = ""
+    var backImageColor : MyColor = MyColor.init(color: UIColor.white)
+    var backImage_X : CGFloat = 10
+    var backImage_Y : CGFloat = 10
+    var textTopY : CGFloat = 0
 
     override func getTag() -> Int {
         return 6
@@ -126,8 +134,7 @@ class TextLayer: WatchLayer {
 
         if (self.backImage != "" && self.backImage != "empty") {
             img = UIImage.init(named: backImage)
-//            img = img?.getTransImage()//            img = img?.changeColorToTransparent()
-//            img = img?.tint(color: UIColor.black, blendMode: .overlay)
+//            img = img?.tint(color: self.backImageColor.Color, blendMode: .destinationIn)
         }
 
         self.oldText = self.getText()
@@ -151,7 +158,7 @@ class TextLayer: WatchLayer {
             }
 
             if (img != nil) {
-                size = CGSize.init(width: size!.width + 20, height: size!.height + 10)
+                size = CGSize.init(width: size!.width + self.backImage_X, height: size!.height + self.backImage_Y)
             }
         }
 
@@ -160,6 +167,15 @@ class TextLayer: WatchLayer {
         let context = UIGraphicsGetCurrentContext()
 
         if (img != nil) {
+            if ResManager.Manager.getInfoBackCanTingColor(self.backImage) {
+                img = img?.tint(color: self.backImageColor.Color, blendMode: .destinationIn)
+            }
+            if let edgeInsets = ResManager.Manager.getInfoBackEdgeInsets(self.backImage) {
+                img = img?.getSliceImage(edgeInsert: edgeInsets)
+            } else {
+                img = img?.getSliceImage()
+            }
+            
             img?.draw(in: CGRect(origin: CGPoint.zero, size: size!))
         } else {
             context?.setFillColor(UIColor.clear.cgColor)
@@ -168,7 +184,7 @@ class TextLayer: WatchLayer {
 
         //vertically center (depending on font)
         let text_h = font.lineHeight
-        let text_y = (size!.height - text_h) / 2
+        let text_y = (size!.height - text_h) / 2 + self.textTopY
         let text_rect = CGRect(x: 0, y: text_y, width: size!.width, height: text_h)
 
         text.draw(in: text_rect.integral, withAttributes: attributes)
@@ -223,6 +239,20 @@ class TextLayer: WatchLayer {
         self.backImage = bImage
         
     }
+    
+    convenience init(fontName fn : String,FontSize fs : CGFloat,FontColor fc : UIColor,X: CGFloat,Y : CGFloat,backImage bImage : String,backImageColor bimgColor : UIColor,BackX : CGFloat,BackY : CGFloat,textTopY topy : CGFloat) {
+        self.init()
+        self.fontName = fn
+        self.fontSize = fs
+        self.x = X
+        self.y = Y
+        self.backImage = bImage
+        self.textColor.Color = fc
+        self.backImageColor.Color = bimgColor
+        self.backImage_X = BackX
+        self.backImage_Y = BackY
+        self.textTopY = topy
+    }
 
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
@@ -232,6 +262,10 @@ class TextLayer: WatchLayer {
         self.textColor = try container.decode(MyColor.self, forKey: .textColor)
         self.textContent = try container.decode(TextContentStyle.self, forKey: .textContent)
         self.backImage = try container.decode(String.self, forKey: .backImage)
+        self.backImageColor = try container.decode(MyColor.self, forKey: .backImageColor)
+        self.backImage_X = try container.decode(CGFloat.self, forKey: .backImage_X)
+        self.backImage_Y = try container.decode(CGFloat.self, forKey: .backImage_Y)
+        self.textTopY = try container.decode(CGFloat.self, forKey: .textTopY)
     }
 
     override func encode(to encoder: Encoder) throws {
@@ -242,6 +276,10 @@ class TextLayer: WatchLayer {
         try container.encode(textColor, forKey: .textColor)
         try container.encode(textContent, forKey: .textContent)
         try container.encode(backImage, forKey: .backImage)
+        try container.encode(backImageColor, forKey: .backImageColor)
+        try container.encode(backImage_X, forKey: .backImage_X)
+        try container.encode(backImage_Y, forKey: .backImage_Y)
+        try container.encode(textTopY, forKey: .textTopY)
     }
 
 }

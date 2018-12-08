@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SpriteKit
+import CommonCrypto
 
 class WatchManagerViewControl: UITableViewController {
     @IBOutlet weak var AddButton: UIBarButtonItem!
@@ -27,7 +28,7 @@ class WatchManagerViewControl: UITableViewController {
     }
 
     @IBAction func SyncButtonClick(_ sender: Any) {
-//        self.SyncWithWatch()
+        self.SyncWithWatch()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,18 +166,40 @@ class WatchManagerViewControl: UITableViewController {
         //        let dict : Dictionary<String,Any> = Dictionary.init()
         //        dict.
         
+        
         var dict: [String: Any] = [:]
         dict["MyWatchNum"] = WatchManager.Manager.WatchList.count
         for i in 0..<WatchManager.Manager.WatchList.count {
-            dict["MyWatch" + String(i)] = WatchManager.Manager.WatchList[i]
+            let tmpStr = WatchManager.Manager.WatchList[i]
+            dict["MyWatch" + String(i)] = tmpStr
+//            let md5 = tmpStr.utf8.md5.rawValue
+//            print(tmpStr)
+//            print(md5)
+//            print(MD5(tmpStr))
+//            print(tmpStr.count)
+////            let md5Data : Data = Data.init(tmpStr)
+////            print(tmpStr.utf8.md51())
+//            dict["MyWatch" + String(i)+"_MD5"] = md5
         }
-//        dict["WeatherLocation"] = WatchSettings.WeatherLocation
-        
+        dict["WeatherLocation"] = WatchManager.Manager.WeatherLocation
         IWatchSessionUtil.SessionManager.SendMessageToWatch(msgDict: dict)
         
     }
 
-    
+    func MD5(_ string: String) -> String? {
+        let length = Int(CC_MD5_DIGEST_LENGTH)
+        var digest = [UInt8](repeating: 0, count: length)
+        
+        if let d = string.data(using: String.Encoding.utf8) {
+            _ = d.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
+                CC_MD5(body, CC_LONG(d.count), &digest)
+            }
+        }
+        
+        return (0..<length).reduce("") {
+            $0 + String(format: "%02x", digest[$1])
+        }
+    }
 }
 
 extension WatchManagerViewControl : WatchSessionDelegate {

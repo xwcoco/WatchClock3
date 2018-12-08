@@ -14,13 +14,18 @@ class ImageLayer: WatchLayer {
     private enum CodingKeys: String, CodingKey {
         case imageName
         case imageData
+        case fillWithColor
+        case fillColor
     }
 
     public var imageName: String = ""
 
     override func setLayerNode(layerNode : inout SKSpriteNode) -> Void {
         super.setLayerNode(layerNode: &layerNode)
-        if let image = self.getImage() {
+        if var image = self.getImage() {
+            if self.fillWithColor {
+                image = image.tint(color: self.fillColor.Color, blendMode: .destinationIn)
+            }
             let texture = SKTexture.init(image: image)
             layerNode.texture = texture
             var size = texture.size()
@@ -37,16 +42,27 @@ class ImageLayer: WatchLayer {
     }
     
     override func getImage() -> UIImage? {
+        var image : UIImage?
         if self.imageData != nil {
-            return UIImage.init(data: self.imageData!)
+            image =  UIImage.init(data: self.imageData!)
+        } else {
+            image = UIImage.init(named: self.imageName)
         }
-        return UIImage.init(named: self.imageName)
+        if self.fillWithColor {
+            image = image?.tint(color: self.fillColor.Color, blendMode: .destinationIn)
+        }
+        return image
     }
+    
+    var fillWithColor : Bool = false
+    var fillColor : MyColor = MyColor.init(color: UIColor.white)
     
     override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(imageName, forKey: .imageName)
+        try container.encode(fillWithColor, forKey: .fillWithColor)
+        try container.encode(fillColor, forKey: .fillColor)
         if self.imageData != nil {
             try container.encode(imageData, forKey: .imageData)
         }
@@ -61,12 +77,16 @@ class ImageLayer: WatchLayer {
 //        print("ImageView init from decoder...")
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.imageName = try container.decode(String.self, forKey: .imageName)
+        self.fillWithColor = try container.decode(Bool.self, forKey: .fillWithColor)
+        self.fillColor = try container.decode(MyColor.self, forKey: .fillColor)
+        
         do {
             self.imageData = try container.decode(Data.self, forKey: .imageData)
         }
         catch {
             
         }
+        
     }
     
     override func getTag() -> Int {

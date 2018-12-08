@@ -40,16 +40,21 @@ class WeatherLayerViewControl: UITableViewController {
                 break
             }
         case 2:
-            if indexPath.row == 0 {
+            switch indexPath.row {
+            case 0:
                 self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
-            } else {
+            case 1:
                 self.setColorCell(color: layer!.weatherIconColor.Color , indexPath: indexPath)
+            case 2:
+                self.setLabelStepperCell(name: "Weather Icon Size", value: layer!.weatherIconSize, indexPath: indexPath)
+            default:
+                break
             }
         case 3:
             if (indexPath.row == 0) {
                 self.setImageCell(imageName: layer!.backImage, indexPath: indexPath, size: CGSize.init(width: 40, height: 40))
             } else {
-                self.setLabelStepperCell(name: "Weather Icon Size", value: layer!.weatherIconSize, indexPath: indexPath)
+                self.setColorCell(color: layer!.backImageColor.Color, indexPath: indexPath)
             }
         default:
             break
@@ -72,8 +77,10 @@ class WeatherLayerViewControl: UITableViewController {
             if let nv = segue.destination as? ColorSelectViewControl {
                 if index.section == 1 {
                     nv.editColor = layer!.textColor.Color
-                } else {
+                } else if index.section == 2 {
                     nv.editColor = layer!.weatherIconColor.Color
+                } else {
+                    nv.editColor = layer!.backImageColor.Color
                 }
                 nv.editIndexPath = index
                 nv.backSegueName = "unwindToWeatherLayer"
@@ -142,8 +149,10 @@ class WeatherLayerViewControl: UITableViewController {
         if let nv = unwindSegue.source as? ColorSelectViewControl {
             if nv.editIndexPath!.section == 1 {
                 layer!.textColor.Color = nv.editColor!
-            } else {
+            } else if nv.editIndexPath?.section == 2 {
                 layer!.weatherIconColor.Color = nv.editColor!
+            } else {
+                layer!.backImageColor.Color = nv.editColor!
             }
             setColorCell(color: layer!.textColor.Color, indexPath: nv.editIndexPath!)
             watch?.refreshWatch()

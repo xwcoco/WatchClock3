@@ -1,6 +1,7 @@
 {
 "faces" : [
 "Bell_Ross",
+"HermesDoubleclourOrange",
 "Hermes_watch_face_classic",
 "Hermes_watch_face_classic_orange",
 "Hermes_watch_face_original",
@@ -31,6 +32,7 @@
 "casio_dw_face_1",
 "circle_watch_face_1",
 "rectangle_watch_face_1",
+"valour_face",
 ],
 "hours" : [
 "HermesDoubleclour_H",
@@ -46,6 +48,7 @@
 "Rolex_hours_gold",
 "Rolex_hours_luminous",
 "Rolex_hours_white",
+"valour_hour",
 ],
 "minutes" : [
 "Hermes_minutes",
@@ -55,6 +58,7 @@
 "Rolex_minutes_gold",
 "Rolex_minutes_luminous",
 "Rolex_minutes_white",
+"valour_minute",
 ],
 "seconds" : [
 "Hermes_seconds",
@@ -64,6 +68,7 @@
 "Rolex_seconds_gold",
 "Rolex_seconds_luminous",
 "Rolex_seconds_white",
+"valour_second",
 ],
 "logos" : [
 "Patek_Philippe_logo",

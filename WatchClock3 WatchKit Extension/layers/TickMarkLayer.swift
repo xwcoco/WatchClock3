@@ -41,7 +41,6 @@ class TickMarkLayer: WatchLayer {
         super.setLayerNode(layerNode: &layerNode)
 
         let node = self.createTickMarkNode(self.name + "_marking")
-//        node.maskNode = self.scene!.colorRegion!
         self.scene!.addChild(node)
         layerNode.size = CGSize.zero
         
