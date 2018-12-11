@@ -24,15 +24,15 @@ enum TextContentStyle: Int, Codable {
 }
 class TextLayer: WatchLayer {
     private enum CodingKeys: String, CodingKey {
-        case fontName
-        case fontSize
-        case textContent
-        case textColor
-        case backImage
-        case backImageColor
-        case backImage_X
-        case backImage_Y
-        case textTopY
+        case fontName = "fn"
+        case fontSize = "fs"
+        case textContent = "tt"
+        case textColor = "tc"
+        case backImage = "bi"
+        case backImageColor = "bic"
+        case backImage_X = "bix"
+        case backImage_Y = "biy"
+        case textTopY = "tty"
     }
 
     var fontName: String = ""
@@ -112,10 +112,10 @@ class TextLayer: WatchLayer {
     func getBattery() -> String {
         #if os(watchOS)
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
-            return String.init(format: "%.0f", arguments: [WKInterfaceDevice.current().batteryLevel])
+            return String.init(format: "%.0f", arguments: [WKInterfaceDevice.current().batteryLevel * 100])
         #else
             UIDevice.current.isBatteryMonitoringEnabled = true
-        return String.init(format: "%.0f", arguments: [UIDevice.current.batteryLevel])
+        return String.init(format: "%.0f", arguments: [UIDevice.current.batteryLevel * 100])
         #endif
         
         

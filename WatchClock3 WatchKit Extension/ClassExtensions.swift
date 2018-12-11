@@ -88,6 +88,16 @@ extension UIColor {
         }
         return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
     }
+    
+    func getAlpha() -> CGFloat {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return a
+
+    }
 
 }
 
@@ -173,6 +183,9 @@ extension UIImage {
     
     func tint(color: UIColor, blendMode: CGBlendMode) -> UIImage
     {
+        if color.getAlpha() == 0 {
+            return self
+        }
         let drawRect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         //let context = UIGraphicsGetCurrentContext()

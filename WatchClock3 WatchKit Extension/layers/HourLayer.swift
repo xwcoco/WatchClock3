@@ -12,7 +12,7 @@ import SpriteKit
 class HourLayer : ImageLayer {
     
     private enum CodingKeys: String, CodingKey {
-        case anchorFromBottom
+        case anchorFromBottom = "afb"
     }
     
     override func getTitle() -> String {
@@ -40,6 +40,11 @@ class HourLayer : ImageLayer {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(anchorFromBottom, forKey: .anchorFromBottom)
         
+    }
+    
+    convenience init(imageName name : String,X : CGFloat,Y : CGFloat,anchorFromBottom afb : CGFloat) {
+        self.init(imageName: name, X: X, Y: Y)
+        self.anchorFromBottom = afb
     }
     
     override init() {

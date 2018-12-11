@@ -1,0 +1,66 @@
+
+/* Class = "UILabel"; text = "Y Margin"; ObjectID = "0hZ-5V-4JH"; */
+"0hZ-5V-4JH.text" = "Y 边距";
+
+/* Class = "UITableViewSection"; headerTitle = "Numeral Style"; ObjectID = "1hq-Qs-FfH"; */
+"1hq-Qs-FfH.headerTitle" = "数字样式";
+
+/* Class = "UILabel"; text = "Minor"; ObjectID = "Brh-FW-zN2"; */
+"Brh-FW-zN2.text" = "次要";
+
+/* Class = "UITableViewSection"; headerTitle = "Mark Style"; ObjectID = "G1X-QM-aaK"; */
+"G1X-QM-aaK.headerTitle" = "刻度样式";
+
+/* Class = "UILabel"; text = "Text Color"; ObjectID = "GeF-sb-unV"; */
+"GeF-sb-unV.text" = "文本颜色";
+
+/* Class = "UILabel"; text = "Text Color"; ObjectID = "Oqc-YB-MF5"; */
+"Oqc-YB-MF5.text" = "文本颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Color Region"; ObjectID = "P2h-fX-EuM"; */
+"P2h-fX-EuM.headerTitle" = "撞色";
+
+/* Class = "UINavigationItem"; title = "TickMark Layer"; ObjectID = "Q7m-NU-BsT"; */
+"Q7m-NU-BsT.title" = "刻度小组件";
+
+/* Class = "UILabel"; text = "X Margin"; ObjectID = "SgU-rY-wLX"; */
+"SgU-rY-wLX.text" = "X 边距";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "cev-Bb-YfX"; */
+"cev-Bb-YfX.text" = "全部";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "eVP-uv-zpb"; */
+"eVP-uv-zpb.text" = "字体大小";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "eet-Sv-Uwy"; */
+"eet-Sv-Uwy.text" = "全部";
+
+/* Class = "UILabel"; text = "Major Color"; ObjectID = "gIS-wB-KcK"; */
+"gIS-wB-KcK.text" = "主刻度颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Numeral Property"; ObjectID = "gvm-wg-782"; */
+"gvm-wg-782.headerTitle" = "数字属性";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "lyt-bG-fRM"; */
+"lyt-bG-fRM.text" = "无";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "nLj-H2-Aoh"; */
+"nLj-H2-Aoh.text" = "Detail";
+
+/* Class = "UILabel"; text = "Major"; ObjectID = "pVy-ro-bN2"; */
+"pVy-ro-bN2.text" = "主刻度";
+
+/* Class = "UILabel"; text = "FontName"; ObjectID = "pzc-5O-4ES"; */
+"pzc-5O-4ES.text" = "字体名称";
+
+/* Class = "UILabel"; text = "Cardinal"; ObjectID = "rlW-cl-zRc"; */
+"rlW-cl-zRc.text" = "主要的";
+
+/* Class = "UILabel"; text = "Minor Color"; ObjectID = "uDb-R0-9cs"; */
+"uDb-R0-9cs.text" = "次刻度颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Property"; ObjectID = "vp6-dt-GTc"; */
+"vp6-dt-GTc.headerTitle" = "小组件属性";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "wMP-eB-X8j"; */
+"wMP-eB-X8j.text" = "无";

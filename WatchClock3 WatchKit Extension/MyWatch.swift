@@ -218,7 +218,7 @@ class MyWatch: NSObject, Codable {
 
                 for key in layers {
                     if let tmpv = key as? Dictionary<String, Any> {
-                        var tmpClassName = tmpv["className"] as! String
+                        var tmpClassName = tmpv["cn"] as! String
 
                         #if os(iOS)
                             tmpClassName = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + tmpClassName

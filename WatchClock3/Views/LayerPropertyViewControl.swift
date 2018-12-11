@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-class LayerPropertyViewControl: UITableViewController {
-    
-    var layer : WatchLayer?
-    var watch : MyWatch?
+class LayerPropertyViewControl: BaseLayerViewControl {
     
     @IBAction func alphaSliderValueChanged(_ sender: Any) {
         layer?.alpha = CGFloat((sender as! UIStepper).value)

@@ -23,28 +23,8 @@ class LayerManagerViewControl: UITableViewController {
         if let cell = sender as? UITableViewCell {
             let index = self.tableView.indexPath(for: cell)!
             let layer = self.watch?.getLayer(index: index.row)
-            if let nv = segue.destination as? ImageLayerViewControl {
-                nv.watch = self.watch
-                nv.layer = layer as? ImageLayer
-                nv.editRowIndex = index.row
-            }
-            else if let nv = segue.destination as? HourLayerViewControl {
-                nv.watch = self.watch
-                nv.layer = layer as? HourLayer
-                nv.editRowIndex = index.row
-            } else if let nv = segue.destination as? TickMarkLayerViewControl {
-                nv.watch = self.watch
-                nv.layer = layer as? TickMarkLayer
-                nv.editRowIndex = index
-            } else if let nv = segue.destination as? TextLayerViewControl {
-                nv.watch = self.watch
-                nv.layer = layer as? TextLayer
-                nv.editRowIndex = index
-            } else if let nv = segue.destination as? WeatherLayerViewControl {
-                nv.watch = self.watch
-                nv.layer = layer as? WeatherLayer
-                nv.editRowIndex = index
-            } else if let nv = segue.destination as? EmptyLayerViewControl {
+            
+            if let nv = segue.destination as? BaseLayerViewControl {
                 nv.watch = self.watch
                 nv.layer = layer
                 nv.editRowIndex = index
@@ -96,6 +76,8 @@ class LayerManagerViewControl: UITableViewController {
                 self.performSegue(withIdentifier: "showTextLayer", sender: self.tableView.cellForRow(at: indexPath))
             } else if layer is MoonLayer || layer is MagicLayer {
                 self.performSegue(withIdentifier: "showEmptyLayer", sender: self.tableView.cellForRow(at: indexPath))
+            } else if layer is DateImageLayer {
+                self.performSegue(withIdentifier: "showDateImageLayer", sender: self.tableView.cellForRow(at: indexPath))
             }
         }
         

@@ -52,7 +52,7 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
             if !self.systemEditing{
                 image = self.turnImageWithInfo(info: info)
             }else{
-                image = info[.originalImage] as! UIImage
+                image = (info[.originalImage] as! UIImage)
             }
             if clippedImageHandler != nil{
                 clippedImageHandler!(image ?? UIImage())

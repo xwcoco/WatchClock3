@@ -20,17 +20,17 @@ enum NumeralStyle: Int, Codable {
 class TickMarkLayer: WatchLayer {
 
     private enum CodingKeys: String, CodingKey {
-        case tickmarkStyle
-        case majorMarkColor
-        case fontSize
-        case fontName
-        case textColor
-        case labelMargin
-        case numeralStyle
-        case minorMarkColor
-        case alternateMajorMarkColor
-        case alternateMinorMarkColor
-        case alternateTextColor
+        case tickmarkStyle = "ts"
+        case majorMarkColor = "mmc"
+        case fontSize = "fs"
+        case fontName = "fn"
+        case textColor = "tc"
+        case labelMargin = "lm"
+        case numeralStyle = "ns"
+        case minorMarkColor = "mic"
+        case alternateMajorMarkColor = "ammc"
+        case alternateMinorMarkColor = "amic"
+        case alternateTextColor = "atc"
     }
 
     override func getTag() -> Int {

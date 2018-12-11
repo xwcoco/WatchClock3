@@ -200,12 +200,12 @@ class WeatherLayer : TextLayer {
     var weatherIconSize : CGFloat = 20
 
     private enum CodingKeys: String, CodingKey {
-        case showWeatherIcon
-        case weatherContent
-        case showColorAQI
-        case weatherIconSize
-        case weatherIconColor
-        case showTempUnit
+        case showWeatherIcon = "swi"
+        case weatherContent = "wc"
+        case showColorAQI = "sca"
+        case weatherIconSize = "wis"
+        case weatherIconColor = "wic"
+        case showTempUnit = "stu"
     }
     
     override init() {

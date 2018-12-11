@@ -155,7 +155,7 @@ extension InterfaceController : WKCrownDelegate {
         }
         
         
-        if (totalRotation > (Double.pi / 2)) {
+        if (totalRotation > (Double.pi / 4)) {
             self.NextWatch(direction)
             totalRotation = 0;
         }

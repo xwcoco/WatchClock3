@@ -31,6 +31,7 @@
 "Watch_Face_1",
 "casio_dw_face_1",
 "circle_watch_face_1",
+"clown_face",
 "rectangle_watch_face_1",
 "valour_face",
 ],
@@ -38,9 +39,6 @@
 "HermesDoubleclour_H",
 "HermesDoubleclour_H_Orange",
 "HermesDoubleclour_H_Pink",
-"HermesDoubleclour_M",
-"HermesDoubleclour_M_Orange",
-"HermesDoubleclour_M_Pink",
 "Hermes_hours",
 "Hermes_hours_white",
 "Nike_hours",
@@ -48,9 +46,13 @@
 "Rolex_hours_gold",
 "Rolex_hours_luminous",
 "Rolex_hours_white",
+"clown_hour",
 "valour_hour",
 ],
 "minutes" : [
+"HermesDoubleclour_M",
+"HermesDoubleclour_M_Orange",
+"HermesDoubleclour_M_Pink",
 "Hermes_minutes",
 "Hermes_minutes_white",
 "Nike_minutes",
@@ -58,6 +60,7 @@
 "Rolex_minutes_gold",
 "Rolex_minutes_luminous",
 "Rolex_minutes_white",
+"clown_minute",
 "valour_minute",
 ],
 "seconds" : [
@@ -91,4 +94,10 @@
 "altitude" : [
 "altitude_bg",
 "altitude_bg2",
+],
+"infodateback" : [
+"info_date_bk1",
+],
+"infodatepointer" : [
+"info_date_pointer1",
 ]}

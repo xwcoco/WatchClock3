@@ -12,10 +12,10 @@ import SpriteKit
 
 class ImageLayer: WatchLayer {
     private enum CodingKeys: String, CodingKey {
-        case imageName
-        case imageData
-        case fillWithColor
-        case fillColor
+        case imageName = "in"
+        case imageData = "id"
+        case fillWithColor = "fwc"
+        case fillColor = "fc"
     }
 
     public var imageName: String = ""
@@ -66,6 +66,15 @@ class ImageLayer: WatchLayer {
         if self.imageData != nil {
             try container.encode(imageData, forKey: .imageData)
         }
+    }
+    
+    convenience init(imageName imagen : String,X : CGFloat,Y : CGFloat,scale : CGFloat = 1) {
+        self.init()
+        self.imageName = imagen
+        self.x = X
+        self.y = Y
+        self.xScale = scale
+        self.yScale = scale
     }
     
     override init() {

@@ -1,0 +1,405 @@
+
+/* Class = "UILabel"; text = "High Temperature"; ObjectID = "0aJ-HU-KOK"; */
+"0aJ-HU-KOK.text" = "最高温度";
+
+/* Class = "UILabel"; text = "Y Dist To Center"; ObjectID = "0tJ-As-eEY"; */
+"0tJ-As-eEY.text" = "Y距中心距离";
+
+/* Class = "UILabel"; text = "1 ... 31"; ObjectID = "21A-Mw-auc"; */
+"21A-Mw-auc.text" = "1 ... 31";
+
+/* Class = "UILabel"; text = "Add Weather Layer"; ObjectID = "272-DQ-tiC"; */
+"272-DQ-tiC.text" = "增加天气";
+
+/* Class = "UILabel"; text = "Add Month Image Layer"; ObjectID = "2CT-jS-3le"; */
+"2CT-jS-3le.text" = "增加月相";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "2aA-Yz-rta"; */
+"2aA-Yz-rta.text" = "字体大小";
+
+/* Class = "UILabel"; text = "Weather Icon Color"; ObjectID = "38w-E3-207"; */
+"38w-E3-207.text" = "天气图标颜色";
+
+/* Class = "UILabel"; text = "Time Hours:Minutes:Seconds"; ObjectID = "3bR-G6-HXl"; */
+"3bR-G6-HXl.text" = "时:分:秒";
+
+/* Class = "UILabel"; text = "AQI"; ObjectID = "3kn-oy-WEr"; */
+"3kn-oy-WEr.text" = "AQI";
+
+/* Class = "UILabel"; text = "Weather Icon Size"; ObjectID = "4SO-PZ-fft"; */
+"4SO-PZ-fft.text" = "天气图标大小";
+
+/* Class = "UILabel"; text = "Add Hour Layer"; ObjectID = "4WT-fQ-vpy"; */
+"4WT-fQ-vpy.text" = "增加时针";
+
+/* Class = "UILabel"; text = "Lunar"; ObjectID = "4qz-22-0M5"; */
+"4qz-22-0M5.text" = "农历";
+
+/* Class = "UILabel"; text = "Start Angle"; ObjectID = "4z8-0h-UEw"; */
+"4z8-0h-UEw.text" = "起始角度";
+
+/* Class = "UINavigationItem"; title = "Date Image Layer"; ObjectID = "5gQ-nh-P78"; */
+"5gQ-nh-P78.title" = "图形化日期";
+
+/* Class = "UILabel"; text = "Add Circle TickMark Layer"; ObjectID = "7T6-KX-uwx"; */
+"7T6-KX-uwx.text" = "增加圆形表盘刻度和数字";
+
+/* Class = "UILabel"; text = "Lunar2"; ObjectID = "8OQ-d2-0Lc"; */
+"8OQ-d2-0Lc.text" = "农历2";
+
+/* Class = "UILabel"; text = "Image"; ObjectID = "9rB-Sx-85q"; */
+"9rB-Sx-85q.text" = "图形";
+
+/* Class = "UILabel"; text = "Font Name"; ObjectID = "9rj-EI-GL1"; */
+"9rj-EI-GL1.text" = "字体名称";
+
+/* Class = "UITableViewSection"; headerTitle = "Hands"; ObjectID = "A8X-kN-E1c"; */
+"A8X-kN-E1c.headerTitle" = "指针";
+
+/* Class = "UILabel"; text = "Background Image"; ObjectID = "BVT-7q-jZN"; */
+"BVT-7q-jZN.text" = "背景图像";
+
+/* Class = "UILabel"; text = "Alpha"; ObjectID = "CBm-n3-3om"; */
+"CBm-n3-3om.text" = "透明度";
+
+/* Class = "UILabel"; text = "Fill Image With Color"; ObjectID = "CPi-jK-hBr"; */
+"CPi-jK-hBr.text" = "颜色填充图像";
+
+/* Class = "UILabel"; text = "Show Color AQI"; ObjectID = "Czp-3I-vnV"; */
+"Czp-3I-vnV.text" = "显示彩色 AQI";
+
+/* Class = "UILabel"; text = "Text Top Adjust"; ObjectID = "Da0-xK-xKa"; */
+"Da0-xK-xKa.text" = "文字顶部位置调整";
+
+/* Class = "UILabel"; text = "Alpha"; ObjectID = "Dlt-4P-qq6"; */
+"Dlt-4P-qq6.text" = "透明度";
+
+/* Class = "UINavigationItem"; title = "Watch Setup"; ObjectID = "EHS-Tq-fFE"; */
+"EHS-Tq-fFE.title" = "表设置";
+
+/* Class = "UILabel"; text = "正月初一 正月初二 ... 正月三十"; ObjectID = "ERt-81-VS3"; */
+"ERt-81-VS3.text" = "正月初一 正月初二 ... 正月三十";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "EWH-4G-oHj"; */
+"EWH-4G-oHj.text" = "天气类型";
+
+/* Class = "UILabel"; text = "Add Magic Layer"; ObjectID = "EdM-pj-6Uu"; */
+"EdM-pj-6Uu.text" = "增加背景动画";
+
+/* Class = "UILabel"; text = "Space For Y"; ObjectID = "F2x-nQ-b7i"; */
+"F2x-nQ-b7i.text" = "Y方向空格";
+
+/* Class = "UILabel"; text = "Time - Minutes : Seconds"; ObjectID = "F9u-LM-YE9"; */
+"F9u-LM-YE9.text" = "时间 - 分 : 秒";
+
+/* Class = "UINavigationItem"; title = "Text"; ObjectID = "FLK-Ha-I78"; */
+"FLK-Ha-I78.title" = "文本";
+
+/* Class = "UITableViewSection"; headerTitle = "BackGround "; ObjectID = "FZ0-lF-fdc"; */
+"FZ0-lF-fdc.headerTitle" = "背景 ";
+
+/* Class = "UILabel"; text = "Smooth Hand"; ObjectID = "Fdm-Ch-jJ4"; */
+"Fdm-Ch-jJ4.text" = "平滑移动指针";
+
+/* Class = "UILabel"; text = "Time - Seconds"; ObjectID = "Fkb-bw-r0R"; */
+"Fkb-bw-r0R.text" = "时间 - 秒";
+
+/* Class = "UILabel"; text = "56"; ObjectID = "Gob-bm-nOT"; */
+"Gob-bm-nOT.text" = "56";
+
+/* Class = "UILabel"; text = "Battery Level"; ObjectID = "H9S-pd-b4X"; */
+"H9S-pd-b4X.text" = "电池电量";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "JaT-3M-KC2"; */
+"JaT-3M-KC2.text" = "Detail";
+
+/* Class = "UILabel"; text = "Pointer Image"; ObjectID = "KqI-iP-kXU"; */
+"KqI-iP-kXU.text" = "指针图像";
+
+/* Class = "UILabel"; text = "Add Minute Layer"; ObjectID = "LDr-N9-0Xh"; */
+"LDr-N9-0Xh.text" = "增加分针";
+
+/* Class = "UILabel"; text = "Text Color"; ObjectID = "MIi-wS-4TR"; */
+"MIi-wS-4TR.text" = "文本颜色";
+
+/* Class = "UILabel"; text = "Show Weather Icon"; ObjectID = "MNf-1j-Yhl"; */
+"MNf-1j-Yhl.text" = "显示天气图标";
+
+/* Class = "UILabel"; text = "Add Rectangle TickMark Layer"; ObjectID = "MQS-ZR-WqR"; */
+"MQS-ZR-WqR.text" = "增加方形表盘刻度和数字";
+
+/* Class = "UILabel"; text = "12:37"; ObjectID = "NPT-c1-5Ym"; */
+"NPT-c1-5Ym.text" = "12:37";
+
+/* Class = "UITableViewSection"; headerTitle = "Images"; ObjectID = "Ne8-yR-7cd"; */
+"Ne8-yR-7cd.headerTitle" = "图像";
+
+/* Class = "UINavigationItem"; title = "Layer"; ObjectID = "Nr5-3a-81g"; */
+"Nr5-3a-81g.title" = "Layer";
+
+/* Class = "UITableViewSection"; headerTitle = "Image Property"; ObjectID = "O2m-0a-ZhY"; */
+"O2m-0a-ZhY.headerTitle" = "图像属性";
+
+/* Class = "UILabel"; text = "Image Color"; ObjectID = "O7N-0w-x0a"; */
+"O7N-0w-x0a.text" = "图像颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "TickMark"; ObjectID = "OCU-WP-Jiv"; */
+"OCU-WP-Jiv.headerTitle" = "刻度";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "OCu-N1-0iA"; */
+"OCu-N1-0iA.text" = "日期";
+
+/* Class = "UILabel"; text = "Watch Face "; ObjectID = "OmE-2q-6ui"; */
+"OmE-2q-6ui.text" = "表盘背景";
+
+/* Class = "UILabel"; text = "Green"; ObjectID = "PQD-ic-HYG"; */
+"PQD-ic-HYG.text" = "绿色";
+
+/* Class = "UILabel"; text = "Image"; ObjectID = "Pxk-jG-TCT"; */
+"Pxk-jG-TCT.text" = "图像";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Property"; ObjectID = "Q0e-r0-Fx0"; */
+"Q0e-r0-Fx0.headerTitle" = "组件属性";
+
+/* Class = "UINavigationItem"; title = "Image Layer"; ObjectID = "Q7i-RT-vPT"; */
+"Q7i-RT-vPT.title" = "图像";
+
+/* Class = "UITableViewSection"; headerTitle = "Text Content"; ObjectID = "QJt-lA-dHh"; */
+"QJt-lA-dHh.headerTitle" = "文本内容";
+
+/* Class = "UILabel"; text = "Photo"; ObjectID = "RNG-yI-bqw"; */
+"RNG-yI-bqw.text" = "照片";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "RYy-nx-AHW"; */
+"RYy-nx-AHW.text" = "字体大小";
+
+/* Class = "UILabel"; text = "Temperature"; ObjectID = "S6J-DJ-GDP"; */
+"S6J-DJ-GDP.text" = "温度";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Propertys"; ObjectID = "S6O-uR-VT9"; */
+"S6O-uR-VT9.headerTitle" = "组件属性";
+
+/* Class = "UILabel"; text = "Add Altitude Layer"; ObjectID = "SCH-q4-Ye2"; */
+"SCH-q4-Ye2.text" = "增加高度信息";
+
+/* Class = "UITableViewSection"; headerTitle = "Weather Icon Property"; ObjectID = "SJp-9Z-VIF"; */
+"SJp-9Z-VIF.headerTitle" = "天气图标属性";
+
+/* Class = "UILabel"; text = "Logo"; ObjectID = "Sv0-PC-YAk"; */
+"Sv0-PC-YAk.text" = "Logo";
+
+/* Class = "UITableViewSection"; headerTitle = "Information Pointer"; ObjectID = "TQf-Te-CRm"; */
+"TQf-Te-CRm.headerTitle" = "信息指针样式";
+
+/* Class = "UILabel"; text = "Y Scale"; ObjectID = "TUj-6x-tfR"; */
+"TUj-6x-tfR.text" = "Y 放大";
+
+/* Class = "UILabel"; text = "Space For X"; ObjectID = "TqF-Et-M5D"; */
+"TqF-Et-M5D.text" = "X 空格";
+
+/* Class = "UILabel"; text = "12:37:56"; ObjectID = "UJn-qc-JPT"; */
+"UJn-qc-JPT.text" = "12:37:56";
+
+/* Class = "UILabel"; text = "PM 2.5"; ObjectID = "V2q-wm-a7e"; */
+"V2q-wm-a7e.text" = "PM 2.5";
+
+/* Class = "UILabel"; text = "X Scale"; ObjectID = "VvJ-ZJ-SL2"; */
+"VvJ-ZJ-SL2.text" = "X 放大";
+
+/* Class = "UINavigationItem"; title = "Weather Layer"; ObjectID = "W1D-h0-7cl"; */
+"W1D-h0-7cl.title" = "天气组件";
+
+/* Class = "UINavigationItem"; title = "Add Layer"; ObjectID = "WMb-8z-div"; */
+"WMb-8z-div.title" = "增加小组件";
+
+/* Class = "UITableViewSection"; headerTitle = "Smooth Hand"; ObjectID = "WhC-Hl-YDq"; */
+"WhC-Hl-YDq.headerTitle" = "平滑移动";
+
+/* Class = "UINavigationItem"; title = "Hour Layer"; ObjectID = "WkV-LY-Pj0"; */
+"WkV-LY-Pj0.title" = "时针小组件";
+
+/* Class = "UITableViewSection"; headerTitle = "Color Region"; ObjectID = "XNu-V2-IIY"; */
+"XNu-V2-IIY.headerTitle" = "撞色";
+
+/* Class = "UITableViewSection"; headerTitle = "Weather Property"; ObjectID = "XqN-8g-oON"; */
+"XqN-8g-oON.headerTitle" = "天气属性";
+
+/* Class = "UILabel"; text = "Red"; ObjectID = "YKc-Sb-MN0"; */
+"YKc-Sb-MN0.text" = "红色";
+
+/* Class = "UILabel"; text = "周一 周二 周三 周四 周五 周六"; ObjectID = "YxV-Yp-nlM"; */
+"YxV-Yp-nlM.text" = "周一 周二 周三 周四 周五 周六";
+
+/* Class = "UILabel"; text = "Image Name"; ObjectID = "b9Q-eV-hvI"; */
+"b9Q-eV-hvI.text" = "图像名称";
+
+/* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "bHW-9m-G4s"; */
+"bHW-9m-G4s.headerTitle" = "信息";
+
+/* Class = "UILabel"; text = "Add Moon Phase Layer"; ObjectID = "bHr-Kp-roh"; */
+"bHr-Kp-roh.text" = "增加月相小组件";
+
+/* Class = "UILabel"; text = "Add Seconds Layer"; ObjectID = "bHu-9V-roF"; */
+"bHu-9V-roF.text" = "增加秒针小组件";
+
+/* Class = "UINavigationItem"; title = "Image Categeroy"; ObjectID = "bj7-rB-3LZ"; */
+"bj7-rB-3LZ.title" = "图像分类";
+
+/* Class = "UITableViewSection"; headerTitle = "Back Image"; ObjectID = "cEn-wa-sci"; */
+"cEn-wa-sci.headerTitle" = "背景图像";
+
+/* Class = "UILabel"; text = "Background Image"; ObjectID = "cF8-22-Eps"; */
+"cF8-22-Eps.text" = "背景图像";
+
+/* Class = "UILabel"; text = "Fill Color"; ObjectID = "dqe-Mc-qbw"; */
+"dqe-Mc-qbw.text" = "填充颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Text Property"; ObjectID = "dvr-8z-idE"; */
+"dvr-8z-idE.headerTitle" = "文本属性";
+
+/* Class = "UILabel"; text = "X Dist To Center"; ObjectID = "eRr-I4-Lum"; */
+"eRr-I4-Lum.text" = "X距中心距离";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "eTy-jt-MmP"; */
+"eTy-jt-MmP.text" = "Detail";
+
+/* Class = "UILabel"; text = "Add Weekday Layer"; ObjectID = "esc-tH-gRc"; */
+"esc-tH-gRc.text" = "增加天气小组件";
+
+/* Class = "UILabel"; text = "Add Date Pointer Layer"; ObjectID = "fML-lT-cww"; */
+"fML-lT-cww.text" = "增加图形日期小组件";
+
+/* Class = "UITableViewSection"; headerTitle = "Date"; ObjectID = "fpN-SV-DeC"; */
+"fpN-SV-DeC.headerTitle" = "日期";
+
+/* Class = "UILabel"; text = "Face Style"; ObjectID = "gKN-sU-xZ4"; */
+"gKN-sU-xZ4.text" = "表类型";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Property"; ObjectID = "gnU-FF-c9C"; */
+"gnU-FF-c9C.headerTitle" = "小组件属性";
+
+/* Class = "UINavigationItem"; title = "Image Select"; ObjectID = "grf-z6-NRp"; */
+"grf-z6-NRp.title" = "选择图像";
+
+/* Class = "UITableViewSection"; headerTitle = "AnchorPoint"; ObjectID = "grp-td-mQe"; */
+"grp-td-mQe.headerTitle" = "锚点";
+
+/* Class = "UILabel"; text = "Wind Direction"; ObjectID = "h4l-L7-09w"; */
+"h4l-L7-09w.text" = "风向";
+
+/* Class = "UITableViewSection"; headerTitle = "Weather Content"; ObjectID = "hAz-Nz-X5D"; */
+"hAz-Nz-X5D.headerTitle" = "天气内容";
+
+/* Class = "UILabel"; text = "Background Color"; ObjectID = "hKo-fu-AJp"; */
+"hKo-fu-AJp.text" = "背景颜色";
+
+/* Class = "UILabel"; text = "Humidity"; ObjectID = "jEX-AJ-XCm"; */
+"jEX-AJ-XCm.text" = "湿度";
+
+/* Class = "UILabel"; text = "Add Battery Layer"; ObjectID = "jLI-4y-Lxi"; */
+"jLI-4y-Lxi.text" = "增加电池电量小组件";
+
+/* Class = "UIBarButtonItem"; title = "Setup"; ObjectID = "jMN-bj-Fd3"; */
+"jMN-bj-Fd3.title" = "设置";
+
+/* Class = "UILabel"; text = "Dist To Bottom"; ObjectID = "jch-rs-vgy"; */
+"jch-rs-vgy.text" = "底部距离";
+
+/* Class = "UILabel"; text = "Background Image Color"; ObjectID = "kZB-FO-wTK"; */
+"kZB-FO-wTK.text" = "背景图像颜色";
+
+/* Class = "UILabel"; text = "Wind Power"; ObjectID = "lVd-Gp-uez"; */
+"lVd-Gp-uez.text" = "风力";
+
+/* Class = "UILabel"; text = "WeekDay"; ObjectID = "m3K-VH-MOK"; */
+"m3K-VH-MOK.text" = "星期";
+
+/* Class = "UILabel"; text = "Add Text Layer"; ObjectID = "m5Z-di-rLs"; */
+"m5Z-di-rLs.text" = "增加文本小组件";
+
+/* Class = "UINavigationItem"; title = "Layer Propertys"; ObjectID = "mlY-yE-Iao"; */
+"mlY-yE-Iao.title" = "组件属性";
+
+/* Class = "UILabel"; text = "一 二 三 四 五 六 日"; ObjectID = "n0a-bK-SzC"; */
+"n0a-bK-SzC.text" = "一 二 三 四 五 六 日";
+
+/* Class = "UILabel"; text = "Text Color"; ObjectID = "nCn-to-6xw"; */
+"nCn-to-6xw.text" = "文本颜色";
+
+/* Class = "UILabel"; text = "Show ℃"; ObjectID = "nCy-yp-ih0"; */
+"nCy-yp-ih0.text" = "显示 ℃";
+
+/* Class = "UILabel"; text = "WeekDay"; ObjectID = "nc9-XM-5OF"; */
+"nc9-XM-5OF.text" = "星期";
+
+/* Class = "UILabel"; text = "PM 10"; ObjectID = "o6S-bA-3B5"; */
+"o6S-bA-3B5.text" = "PM 10";
+
+/* Class = "UITableViewSection"; headerTitle = "Other"; ObjectID = "o8D-zP-ULI"; */
+"o8D-zP-ULI.headerTitle" = "其它";
+
+/* Class = "UILabel"; text = "Clock Hand will be smooth run"; ObjectID = "pZQ-jx-FWk"; */
+"pZQ-jx-FWk.text" = "时钟指针会平滑移动";
+
+/* Class = "UILabel"; text = "Add Image Layer"; ObjectID = "pxM-LW-Uh1"; */
+"pxM-LW-Uh1.text" = "增加图像小组件";
+
+/* Class = "UILabel"; text = "Blue"; ObjectID = "r7n-Ah-zqS"; */
+"r7n-Ah-zqS.text" = "蓝色";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Property"; ObjectID = "rBE-IQ-Lm0"; */
+"rBE-IQ-Lm0.headerTitle" = "组件属性";
+
+/* Class = "UILabel"; text = "Font Name"; ObjectID = "rEN-iB-js4"; */
+"rEN-iB-js4.text" = "字体名称";
+
+/* Class = "UILabel"; text = "Show Color Region"; ObjectID = "rEy-Xh-heq"; */
+"rEy-Xh-heq.text" = "显示撞色";
+
+/* Class = "UITableViewSection"; headerTitle = "property"; ObjectID = "rLD-BL-yiV"; */
+"rLD-BL-yiV.headerTitle" = "属性";
+
+/* Class = "UILabel"; text = "Low Temperature"; ObjectID = "rzf-ib-pvR"; */
+"rzf-ib-pvR.text" = "最低温度";
+
+/* Class = "UINavigationItem"; title = "Font"; ObjectID = "s1k-QV-EUX"; */
+"s1k-QV-EUX.title" = "字体";
+
+/* Class = "UILabel"; text = "56"; ObjectID = "sIp-Np-E4W"; */
+"sIp-Np-E4W.text" = "56";
+
+/* Class = "UILabel"; text = "Pointer Image Color"; ObjectID = "sde-nb-NNB"; */
+"sde-nb-NNB.text" = "指针颜色";
+
+/* Class = "UINavigationItem"; title = "Color"; ObjectID = "siW-QX-6eJ"; */
+"siW-QX-6eJ.title" = "颜色";
+
+/* Class = "UILabel"; text = "Color Region Color"; ObjectID = "t8V-Lc-ZMr"; */
+"t8V-Lc-ZMr.text" = "撞色颜色";
+
+/* Class = "UILabel"; text = "Add Image Altitude Layer"; ObjectID = "tSy-PL-3Mh"; */
+"tSy-PL-3Mh.text" = "增加图形高度计小组件";
+
+/* Class = "UITableViewSection"; headerTitle = "Image Property"; ObjectID = "tpu-6m-9rR"; */
+"tpu-6m-9rR.headerTitle" = "图w像属性";
+
+/* Class = "UILabel"; text = "初一 初二 ... 三十"; ObjectID = "tx2-ju-uxe"; */
+"tx2-ju-uxe.text" = "初一 初二 ... 三十";
+
+/* Class = "UILabel"; text = "End Angle"; ObjectID = "uCN-14-AVd"; */
+"uCN-14-AVd.text" = "结束角度";
+
+/* Class = "UINavigationItem"; title = "Clock And Layers"; ObjectID = "vEe-Yc-68l"; */
+"vEe-Yc-68l.title" = "时钟和小组件";
+
+/* Class = "UITableViewSection"; headerTitle = "Layer Property"; ObjectID = "x8N-KZ-sPu"; */
+"x8N-KZ-sPu.headerTitle" = "组件属性";
+
+/* Class = "UILabel"; text = "Begin Angle"; ObjectID = "xhQ-gJ-PS0"; */
+"xhQ-gJ-PS0.text" = "开始角度";
+
+/* Class = "UILabel"; text = "Information Background"; ObjectID = "zPJ-2F-W9j"; */
+"zPJ-2F-W9j.text" = "背景";
+
+/* Class = "UITableViewSection"; headerTitle = "Image"; ObjectID = "zlT-mt-dLo"; */
+"zlT-mt-dLo.headerTitle" = "图像";

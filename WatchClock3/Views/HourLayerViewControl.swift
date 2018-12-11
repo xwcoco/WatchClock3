@@ -16,19 +16,16 @@ import UIKit
 //    case SecondLayerMode
 //}
 
-class HourLayerViewControl: UITableViewController {
-    var watch : MyWatch?
-    var layer : HourLayer?
+class HourLayerViewControl: BaseLayerViewControl {
     
-    var editRowIndex : Int = -1
-    
-//    var mode : HourLayerEditMode = .HourLayerMode
+    var editLayer : HourLayer {
+        get {
+            return self.layer as! HourLayer
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nv = segue.destination as? LayerPropertyViewControl {
-            nv.layer = self.layer
-            nv.watch = self.watch
-        }
+        super.prepare(for: segue, sender: sender)
         if let nv = segue.destination as? ImageSelectViewControl {
             nv.backSegueName = "unwindToHourLayer"
             if layer is SecondsLayer {
@@ -39,7 +36,7 @@ class HourLayerViewControl: UITableViewController {
                 nv.imageList = ResManager.Manager.getImages(category: ResManager.Hours)
             }
             
-            nv.imageName = self.layer!.imageName
+            nv.imageName = self.editLayer.imageName
             nv.itemHeight = 80
             nv.itemWidth = 30
         }
@@ -49,14 +46,14 @@ class HourLayerViewControl: UITableViewController {
     
     @IBAction func unwindToHourLayer(_ unwindSegue: UIStoryboardSegue) {
         if let nv = unwindSegue.source as? ImageSelectViewControl {
-            self.layer?.imageName = nv.imageName
+            self.editLayer.imageName = nv.imageName
             
             self.setImageCell(imageName: nv.imageName, indexPath: IndexPath.init(row: 0, section: 0), size: self.imageSize)
             
             let anchor = ResManager.Manager.getHandAnchorPoint(nv.imageName)
             if (anchor != 0) {
-                layer?.anchorFromBottom = anchor
-                self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1))
+                editLayer.anchorFromBottom = anchor
+                self.setLabelStepperCell(name: "Dist To Bottom", value: editLayer.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1))
             }
             
             self.watch?.refreshWatch()
@@ -66,7 +63,7 @@ class HourLayerViewControl: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (indexPath.section == 0 && indexPath.row == 0) {
-            let imageName = layer!.imageName
+            let imageName = editLayer.imageName
             if (imageName == "") {
                 self.setImageCell(imageName: "empty", indexPath: indexPath, size: self.imageSize)
             } else {
@@ -75,28 +72,18 @@ class HourLayerViewControl: UITableViewController {
         }
         
         if (indexPath.section == 1) {
-            self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: indexPath)
+            self.setLabelStepperCell(name: "Dist To Bottom", value: editLayer.anchorFromBottom, indexPath: indexPath)
         }
     }
     
     @IBAction func xSteperValueChanged(_ sender: Any) {
-        layer?.anchorFromBottom = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Dist To Bottom", value: layer!.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1), setStepper: false)
+        editLayer.anchorFromBottom = CGFloat((sender as! UIStepper).value)
+        self.setLabelStepperCell(name: "Dist To Bottom", value: editLayer.anchorFromBottom, indexPath: IndexPath.init(row: 0, section: 1), setStepper: false)
         self.watch?.refreshWatch()
     }
     
     
-    private var isOk = false
     @IBAction func DoneButtonClick(_ sender: Any) {
-        self.isOk = true
-        self.performSegue(withIdentifier: "unwindToLayerManager", sender: self)
+        self.backToLayerManager()
     }
-    
-    override func didMove(toParent parent: UIViewController?) {
-        if (parent == nil && !isOk && editRowIndex == -1) {
-            self.watch?.deleteLayer(layer: self.layer!)
-            self.watch?.refreshWatch()
-        }
-    }
-    
 }

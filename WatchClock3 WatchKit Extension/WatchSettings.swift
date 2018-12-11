@@ -11,10 +11,10 @@ import SpriteKit
 
 class WatchSettings: NSObject,Codable {
     enum CodingKeys: String, CodingKey {
-        case backgroundColor
-        case showColorRegion
-        case ColorRegionColor
-        case smoothHand
+        case backgroundColor = "bc"
+        case showColorRegion = "scr"
+        case ColorRegionColor = "crc"
+        case smoothHand = "sh"
     }
     
     var backgroundColor : MyColor = MyColor.init(color: UIColor.black)

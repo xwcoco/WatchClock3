@@ -21,9 +21,13 @@
 		4F0AEBF621ACE72200B05CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0AEBF521ACE72200B05CDB /* Assets.xcassets */; };
 		4F0AEC0B21ACEBE300B05CDB /* WatchManagerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEC0A21ACEBE300B05CDB /* WatchManagerViewControl.swift */; };
 		4F0AEC0D21ACED8300B05CDB /* WatchLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */; };
+		4F10891721BF9000007DEA69 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F10891921BF9000007DEA69 /* Localizable.strings */; };
 		4F153F8D21B2E15F003E58E9 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F153F8C21B2E15F003E58E9 /* TextLayer.swift */; };
 		4F153F8E21B2E15F003E58E9 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F153F8C21B2E15F003E58E9 /* TextLayer.swift */; };
 		4F153F9521B2E7D3003E58E9 /* LayerStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F153F9321B2E7D3003E58E9 /* LayerStory.storyboard */; };
+		4F25379321BCC46B00BA91F0 /* DateImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25379221BCC46B00BA91F0 /* DateImageLayer.swift */; };
+		4F25379421BCC46B00BA91F0 /* DateImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25379221BCC46B00BA91F0 /* DateImageLayer.swift */; };
+		4F25379621BCD0C500BA91F0 /* DataImageLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25379521BCD0C500BA91F0 /* DataImageLayerViewControl.swift */; };
 		4F2C9FBF21B66CCF000A2FB3 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F2C9FBE21B66CCF000A2FB3 /* MagicParticle.sks */; };
 		4F2C9FC021B66CCF000A2FB3 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F2C9FBE21B66CCF000A2FB3 /* MagicParticle.sks */; };
 		4F2C9FC221B66F56000A2FB3 /* MagicLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C9FC121B66F56000A2FB3 /* MagicLayer.swift */; };
@@ -76,6 +80,8 @@
 		4FC0338921B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
 		4FC0338A21B13BEE009EB3CD /* HourLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338821B13BEE009EB3CD /* HourLayer.swift */; };
 		4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */; };
+		4FC21A6921BD4EAC002A4554 /* BatteryImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC21A6821BD4EAC002A4554 /* BatteryImageLayer.swift */; };
+		4FC21A6A21BD4EAC002A4554 /* BatteryImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC21A6821BD4EAC002A4554 /* BatteryImageLayer.swift */; };
 		4FC8ACF521B8C9C5001FBA80 /* WatchCollectionPageViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8ACF421B8C9C5001FBA80 /* WatchCollectionPageViewControl.swift */; };
 		4FC8ACF721B8CB18001FBA80 /* WatchCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8ACF621B8CB18001FBA80 /* WatchCollectionManager.swift */; };
 		4FC8ACF921B8D03F001FBA80 /* WatchCollectionCategoryViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8ACF821B8D03F001FBA80 /* WatchCollectionCategoryViewControl.swift */; };
@@ -87,6 +93,7 @@
 		4FCE08B921B4ED80007CD453 /* WeatherLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */; };
 		4FCE08BB21B4FA83007CD453 /* WeatherLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE08BA21B4FA83007CD453 /* WeatherLayerViewControl.swift */; };
 		4FD0038421B3735F00E321C0 /* tickmark.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD0038221B3735F00E321C0 /* tickmark.storyboard */; };
+		4FE125F321BD3AB400A43029 /* BaseLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE125F221BD3AB400A43029 /* BaseLayerViewControl.swift */; };
 		4FE81E0021B76D6E0053AA28 /* MoonLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE81DFF21B76D6E0053AA28 /* MoonLayer.swift */; };
 		4FE81E0121B76D6E0053AA28 /* MoonLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE81DFF21B76D6E0053AA28 /* MoonLayer.swift */; };
 		4FE81E0321B770800053AA28 /* EmptyLayerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE81E0221B770800053AA28 /* EmptyLayerViewControl.swift */; };
@@ -169,8 +176,16 @@
 		4F0AEBF721ACE72200B05CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0AEC0A21ACEBE300B05CDB /* WatchManagerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManagerViewControl.swift; sourceTree = "<group>"; };
 		4F0AEC0C21ACED8300B05CDB /* WatchLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLayer.swift; sourceTree = "<group>"; };
+		4F10890421BF6B61007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "WatchClock3/zh-Hans.lproj/LayerStory.strings"; sourceTree = "<group>"; };
+		4F10890521BF6B61007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "WatchClock3/WatchClock3/zh-Hans.lproj/tickmark.strings"; sourceTree = "<group>"; };
+		4F10890621BF6B61007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4F10890721BF6B62007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4F10890821BF6B62007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
+		4F10891821BF9000007DEA69 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4F153F8C21B2E15F003E58E9 /* TextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayer.swift; sourceTree = "<group>"; };
 		4F153F9421B2E7D3003E58E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WatchClock3/Base.lproj/LayerStory.storyboard; sourceTree = "<group>"; };
+		4F25379221BCC46B00BA91F0 /* DateImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateImageLayer.swift; sourceTree = "<group>"; };
+		4F25379521BCD0C500BA91F0 /* DataImageLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImageLayerViewControl.swift; sourceTree = "<group>"; };
 		4F2C9FBE21B66CCF000A2FB3 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		4F2C9FC121B66F56000A2FB3 /* MagicLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicLayer.swift; sourceTree = "<group>"; };
 		4F2C9FC721B67465000A2FB3 /* RainParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainParticle.sks; sourceTree = "<group>"; };
@@ -208,6 +223,7 @@
 		4FC0338621B10C9E009EB3CD /* LayerPropertyViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerPropertyViewControl.swift; sourceTree = "<group>"; };
 		4FC0338821B13BEE009EB3CD /* HourLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayer.swift; sourceTree = "<group>"; };
 		4FC0338B21B14065009EB3CD /* HourLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourLayerViewControl.swift; sourceTree = "<group>"; };
+		4FC21A6821BD4EAC002A4554 /* BatteryImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryImageLayer.swift; sourceTree = "<group>"; };
 		4FC8ACF421B8C9C5001FBA80 /* WatchCollectionPageViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCollectionPageViewControl.swift; sourceTree = "<group>"; };
 		4FC8ACF621B8CB18001FBA80 /* WatchCollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCollectionManager.swift; sourceTree = "<group>"; };
 		4FC8ACF821B8D03F001FBA80 /* WatchCollectionCategoryViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCollectionCategoryViewControl.swift; sourceTree = "<group>"; };
@@ -216,6 +232,7 @@
 		4FCE08B721B4ED80007CD453 /* WeatherLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLayer.swift; sourceTree = "<group>"; };
 		4FCE08BA21B4FA83007CD453 /* WeatherLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLayerViewControl.swift; sourceTree = "<group>"; };
 		4FD0038321B3735F00E321C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WatchClock3/WatchClock3/Base.lproj/tickmark.storyboard; sourceTree = "<group>"; };
+		4FE125F221BD3AB400A43029 /* BaseLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLayerViewControl.swift; sourceTree = "<group>"; };
 		4FE81DFF21B76D6E0053AA28 /* MoonLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonLayer.swift; sourceTree = "<group>"; };
 		4FE81E0221B770800053AA28 /* EmptyLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLayerViewControl.swift; sourceTree = "<group>"; };
 		4FE9341121AFD60A00625C10 /* AddLayerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLayerViewControl.swift; sourceTree = "<group>"; };
@@ -288,6 +305,7 @@
 				4F585FB421BA5BEC005F4140 /* IWatchSessionUtil.swift */,
 				4FC8ACF621B8CB18001FBA80 /* WatchCollectionManager.swift */,
 				4F585FA721BA0D14005F4140 /* WatchClock3-Bridging-Header.h */,
+				4F10891921BF9000007DEA69 /* Localizable.strings */,
 			);
 			path = WatchClock3;
 			sourceTree = "<group>";
@@ -357,6 +375,8 @@
 				4F585FB621BA5F8B005F4140 /* SetupViewControl.swift */,
 				4F585FBA21BA620B005F4140 /* WeatherLocationViewControl.swift */,
 				4F585FBE21BA6518005F4140 /* AboutViewControl.swift */,
+				4F25379521BCD0C500BA91F0 /* DataImageLayerViewControl.swift */,
+				4FE125F221BD3AB400A43029 /* BaseLayerViewControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +415,8 @@
 				4F879EEF21B51F0C003850CC /* LocationLayer.swift */,
 				4F2C9FC121B66F56000A2FB3 /* MagicLayer.swift */,
 				4FE81DFF21B76D6E0053AA28 /* MoonLayer.swift */,
+				4F25379221BCC46B00BA91F0 /* DateImageLayer.swift */,
+				4FC21A6821BD4EAC002A4554 /* BatteryImageLayer.swift */,
 			);
 			path = layers;
 			sourceTree = "<group>";
@@ -505,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F10891721BF9000007DEA69 /* Localizable.strings in Resources */,
 				4F8E586D21B644EE008BAE56 /* core.ttf in Resources */,
 				4F2C9FC821B67465000A2FB3 /* RainParticle.sks in Resources */,
 				4FD0038421B3735F00E321C0 /* tickmark.storyboard in Resources */,
@@ -585,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfunction getAllFiles()\n{\n\nimagelist=`find . -name \"*.png\"  -exec basename {} .png \\; 2>/dev/null | sort -n`;\n\n# echo $imagelist;\nfor fileName in $imagelist; do\necho \\\"$fileName\\\",;\ndone\n}\n\n\ndir=`pwd`\n\njsonfile=$dir/WatchClock3/watchimage.json\n\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/faces\";\n\necho \"{\" > $jsonfile\necho \"\\\"faces\\\" : [\" >> $jsonfile\ngetAllFiles  >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/hours\"\necho \"\\\"hours\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/minutes\"\necho \"\\\"minutes\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/seconds\"\necho \"\\\"seconds\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/logos\"\necho \"\\\"logos\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/infoback\"\necho \"\\\"infoback\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/altitude\"\necho \"\\\"altitude\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\n\necho \"]}\" >> $jsonfile\n\n\n\n\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfunction getAllFiles()\n{\n\nimagelist=`find . -name \"*.png\"  -exec basename {} .png \\; 2>/dev/null | sort -n`;\n\n# echo $imagelist;\nfor fileName in $imagelist; do\necho \\\"$fileName\\\",;\ndone\n}\n\n\ndir=`pwd`\n\njsonfile=$dir/WatchClock3/watchimage.json\n\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/faces\";\n\necho \"{\" > $jsonfile\necho \"\\\"faces\\\" : [\" >> $jsonfile\ngetAllFiles  >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/hours\"\necho \"\\\"hours\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/minutes\"\necho \"\\\"minutes\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/seconds\"\necho \"\\\"seconds\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/logos\"\necho \"\\\"logos\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/infoback\"\necho \"\\\"infoback\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/altitude\"\necho \"\\\"altitude\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/info_date_back\"\necho \"\\\"infodateback\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\necho \"],\" >> $jsonfile\n\ncd $dir\ncd \"./WatchClock3 WatchKit Extension/Assets.xcassets/info_date_pointer\"\necho \"\\\"infodatepointer\\\" : [\" >> $jsonfile\ngetAllFiles >> $jsonfile\n\necho \"]}\" >> $jsonfile\n\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -598,6 +621,7 @@
 				4FE81E0021B76D6E0053AA28 /* MoonLayer.swift in Sources */,
 				4FFCA78921AFBAB8002A2D73 /* WatchSettingsViewControl.swift in Sources */,
 				4FFCA78021AFAF8B002A2D73 /* WatchScene.swift in Sources */,
+				4F25379621BCD0C500BA91F0 /* DataImageLayerViewControl.swift in Sources */,
 				4F86763121B7D434005B3965 /* KiClipperHelper.swift in Sources */,
 				4FE9341621AFE2C400625C10 /* ImageCategoryVC.swift in Sources */,
 				4F585FBD21BA6223005F4140 /* WeatherLocation.swift in Sources */,
@@ -607,8 +631,10 @@
 				4F5D336A21B26AD80000B47A /* WatchSetupViewControl.swift in Sources */,
 				4FFCA78D21AFC689002A2D73 /* ImageLayer.swift in Sources */,
 				4F0AEBD121ACE72000B05CDB /* ViewController.swift in Sources */,
+				4F25379321BCC46B00BA91F0 /* DateImageLayer.swift in Sources */,
 				4F153F8D21B2E15F003E58E9 /* TextLayer.swift in Sources */,
 				4F2C9FC221B66F56000A2FB3 /* MagicLayer.swift in Sources */,
+				4FE125F321BD3AB400A43029 /* BaseLayerViewControl.swift in Sources */,
 				4FCE08BB21B4FA83007CD453 /* WeatherLayerViewControl.swift in Sources */,
 				4F585FAE21BA4179005F4140 /* Toast.swift in Sources */,
 				4FC0338C21B14065009EB3CD /* HourLayerViewControl.swift in Sources */,
@@ -628,6 +654,7 @@
 				4F0AEBCF21ACE72000B05CDB /* AppDelegate.swift in Sources */,
 				4FFCA78321AFAFD6002A2D73 /* MyWatch.swift in Sources */,
 				4F5D336821B26A340000B47A /* ColorSelectViewControl.swift in Sources */,
+				4FC21A6921BD4EAC002A4554 /* BatteryImageLayer.swift in Sources */,
 				4FFCA78621AFB260002A2D73 /* ClassExtensions.swift in Sources */,
 				4FCE08B521B4E1DF007CD453 /* Weather.swift in Sources */,
 				4FCE08B821B4ED80007CD453 /* WeatherLayer.swift in Sources */,
@@ -650,12 +677,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FC98CF121B0E7AD00CDDD36 /* WatchScene.swift in Sources */,
+				4F25379421BCC46B00BA91F0 /* DateImageLayer.swift in Sources */,
 				4FE9341D21AFE73F00625C10 /* ResManager.swift in Sources */,
 				4F0AEBF421ACE72200B05CDB /* ExtensionDelegate.swift in Sources */,
 				4F0AEBF221ACE72200B05CDB /* InterfaceController.swift in Sources */,
 				4F879EF121B51F0C003850CC /* LocationLayer.swift in Sources */,
 				4FCE08B921B4ED80007CD453 /* WeatherLayer.swift in Sources */,
 				4FE81E0121B76D6E0053AA28 /* MoonLayer.swift in Sources */,
+				4FC21A6A21BD4EAC002A4554 /* BatteryImageLayer.swift in Sources */,
 				4F585FB321BA581F005F4140 /* IPhoneSessionUtil.swift in Sources */,
 				4FFCA78E21AFC689002A2D73 /* ImageLayer.swift in Sources */,
 				4F6F05A121BA87B00007CB4C /* MD5Digest.swift in Sources */,
@@ -693,6 +722,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F0AEBD321ACE72000B05CDB /* Base */,
+				4F10890621BF6B61007DEA69 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -701,6 +731,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F0AEBD821ACE72100B05CDB /* Base */,
+				4F10890721BF6B62007DEA69 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -709,14 +740,24 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F0AEBE321ACE72100B05CDB /* Base */,
+				4F10890821BF6B62007DEA69 /* zh-Hans */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		4F10891921BF9000007DEA69 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F10891821BF9000007DEA69 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		4F153F9321B2E7D3003E58E9 /* LayerStory.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4F153F9421B2E7D3003E58E9 /* Base */,
+				4F10890421BF6B61007DEA69 /* zh-Hans */,
 			);
 			name = LayerStory.storyboard;
 			sourceTree = "<group>";
@@ -725,6 +766,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4FD0038321B3735F00E321C0 /* Base */,
+				4F10890521BF6B61007DEA69 /* zh-Hans */,
 			);
 			name = tickmark.storyboard;
 			sourceTree = "<group>";
@@ -736,6 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -783,7 +826,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -797,6 +840,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -838,7 +882,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

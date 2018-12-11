@@ -15,10 +15,10 @@ class WatchLayer : NSObject, Codable {
     private enum CodingKeys: String, CodingKey {
         case x
         case y
-        case className
-        case alpha
-        case xScale
-        case yScale
+        case className = "cn"
+        case alpha = "a"
+        case xScale = "xs"
+        case yScale = "ys"
     }
     
    

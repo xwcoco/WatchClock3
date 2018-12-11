@@ -14,35 +14,19 @@ class AddLayerViewControl: UITableViewController {
 
     var backSegueName: String = ""
 
-    override func viewDidLoad() {
-//        if (self.watch?.hourHandLayer != nil) {
-//            let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: 1))
-//            cell?.textLabel?.isEnabled = false
-//            cell?.isUserInteractionEnabled = false
-//        }
-//        if (self.watch?.mintueHandLayer != nil) {
-//            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 1))
-//            cell?.textLabel?.isEnabled = false
-//            cell?.isUserInteractionEnabled = false
-//        }
-//        if (self.watch?.secondsHandLayer != nil) {
-//            let cell = self.tableView.getCell(at: IndexPath.init(row: 2, section: 1))
-//            cell?.textLabel?.isEnabled = false
-//            cell?.isUserInteractionEnabled = false
-//        }
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nv = segue.destination as? ImageLayerViewControl {
-            nv.watch = self.watch
-            let aLayer = ImageLayer()
-            watch?.addLayer(layer: aLayer)
-            nv.layer = aLayer
-            nv.backSegueName = self.backSegueName
-        }
-        if let nv = segue.destination as? HourLayerViewControl {
-            if let cell = sender as? UITableViewCell {
-                let index = self.tableView.indexPath(for: cell)!
+
+        if let cell = sender as? UITableViewCell {
+            let index = self.tableView.indexPath(for: cell)!
+
+            if let nv = segue.destination as? ImageLayerViewControl {
+                nv.watch = self.watch
+                let aLayer = ImageLayer()
+                watch?.addLayer(layer: aLayer)
+                nv.layer = aLayer
+                nv.backSegueName = self.backSegueName
+            } else
+            if let nv = segue.destination as? HourLayerViewControl {
                 nv.watch = self.watch
                 switch index.row {
                 case 0:
@@ -63,13 +47,10 @@ class AddLayerViewControl: UITableViewController {
                 default:
                     break
                 }
-            }
 
-        }
+            } else
 
-        if let nv = segue.destination as? TickMarkLayerViewControl {
-            if let cell = sender as? UITableViewCell {
-                let index = self.tableView.indexPath(for: cell)!
+            if let nv = segue.destination as? TickMarkLayerViewControl {
                 nv.watch = self.watch
                 if index.row == 0 {
                     let layer = TickMarkLayer()
@@ -82,10 +63,7 @@ class AddLayerViewControl: UITableViewController {
                 }
 
             }
-        }
-        if let nv = segue.destination as? TextLayerViewControl {
-            if let cell = sender as? UITableViewCell {
-                let index = self.tableView.indexPath(for: cell)!
+            else if let nv = segue.destination as? TextLayerViewControl {
                 var layer: TextLayer?
                 if (index.row == 0) {
                     layer = TextLayer()
@@ -98,24 +76,21 @@ class AddLayerViewControl: UITableViewController {
                 self.watch?.addLayer(layer: layer!)
                 nv.layer = layer
             }
-        }
 
-        if let nv = segue.destination as? WeatherLayerViewControl {
-            let layer = WeatherLayer()
-            nv.watch = self.watch
-            nv.layer = layer
-            self.watch?.addLayer(layer: layer)
-        }
+            else if let nv = segue.destination as? WeatherLayerViewControl {
+                let layer = WeatherLayer()
+                nv.watch = self.watch
+                nv.layer = layer
+                self.watch?.addLayer(layer: layer)
+            }
 
-        if let nv = segue.destination as? EmptyLayerViewControl {
-            if let cell = sender as? UITableViewCell {
-                let index = self.tableView.indexPath(for: cell)!
-                if (index.section == 4 && index.row == 0) {
+            else if let nv = segue.destination as? EmptyLayerViewControl {
+                if (index.section == 5 && index.row == 0) {
                     let layer = MagicLayer()
                     self.watch?.addLayer(layer: layer)
                     nv.watch = self.watch
                     nv.layer = layer
-                } else if (index.section == 4 && index.row == 1) {
+                } else if (index.section == 5 && index.row == 1) {
                     let layer = MoonLayer()
                     self.watch?.addLayer(layer: layer)
                     nv.watch = self.watch
@@ -124,6 +99,23 @@ class AddLayerViewControl: UITableViewController {
 
             }
 
+            else if let nv = segue.destination as? DateImageLayerViewControl {
+                nv.watch = self.watch
+                var layer : WatchLayer
+                switch index.row {
+                case 0:
+                    layer = WeekDayImageLayer()
+                case 1:
+                   layer = DateImageLayer()
+                case 2:
+                    layer = MonthImageLayer()
+                default:
+                    layer = BatteryImageLayer()
+                    break
+                }
+                nv.layer = layer
+                self.watch?.addLayer(layer: layer)
+            }
         }
     }
 

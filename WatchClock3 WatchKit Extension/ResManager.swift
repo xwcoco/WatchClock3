@@ -29,32 +29,39 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
 
     }
 
-    private var HandAnchorPoints: [String: CGFloat] = ["Hermes_minutes": 18,
-                                                       "Hermes_hours": 18,
-                                                       "Hermes_hours_white": 18,
-                                                       "HermesDoubleclour_H": 18,
-                                                       "HermesDoubleclour_H_Orange": 18,
-                                                       "HermesDoubleclour_H_Pink": 18,
-                                                       "Nike_hours": 18,
-                                                       "Nike_hours_red": 18,
-                                                       "Rolex_hours_gold": 18,
-                                                       "Rolex_hours_luminous": 18,
-                                                       "Rolex_hours_white": 18,
-                                                       "Hermes_minutes_white": 16,
-                                                       "HermesDoubleclour_M_Orange": 18,
-                                                       "HermesDoubleclour_M_Pink": 18,
-                                                       "Nike_minutes": 17,
-                                                       "Nike_minutes_red": 17,
-                                                       "Rolex_minutes_gold": 17,
-                                                       "Rolex_minutes_luminous": 17,
-                                                       "Rolex_minutes_write": 17,
+    private var HandAnchorPoints: [String: CGFloat] = ["Hermes_minutes": 17,
+                                                       "Hermes_hours": 22,
+                                                       "Hermes_hours_white": 23,
+                                                       "HermesDoubleclour_H": 14,
+                                                       "HermesDoubleclour_H_Orange": 14,
+                                                       "HermesDoubleclour_H_Pink": 15,
+                                                       "Nike_hours": 15,
+                                                       "Nike_hours_red": 14,
+                                                       "Rolex_hours_gold": 21,
+                                                       "Rolex_hours_luminous": 25,
+                                                       "Rolex_hours_white": 24,
+                                                       "Hermes_minutes_white": 18,
+                                                       "HermesDoubleclour_M": 16,
+                                                       "HermesDoubleclour_M_Orange": 16,
+                                                       "HermesDoubleclour_M_Pink": 16,
+                                                       "valour_hour": 35,
+                                                       "Nike_minutes": 18,
+                                                       "Nike_minutes_red": 18,
+                                                       "Rolex_minutes_gold": 18,
+                                                       "Rolex_minutes_luminous": 18,
+                                                       "Rolex_minutes_white": 17,
+                                                       "valour_minute" : 38,
                                                        "Hermes_seconds": 27,
-                                                       "Hermes_seconds_orange": 27,
+                                                       "Hermes_seconds_orange": 26,
                                                        "Nike_seconds": 26,
                                                        "Nike_seconds_orange": 26,
-                                                       "Rolex_seconds_gold": 67,
+                                                       "Rolex_seconds_gold": 69,
                                                        "Rolex_seconds_luminous": 67,
-                                                       "Rolex_seconds_white": 67]
+                                                       "Rolex_seconds_white": 69,
+                                                       "valour_second" : 49,
+                                                       "info_date_pointer1" : 21,
+                                                       "clown_hour" : 70,
+                                                       "clown_minute" : 70]
     private var watchResList: [WatchRes] = []
 
     private var infoBackEdgeInsets: [String: UIEdgeInsets] = ["infoback1": UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10),
@@ -114,8 +121,9 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
                 self.addToRes(category: "logos", list: json["logos"] as! [String])
                 self.addToRes(category: "infoback", list: json["infoback"] as! [String], append: "empty")
                 self.addToRes(category: "altitude", list: json["altitude"] as! [String])
-
-
+                
+                self.addToRes(category: "infodateback", list: json["infodateback"] as! [String], append: "empty")
+                self.addToRes(category: "infodatepointer", list: json["infodatepointer"] as! [String])
             }
             catch let error {
                 print("res error")
@@ -160,6 +168,10 @@ class ResManager: NSObject, CnWeatherProtocol, CLLocationManagerDelegate {
     static var Logos: String = "logos"
     static var Infoback: String = "infoback"
     static var altitudeBG: String = "altitude"
+    static var InfoDatePointer : String = "infodatepointer"
+    static var InfoDateBack : String = "infodateback"
+    
+    static var EMPTY : String = "empty"
 
 
     var locationManager: CLLocationManager?

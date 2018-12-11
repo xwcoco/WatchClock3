@@ -9,32 +9,34 @@
 import Foundation
 import UIKit
 
-class WeatherLayerViewControl: UITableViewController {
-    var watch : MyWatch?
-    var layer : WeatherLayer?
-    var editRowIndex : IndexPath?
+class WeatherLayerViewControl: BaseLayerViewControl {
+    var editLayer : WeatherLayer {
+        get {
+            return self.layer as! WeatherLayer
+        }
+    }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            self.setCheckmarkCell(indexPath: indexPath, checkIndex: layer!.weatherContent.rawValue)
+            self.setCheckmarkCell(indexPath: indexPath, checkIndex: editLayer.weatherContent.rawValue)
             break
         case 1:
             switch indexPath.row {
             case 0:
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showTempUnit)
+                self.setCheckmarkCell(indexPath: indexPath, checked: editLayer.showTempUnit)
                 break
             case 1:
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showColorAQI)
+                self.setCheckmarkCell(indexPath: indexPath, checked: editLayer.showColorAQI)
                 break
             case 2:
-                self.setFontCell(fontName: layer!.fontName, indexPath: indexPath)
+                self.setFontCell(fontName: editLayer.fontName, indexPath: indexPath)
                 break
             case 3:
-                self.setLabelStepperCell(name: "Font Size", value: layer!.fontSize, indexPath: indexPath)
+                self.setLabelStepperCell(name: "Font Size", value: editLayer.fontSize, indexPath: indexPath)
                 break
             case 4:
-                self.setColorCell(color: layer!.textColor.Color, indexPath: indexPath)
+                self.setColorCell(color: editLayer.textColor.Color, indexPath: indexPath)
                 break
             default:
                 break
@@ -42,19 +44,19 @@ class WeatherLayerViewControl: UITableViewController {
         case 2:
             switch indexPath.row {
             case 0:
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+                self.setCheckmarkCell(indexPath: indexPath, checked: editLayer.showWeatherIcon)
             case 1:
-                self.setColorCell(color: layer!.weatherIconColor.Color , indexPath: indexPath)
+                self.setColorCell(color: editLayer.weatherIconColor.Color , indexPath: indexPath)
             case 2:
-                self.setLabelStepperCell(name: "Weather Icon Size", value: layer!.weatherIconSize, indexPath: indexPath)
+                self.setLabelStepperCell(name: "Weather Icon Size", value: editLayer.weatherIconSize, indexPath: indexPath)
             default:
                 break
             }
         case 3:
             if (indexPath.row == 0) {
-                self.setImageCell(imageName: layer!.backImage, indexPath: indexPath, size: CGSize.init(width: 40, height: 40))
+                self.setImageCell(imageName: editLayer.backImage, indexPath: indexPath, size: CGSize.init(width: 40, height: 40))
             } else {
-                self.setColorCell(color: layer!.backImageColor.Color, indexPath: indexPath)
+                self.setColorCell(color: editLayer.backImageColor.Color, indexPath: indexPath)
             }
         default:
             break
@@ -62,32 +64,29 @@ class WeatherLayerViewControl: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nv = segue.destination as? LayerPropertyViewControl {
-            nv.watch = self.watch
-            nv.layer = self.layer
-        }
+        super.prepare(for: segue, sender: sender)
         
         if let cell = sender as? UITableViewCell {
             let index = self.tableView.indexPath(for: cell)!
             if let nv = segue.destination as? FontSelectViewControl {
-                nv.selectedFontName = layer!.fontName
+                nv.selectedFontName = editLayer.fontName
                 nv.editRowIndex = index
                 nv.backToSegueName = "unwindToWeatherLayer"
             }
             if let nv = segue.destination as? ColorSelectViewControl {
                 if index.section == 1 {
-                    nv.editColor = layer!.textColor.Color
+                    nv.editColor = editLayer.textColor.Color
                 } else if index.section == 2 {
-                    nv.editColor = layer!.weatherIconColor.Color
+                    nv.editColor = editLayer.weatherIconColor.Color
                 } else {
-                    nv.editColor = layer!.backImageColor.Color
+                    nv.editColor = editLayer.backImageColor.Color
                 }
                 nv.editIndexPath = index
                 nv.backSegueName = "unwindToWeatherLayer"
             }
             if let nv = segue.destination as? ImageSelectViewControl {
                 nv.editIndexPath = index
-                nv.imageName = layer!.backImage
+                nv.imageName = editLayer.backImage
                 nv.imageList = ResManager.Manager.getImages(category: ResManager.Infoback)
                 nv.backSegueName = "unwindToWeatherLayer"
             }
@@ -96,14 +95,14 @@ class WeatherLayerViewControl: UITableViewController {
     
     
     @IBAction func IconSizeStepperVallueChanged(_ sender: Any) {
-        self.layer!.weatherIconSize = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Weather Icon Size", value: layer!.weatherIconSize, indexPath: IndexPath.init(row: 1, section: 2), setStepper: false)
+        self.editLayer.weatherIconSize = CGFloat((sender as! UIStepper).value)
+        self.setLabelStepperCell(name: "Weather Icon Size", value: editLayer.weatherIconSize, indexPath: IndexPath.init(row: 1, section: 2), setStepper: false)
         self.watch?.refreshWatch()
     }
     
     @IBAction func fontSizeStepperValueChanged(_ sender: Any) {
-        self.layer!.fontSize = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Font Size", value: layer!.fontSize, indexPath: IndexPath.init(row: 3, section: 1), setStepper: false)
+        self.editLayer.fontSize = CGFloat((sender as! UIStepper).value)
+        self.setLabelStepperCell(name: "Font Size", value: editLayer.fontSize, indexPath: IndexPath.init(row: 3, section: 1), setStepper: false)
         self.watch?.refreshWatch()
     }
     
@@ -111,26 +110,26 @@ class WeatherLayerViewControl: UITableViewController {
         switch indexPath.section {
         case 0:
             self.setNewCheckmark(section: indexPath.section, cellNum: 9, newIndex: indexPath.row)
-            self.layer!.weatherContent = WeatherContentStyle(rawValue: indexPath.row)!
+            self.editLayer.weatherContent = WeatherContentStyle(rawValue: indexPath.row)!
             watch?.refreshWatch()
         case 1:
             switch indexPath.row {
             case 0:
-                self.layer?.showTempUnit = !self.layer!.showTempUnit
-                self.setCheckmarkCell(indexPath: indexPath, checked: self.layer!.showTempUnit)
+                self.editLayer.showTempUnit = !self.editLayer.showTempUnit
+                self.setCheckmarkCell(indexPath: indexPath, checked: self.editLayer.showTempUnit)
                 self.watch?.refreshWatch()
                 break
             case 1:
-                self.layer!.showColorAQI = !self.layer!.showColorAQI
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showColorAQI)
+                self.editLayer.showColorAQI = !self.editLayer.showColorAQI
+                self.setCheckmarkCell(indexPath: indexPath, checked: editLayer.showColorAQI)
                 self.watch?.refreshWatch()
             default:
                 break
             }
         case 2:
             if (indexPath.row == 0) {
-                self.layer!.showWeatherIcon = !self.layer!.showWeatherIcon
-                self.setCheckmarkCell(indexPath: indexPath, checked: layer!.showWeatherIcon)
+                self.editLayer.showWeatherIcon = !self.editLayer.showWeatherIcon
+                self.setCheckmarkCell(indexPath: indexPath, checked: editLayer.showWeatherIcon)
                 self.watch?.refreshWatch()
             }
             break
@@ -142,42 +141,29 @@ class WeatherLayerViewControl: UITableViewController {
     
     @IBAction func unwindToWeatherLayer(_ unwindSegue: UIStoryboardSegue) {
         if let nv = unwindSegue.source as? FontSelectViewControl {
-            layer!.fontName = nv.selectedFontName
-            setFontCell(fontName: layer!.fontName, indexPath: nv.editRowIndex!)
+            editLayer.fontName = nv.selectedFontName
+            setFontCell(fontName: editLayer.fontName, indexPath: nv.editRowIndex!)
             watch?.refreshWatch()
         }
         if let nv = unwindSegue.source as? ColorSelectViewControl {
             if nv.editIndexPath!.section == 1 {
-                layer!.textColor.Color = nv.editColor!
+                editLayer.textColor.Color = nv.editColor!
             } else if nv.editIndexPath?.section == 2 {
-                layer!.weatherIconColor.Color = nv.editColor!
+                editLayer.weatherIconColor.Color = nv.editColor!
             } else {
-                layer!.backImageColor.Color = nv.editColor!
+                editLayer.backImageColor.Color = nv.editColor!
             }
-            setColorCell(color: layer!.textColor.Color, indexPath: nv.editIndexPath!)
+            setColorCell(color: editLayer.textColor.Color, indexPath: nv.editIndexPath!)
             watch?.refreshWatch()
         }
         if let nv = unwindSegue.source as? ImageSelectViewControl {
-            layer!.backImage = nv.imageName
+            editLayer.backImage = nv.imageName
             setImageCell(imageName: layer!.name, indexPath: nv.editIndexPath!, size: CGSize.init(width: 40, height: 40))
             watch?.refreshWatch()
         }
     }
     
-    private var isOK : Bool = false
-    
     @IBAction func DoneButtonClick(_ sender: Any) {
-        self.isOK = true
-        self.performSegue(withIdentifier: "unwindToLayerManager", sender: self)
+        self.backToLayerManager()
     }
-    
-    override func didMove(toParent parent: UIViewController?) {
-        if (parent == nil && !isOK && editRowIndex == nil) {
-            self.watch?.deleteLayer(layer: self.layer!)
-            self.watch?.refreshWatch()
-        }
-    }
-    
-    
-    
 }

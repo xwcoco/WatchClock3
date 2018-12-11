@@ -33,6 +33,11 @@ class ImageCategoryViewControl: UITableViewController {
                         nv.itemHeight = 80
                         nv.itemWidth = 80
                         break
+                    case 2:
+                        nv.imageList = ResManager.Manager.getImages(category: ResManager.InfoDateBack)
+                        nv.itemHeight = 60
+                        nv.itemWidth = 60
+
                     default:
                         break
                     }
@@ -42,7 +47,7 @@ class ImageCategoryViewControl: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == 2) {
+        if (indexPath.row == 3) {
             self.selectFromPhoto()
         }
     }

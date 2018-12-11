@@ -372,6 +372,28 @@ class WatchCollectionManager: NSObject {
 
         var watchList: [MyWatch] = []
         watchList.append(watch)
+        
+        
+        let watch2 = WatchManager.createWatch(backimage: "valour_face", logoImage: "", hourImage: "valour_hour", minuteImage: "valour_minute", secondImage: "valour_second")
+        let tmpLayer = MonthImageLayer.init(pointerImage: "info_date_pointer1", X: 0, Y: 75, scale: 0.9, beginAngle: 0, startAngle: 0, endAngle: 360)
+        watch2.addLayer(layer: tmpLayer)
+        let tmpLayer1 = WeekDayImageLayer.init(pointerImage: "info_date_pointer1", X: -85, Y: 0, scale: 0.8, beginAngle: 60, startAngle: 0, endAngle: 360)
+        watch2.addLayer(layer: tmpLayer1)
+        let tmpLayer2 = BatteryImageLayer.init(pointerImage: "info_date_pointer1", X: 0, Y: -70, scale: 0.9, beginAngle: 0, startAngle: 30, endAngle: 330)
+        watch2.addLayer(layer: tmpLayer2)
+        let tmpLayer3 = TextLayer.init(fontName: "", FontSize: 18, FontColor: UIColor.red, X: 104, Y: 0, backImage: "", backImageColor: UIColor.clear, BackX: 10, BackY: 10, textTopY: 0)
+        watch2.addLayer(layer: tmpLayer3)
+        watchList.append(watch2)
+        
+        let watch3 = MyWatch()
+        let w3layer1 = ImageLayer.init(imageName: "clown_face", X: 0, Y: 0)
+        watch3.addLayer(layer: w3layer1)
+        let w3layer2 = HourLayer.init(imageName: "clown_hour", X: -90, Y: 30, anchorFromBottom: 70)
+        watch3.addLayer(layer: w3layer2)
+        let w3layer3 = MinuteLayer.init(imageName: "clown_minute", X: 90, Y: 40, anchorFromBottom: 70)
+        watch3.addLayer(layer: w3layer3)
+        watchList.append(watch3)
+
         self.watchCollections.setValue(watchList, forKey: "Other")
 
     }

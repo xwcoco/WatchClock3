@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2eH-sx-vpE"; */
+"2eH-sx-vpE.text" = "Detail";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "3jb-Fk-vVh"; */
+"3jb-Fk-vVh.title" = "Item";
+
+/* Class = "UILabel"; text = "code by xwoco@msn.com"; ObjectID = "Evd-Oe-ntM"; */
+"Evd-Oe-ntM.text" = "code by xwoco@msn.com";
+
+/* Class = "UIButton"; normalTitle = "Other"; ObjectID = "If2-SB-GaH"; */
+"If2-SB-GaH.normalTitle" = "Other";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "LZR-Pd-jif"; */
+"LZR-Pd-jif.title" = "设置";
+
+/* Class = "UINavigationItem"; title = "Watch"; ObjectID = "NTL-VW-Suf"; */
+"NTL-VW-Suf.title" = "手表";
+
+/* Class = "UIButton"; normalTitle = "Color"; ObjectID = "Qty-xI-dmF"; */
+"Qty-xI-dmF.normalTitle" = "Color";
+
+/* Class = "UILabel"; text = "WatchClock"; ObjectID = "Uyh-8c-LCE"; */
+"Uyh-8c-LCE.text" = "WatchClock";
+
+/* Class = "UIButton"; normalTitle = "Rolex"; ObjectID = "XTG-Be-jfZ"; */
+"XTG-Be-jfZ.normalTitle" = "Rolex";
+
+/* Class = "UITabBarItem"; title = "Watch List"; ObjectID = "XmQ-oW-Oyb"; */
+"XmQ-oW-Oyb.title" = "列表";
+
+/* Class = "UINavigationItem"; title = "Watch List"; ObjectID = "YWT-lc-UX8"; */
+"YWT-lc-UX8.title" = "列表";
+
+/* Class = "UINavigationItem"; title = "Weather Location"; ObjectID = "Yxd-GM-Q9z"; */
+"Yxd-GM-Q9z.title" = "天气位置";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "aBg-y6-bPs"; */
+"aBg-y6-bPs.title" = "设置";
+
+/* Class = "UITabBarItem"; title = "Watch Collections"; ObjectID = "cdi-ge-7bu"; */
+"cdi-ge-7bu.title" = "预定义手表";
+
+/* Class = "UIBarButtonItem"; title = "Sync"; ObjectID = "enf-Ar-RGn"; */
+"enf-Ar-RGn.title" = "同步";
+
+/* Class = "UITabBarItem"; title = "Watch Collection"; ObjectID = "fTX-Oy-wka"; */
+"fTX-Oy-wka.title" = "预定义手表";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "g0Q-dc-BWG"; */
+"g0Q-dc-BWG.title" = "编辑";
+
+/* Class = "UITableViewSection"; headerTitle = "Weather Location"; ObjectID = "gR4-TN-Uyu"; */
+"gR4-TN-Uyu.headerTitle" = "天气位置";
+
+/* Class = "UITabBarItem"; title = "Watch Collections"; ObjectID = "iks-Pl-ctb"; */
+"iks-Pl-ctb.title" = "预定义手表";
+
+/* Class = "UIButton"; normalTitle = "Nike"; ObjectID = "ld4-Al-17J"; */
+"ld4-Al-17J.normalTitle" = "Nike";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "nEa-Jz-e60"; */
+"nEa-Jz-e60.text" = "位置";
+
+/* Class = "UIButton"; normalTitle = "Hermes"; ObjectID = "tu4-yc-YfT"; */
+"tu4-yc-YfT.normalTitle" = "Hermes";
+
+/* Class = "UITabBarItem"; title = "About"; ObjectID = "wT8-J4-DH6"; */
+"wT8-J4-DH6.title" = "关于";
+
+/* Class = "UILabel"; text = "Version : 1.0"; ObjectID = "x1e-fg-R1J"; */
+"x1e-fg-R1J.text" = "Version : 1.0";
