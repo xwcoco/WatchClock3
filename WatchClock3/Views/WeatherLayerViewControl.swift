@@ -96,7 +96,7 @@ class WeatherLayerViewControl: BaseLayerViewControl {
     
     @IBAction func IconSizeStepperVallueChanged(_ sender: Any) {
         self.editLayer.weatherIconSize = CGFloat((sender as! UIStepper).value)
-        self.setLabelStepperCell(name: "Weather Icon Size", value: editLayer.weatherIconSize, indexPath: IndexPath.init(row: 1, section: 2), setStepper: false)
+        self.setLabelStepperCell(name: "Weather Icon Size", value: editLayer.weatherIconSize, indexPath: IndexPath.init(row: 2, section: 2), setStepper: false)
         self.watch?.refreshWatch()
     }
     
